@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "XFEEliteDangerous.Desktop (Unpackaged)": {
+      "commandName": "Project",
+      "nativeDebugging": false
+    }
+  }
+}

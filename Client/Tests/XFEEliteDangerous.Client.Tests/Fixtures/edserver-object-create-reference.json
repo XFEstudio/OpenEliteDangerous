@@ -1,0 +1,90 @@
+{
+  "schema": "xfeelite.object-create-reference.v1",
+  "source": "Pinned native 650060/64D1C0/653AB0/53BDB0 static layout; independent bit-list assembly, no game acceptance claim",
+  "vectors": [
+    {
+      "startBit": 0,
+      "objectReference": 8589934594,
+      "parentObjectReference": 8589934593,
+      "goLiveWhenReady": true,
+      "factoryIdentifier": 17,
+      "factoryName": "ServerAdmin",
+      "version": 3,
+      "dependencies": [],
+      "ownerMachineReference": null,
+      "endBit": 257,
+      "hex": "020000000200010000000200816401000060aa4cceae4c2e88ac2dcd6d00000000"
+    },
+    {
+      "startBit": 0,
+      "objectReference": 8589934594,
+      "parentObjectReference": 8589934593,
+      "goLiveWhenReady": true,
+      "factoryIdentifier": 17,
+      "factoryName": null,
+      "version": 3,
+      "dependencies": [],
+      "ownerMachineReference": null,
+      "endBit": 133,
+      "hex": "0200000002000100000002004906000000"
+    },
+    {
+      "startBit": 3,
+      "objectReference": 8589934594,
+      "parentObjectReference": 8589934593,
+      "goLiveWhenReady": true,
+      "factoryIdentifier": 17,
+      "factoryName": "ServerAdmin",
+      "version": 3,
+      "dependencies": [
+        8589934595,
+        8589934596
+      ],
+      "ownerMachineReference": null,
+      "endBit": 357,
+      "hex": "10000000100008000000100008240b00000053657276657241646d696e0300c201000000010002000000010000"
+    },
+    {
+      "startBit": 3,
+      "objectReference": 8589934594,
+      "parentObjectReference": 8589934593,
+      "goLiveWhenReady": true,
+      "factoryIdentifier": 17,
+      "factoryName": null,
+      "version": 3,
+      "dependencies": [
+        8589934595,
+        8589934596
+      ],
+      "ownerMachineReference": null,
+      "endBit": 233,
+      "hex": "100000001000080000001000483200201c00000010002000000010000000"
+    },
+    {
+      "startBit": 7,
+      "objectReference": 8589934594,
+      "parentObjectReference": 8589934593,
+      "goLiveWhenReady": true,
+      "factoryIdentifier": 17,
+      "factoryName": "ServerAdmin",
+      "version": 3,
+      "dependencies": [],
+      "ownerMachineReference": 123456789,
+      "endBit": 312,
+      "hex": "0001000000018000000000018040b20000003055266757261744d696e6360000ac68de3a000000"
+    },
+    {
+      "startBit": 7,
+      "objectReference": 8589934594,
+      "parentObjectReference": 8589934593,
+      "goLiveWhenReady": true,
+      "factoryIdentifier": 17,
+      "factoryName": null,
+      "version": 3,
+      "dependencies": [],
+      "ownerMachineReference": 123456789,
+      "endBit": 188,
+      "hex": "00010000000180000000000180240300c08ae6ad03000000"
+    }
+  ]
+}

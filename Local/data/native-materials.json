@@ -1,0 +1,590 @@
+[
+  {
+    "id": 128672318,
+    "name": "Iron",
+    "type": "Raw",
+    "capacity": 300,
+    "quantity": 0
+  },
+  {
+    "id": 128672319,
+    "name": "Nickel",
+    "type": "Raw",
+    "capacity": 300,
+    "quantity": 0
+  },
+  {
+    "id": 128672320,
+    "name": "Tin",
+    "type": "Raw",
+    "capacity": 200,
+    "quantity": 0
+  },
+  {
+    "id": 128672321,
+    "name": "Zinc",
+    "type": "Raw",
+    "capacity": 250,
+    "quantity": 0
+  },
+  {
+    "id": 128672323,
+    "name": "Sulphur",
+    "type": "Raw",
+    "capacity": 300,
+    "quantity": 0
+  },
+  {
+    "id": 128672324,
+    "name": "Phosphorus",
+    "type": "Raw",
+    "capacity": 300,
+    "quantity": 0
+  },
+  {
+    "id": 128672325,
+    "name": "Manganese",
+    "type": "Raw",
+    "capacity": 250,
+    "quantity": 0
+  },
+  {
+    "id": 128672326,
+    "name": "Selenium",
+    "type": "Raw",
+    "capacity": 150,
+    "quantity": 0
+  },
+  {
+    "id": 128672327,
+    "name": "Chromium",
+    "type": "Raw",
+    "capacity": 250,
+    "quantity": 0
+  },
+  {
+    "id": 128672330,
+    "name": "Cadmium",
+    "type": "Raw",
+    "capacity": 200,
+    "quantity": 0
+  },
+  {
+    "id": 128672332,
+    "name": "Arsenic",
+    "type": "Raw",
+    "capacity": 250,
+    "quantity": 0
+  },
+  {
+    "id": 128672334,
+    "name": "Niobium",
+    "type": "Raw",
+    "capacity": 200,
+    "quantity": 0
+  },
+  {
+    "id": 128672335,
+    "name": "Zirconium",
+    "type": "Raw",
+    "capacity": 250,
+    "quantity": 0
+  },
+  {
+    "id": 128672340,
+    "name": "Technetium",
+    "type": "Raw",
+    "capacity": 150,
+    "quantity": 0
+  },
+  {
+    "id": 128673877,
+    "name": "GridResistors",
+    "type": "Manufactured",
+    "capacity": 300,
+    "quantity": 0
+  },
+  {
+    "id": 128673878,
+    "name": "CrystalShards",
+    "type": "Manufactured",
+    "capacity": 300,
+    "quantity": 0
+  },
+  {
+    "id": 128673879,
+    "name": "TemperedAlloys",
+    "type": "Manufactured",
+    "capacity": 300,
+    "quantity": 0
+  },
+  {
+    "id": 128673880,
+    "name": "BasicConductors",
+    "type": "Manufactured",
+    "capacity": 300,
+    "quantity": 0
+  },
+  {
+    "id": 128673881,
+    "name": "MechanicalScrap",
+    "type": "Manufactured",
+    "capacity": 300,
+    "quantity": 0
+  },
+  {
+    "id": 128673882,
+    "name": "HeatConductionWiring",
+    "type": "Manufactured",
+    "capacity": 300,
+    "quantity": 0
+  },
+  {
+    "id": 128673883,
+    "name": "WornShieldEmitters",
+    "type": "Manufactured",
+    "capacity": 300,
+    "quantity": 0
+  },
+  {
+    "id": 128673884,
+    "name": "CompactComposites",
+    "type": "Manufactured",
+    "capacity": 300,
+    "quantity": 0
+  },
+  {
+    "id": 128673885,
+    "name": "SalvagedAlloys",
+    "type": "Manufactured",
+    "capacity": 300,
+    "quantity": 0
+  },
+  {
+    "id": 128673887,
+    "name": "HybridCapacitors",
+    "type": "Manufactured",
+    "capacity": 250,
+    "quantity": 0
+  },
+  {
+    "id": 128673888,
+    "name": "UncutFocusCrystals",
+    "type": "Manufactured",
+    "capacity": 250,
+    "quantity": 0
+  },
+  {
+    "id": 128673889,
+    "name": "HeatResistantCeramics",
+    "type": "Manufactured",
+    "capacity": 250,
+    "quantity": 0
+  },
+  {
+    "id": 128673890,
+    "name": "ConductiveComponents",
+    "type": "Manufactured",
+    "capacity": 250,
+    "quantity": 0
+  },
+  {
+    "id": 128673891,
+    "name": "MechanicalEquipment",
+    "type": "Manufactured",
+    "capacity": 250,
+    "quantity": 0
+  },
+  {
+    "id": 128673892,
+    "name": "HeatDispersionPlate",
+    "type": "Manufactured",
+    "capacity": 250,
+    "quantity": 0
+  },
+  {
+    "id": 128673893,
+    "name": "ShieldEmitters",
+    "type": "Manufactured",
+    "capacity": 250,
+    "quantity": 0
+  },
+  {
+    "id": 128673894,
+    "name": "FilamentComposites",
+    "type": "Manufactured",
+    "capacity": 250,
+    "quantity": 0
+  },
+  {
+    "id": 128673895,
+    "name": "GalvanisingAlloys",
+    "type": "Manufactured",
+    "capacity": 250,
+    "quantity": 0
+  },
+  {
+    "id": 128673896,
+    "name": "ChemicalProcessors",
+    "type": "Manufactured",
+    "capacity": 250,
+    "quantity": 0
+  },
+  {
+    "id": 128673897,
+    "name": "ElectrochemicalArrays",
+    "type": "Manufactured",
+    "capacity": 200,
+    "quantity": 0
+  },
+  {
+    "id": 128673898,
+    "name": "FocusCrystals",
+    "type": "Manufactured",
+    "capacity": 200,
+    "quantity": 0
+  },
+  {
+    "id": 128673899,
+    "name": "PrecipitatedAlloys",
+    "type": "Manufactured",
+    "capacity": 200,
+    "quantity": 0
+  },
+  {
+    "id": 128673901,
+    "name": "MechanicalComponents",
+    "type": "Manufactured",
+    "capacity": 200,
+    "quantity": 0
+  },
+  {
+    "id": 128673902,
+    "name": "HeatExchangers",
+    "type": "Manufactured",
+    "capacity": 200,
+    "quantity": 0
+  },
+  {
+    "id": 128673903,
+    "name": "ShieldingSensors",
+    "type": "Manufactured",
+    "capacity": 200,
+    "quantity": 0
+  },
+  {
+    "id": 128673904,
+    "name": "HighDensityComposites",
+    "type": "Manufactured",
+    "capacity": 200,
+    "quantity": 0
+  },
+  {
+    "id": 128673905,
+    "name": "PhaseAlloys",
+    "type": "Manufactured",
+    "capacity": 200,
+    "quantity": 0
+  },
+  {
+    "id": 128673906,
+    "name": "ChemicalDistillery",
+    "type": "Manufactured",
+    "capacity": 200,
+    "quantity": 0
+  },
+  {
+    "id": 128673907,
+    "name": "PolymerCapacitors",
+    "type": "Manufactured",
+    "capacity": 150,
+    "quantity": 0
+  },
+  {
+    "id": 128673909,
+    "name": "ThermicAlloys",
+    "type": "Manufactured",
+    "capacity": 150,
+    "quantity": 0
+  },
+  {
+    "id": 128673911,
+    "name": "ConfigurableComponents",
+    "type": "Manufactured",
+    "capacity": 150,
+    "quantity": 0
+  },
+  {
+    "id": 128673912,
+    "name": "HeatVanes",
+    "type": "Manufactured",
+    "capacity": 150,
+    "quantity": 0
+  },
+  {
+    "id": 128673913,
+    "name": "CompoundShielding",
+    "type": "Manufactured",
+    "capacity": 150,
+    "quantity": 0
+  },
+  {
+    "id": 128673914,
+    "name": "FedProprietaryComposites",
+    "type": "Manufactured",
+    "capacity": 150,
+    "quantity": 0
+  },
+  {
+    "id": 128673915,
+    "name": "ProtoLightAlloys",
+    "type": "Manufactured",
+    "capacity": 150,
+    "quantity": 0
+  },
+  {
+    "id": 128673916,
+    "name": "ChemicalManipulators",
+    "type": "Manufactured",
+    "capacity": 150,
+    "quantity": 0
+  },
+  {
+    "id": 128673919,
+    "name": "MilitaryGradeAlloys",
+    "type": "Manufactured",
+    "capacity": 100,
+    "quantity": 0
+  },
+  {
+    "id": 128673921,
+    "name": "ImprovisedComponents",
+    "type": "Manufactured",
+    "capacity": 100,
+    "quantity": 0
+  },
+  {
+    "id": 128673922,
+    "name": "ProtoHeatRadiators",
+    "type": "Manufactured",
+    "capacity": 100,
+    "quantity": 0
+  },
+  {
+    "id": 128673923,
+    "name": "ImperialShielding",
+    "type": "Manufactured",
+    "capacity": 100,
+    "quantity": 0
+  },
+  {
+    "id": 128673924,
+    "name": "FedCoreComposites",
+    "type": "Manufactured",
+    "capacity": 100,
+    "quantity": 0
+  },
+  {
+    "id": 128673925,
+    "name": "ProtoRadiolicAlloys",
+    "type": "Manufactured",
+    "capacity": 100,
+    "quantity": 0
+  },
+  {
+    "id": 128673926,
+    "name": "PharmaceuticalIsolators",
+    "type": "Manufactured",
+    "capacity": 100,
+    "quantity": 0
+  },
+  {
+    "id": 128681610,
+    "name": "LegacyFirmware",
+    "type": "Encoded",
+    "capacity": 300,
+    "quantity": 0
+  },
+  {
+    "id": 128681613,
+    "name": "DisruptedWakeEchoes",
+    "type": "Encoded",
+    "capacity": 300,
+    "quantity": 0
+  },
+  {
+    "id": 128681616,
+    "name": "ConsumerFirmware",
+    "type": "Encoded",
+    "capacity": 250,
+    "quantity": 0
+  },
+  {
+    "id": 128681618,
+    "name": "ScanArchives",
+    "type": "Encoded",
+    "capacity": 250,
+    "quantity": 0
+  },
+  {
+    "id": 128681619,
+    "name": "FSDTelemetry",
+    "type": "Encoded",
+    "capacity": 250,
+    "quantity": 0
+  },
+  {
+    "id": 128681622,
+    "name": "IndustrialFirmware",
+    "type": "Encoded",
+    "capacity": 200,
+    "quantity": 0
+  },
+  {
+    "id": 128681624,
+    "name": "ScanDatabanks",
+    "type": "Encoded",
+    "capacity": 200,
+    "quantity": 0
+  },
+  {
+    "id": 128681625,
+    "name": "WakeSolutions",
+    "type": "Encoded",
+    "capacity": 200,
+    "quantity": 0
+  },
+  {
+    "id": 128681626,
+    "name": "EmissionData",
+    "type": "Encoded",
+    "capacity": 200,
+    "quantity": 0
+  },
+  {
+    "id": 128681629,
+    "name": "EncryptionArchives",
+    "type": "Encoded",
+    "capacity": 150,
+    "quantity": 0
+  },
+  {
+    "id": 128681631,
+    "name": "HyperspaceTrajectories",
+    "type": "Encoded",
+    "capacity": 150,
+    "quantity": 0
+  },
+  {
+    "id": 128681632,
+    "name": "DecodedEmissionData",
+    "type": "Encoded",
+    "capacity": 150,
+    "quantity": 0
+  },
+  {
+    "id": 128681635,
+    "name": "AdaptiveEncryptors",
+    "type": "Encoded",
+    "capacity": 100,
+    "quantity": 0
+  },
+  {
+    "id": 128681637,
+    "name": "DataminedWake",
+    "type": "Encoded",
+    "capacity": 100,
+    "quantity": 0
+  },
+  {
+    "id": 128732197,
+    "name": "AncientLanguageData",
+    "type": "Encoded",
+    "capacity": 150,
+    "quantity": 0
+  },
+  {
+    "id": 128732198,
+    "name": "AncientBiologicalData",
+    "type": "Encoded",
+    "capacity": 150,
+    "quantity": 0
+  },
+  {
+    "id": 128732199,
+    "name": "AncientCulturalData",
+    "type": "Encoded",
+    "capacity": 150,
+    "quantity": 0
+  },
+  {
+    "id": 128732200,
+    "name": "AncientHistoricalData",
+    "type": "Encoded",
+    "capacity": 150,
+    "quantity": 0
+  },
+  {
+    "id": 128732201,
+    "name": "AncientTechnologicalData",
+    "type": "Encoded",
+    "capacity": 150,
+    "quantity": 0
+  },
+  {
+    "id": 128815023,
+    "name": "Guardian_PowerCell",
+    "type": "Manufactured",
+    "capacity": 300,
+    "quantity": 0
+  },
+  {
+    "id": 128815024,
+    "name": "Guardian_PowerConduit",
+    "type": "Manufactured",
+    "capacity": 250,
+    "quantity": 0
+  },
+  {
+    "id": 128815025,
+    "name": "Guardian_TechComponent",
+    "type": "Manufactured",
+    "capacity": 200,
+    "quantity": 0
+  },
+  {
+    "id": 128815026,
+    "name": "Guardian_Sentinel_WeaponParts",
+    "type": "Manufactured",
+    "capacity": 200,
+    "quantity": 0
+  },
+  {
+    "id": 128815027,
+    "name": "Guardian_Sentinel_WreckageComponents",
+    "type": "Manufactured",
+    "capacity": 300,
+    "quantity": 0
+  },
+  {
+    "id": 128815028,
+    "name": "Guardian_WeaponBlueprint",
+    "type": "Encoded",
+    "capacity": 150,
+    "quantity": 0
+  },
+  {
+    "id": 128815029,
+    "name": "Guardian_ModuleBlueprint",
+    "type": "Encoded",
+    "capacity": 150,
+    "quantity": 0
+  },
+  {
+    "id": 128850245,
+    "name": "Lead",
+    "type": "Raw",
+    "capacity": 300,
+    "quantity": 0
+  }
+]

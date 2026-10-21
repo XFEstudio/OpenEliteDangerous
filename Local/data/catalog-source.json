@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/EDCD/FDevIDs",
+  "commit": "c35612952dd6a547d1a7ac4cffab9c7051e86579",
+  "files": [
+    "commodity.csv",
+    "rare_commodity.csv",
+    "material.csv",
+    "microresources.csv"
+  ],
+  "entries": 941,
+  "notice": "Factual item identifiers and English labels; upstream notes the collections are incomplete. A catalog is not a native gameplay protocol."
+}

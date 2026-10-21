@@ -1,0 +1,280 @@
+schema: xfe.elite.offline-protocol.v1
+game:
+  name: Elite Dangerous Odyssey
+  platform: windows-x64
+  build: 2026.09.03.332841
+  sha256: e6be8bbe04e6a7ae226d4318945af7f367de13dc5a007a261964d9ba8144e988
+  offline_copy: 'E:\Elite Dangerous\Products\elite-dangerous-odyssey-64\EliteDangerous64.exe'
+  capture_copy: 'D:\SteamLibrary\steamapps\common\Elite Dangerous\Products\elite-dangerous-odyssey-64\EliteDangerous64.exe'
+target:
+  mode: in-process-offline
+  external_server_required: false
+  native_solo_complete: false
+  official_services_must_not_be_fallbacks: true
+management_server:
+  framework: XFEExtension.NetCore.ServerInteractive 4.0.0
+  project: Server/XFEEliteDangerous.Server
+  address: http://127.0.0.1:48080/api/
+  desktop_template: XFEWinUIApplication
+  transport: explicit HTTP loopback only, proxy and redirects disabled
+  state_ownership: OfflineWorkspace with cross-process lock, revisions and atomic replacement
+  native_edit_gate: matching current native schema and MainMenu/MainMenu
+  credentials: Windows-user-restricted local access file, memory-only session tokens
+  http_integration_checks_passed: 48
+  hidden_winui_checks_passed: 99
+  native_edited_ship_cargo_materials_and_credits_loaded: true
+  original_native_save_restored_after_test: true
+online_server:
+  host: same ServerInteractive process as management
+  game_binding: https://0.0.0.0:48081/game/
+  authentication: private account password or loopback-only local owner access
+  tls: explicitly pinned server certificate SHA256
+  native_game_network_capabilities: zero
+  native_transport: per-launch shared memory files through the launcher
+  authoritative_state: server Workspace/state.json
+  authoritative_public_world: server Workspace/galaxy.json, separately locked and backed up
+  instance_authority: global allocator and staged reliable-batch membership commits
+  peer_forwarding: authenticated same-instance grants only
+  actual_http_integration_checks_passed: 22
+  unit_tests_passed: 751
+  hidden_winui_checks_passed: 126
+  native_multiplayer_validated: true
+  native_validation_scope: pinned-odyssey-two-clients-loopback
+  native_client_loading: verified completion marker, 64-bit return and thread/process exit checks; two actual hidden native clients initialized
+  dual_native_verification: 81 checks passed, no desktop input, same native PIDs throughout the regression
+  native_report: artifacts/native-online-regression-20261021-0549/native-online-validation.json
+  native_entities: both full SideWinder hulls Live in both worlds, original physics owner checks observed
+  position_sync_max_final_error_m: 0.06836
+  rotation_sync_max_final_error_degrees: 0.000004
+  save_reload_max_position_error_m: 0.000001
+  empty_instance_lifecycle: retire Island and Wake after the final committed or pending member leaves
+  remote_network_reachability_verified: false
+http_data_boundary:
+  source: Client/XFEEliteDangerous.OfflineRuntime/OfflineCurl.cs
+  intercepted_native_library: statically-linked-libcurl
+  easy_setopt_rva: 0x48d5770
+  multi_add_handle_rva: 0x48d6a50
+  multi_info_read_rva: 0x48d6e10
+  header_callback_option: 20079
+  progress_callback_option: 20056
+  callback_evidence: artifacts/recon-local/curl-constructor-full.txt
+  offline_target: OfflineGameData.InvokeAsync
+  status: partial
+request_envelope:
+  cipher: IETF-ChaCha20
+  counter: 0
+  nonce: 12 hexadecimal ASCII characters used as 12 raw ASCII bytes
+  framing: query and body share one cipher stream then separate canonical Base64
+  key_source: pinned executable file offset 0x5131e08, 32 bytes
+  secrets_in_specification: false
+response_envelope:
+  headers: [Nonce, uncompressedSize]
+  framing: canonical Base64, ChaCha20, EDDE marker, 4 opaque bytes, raw LZ4 block
+  plain_exception: /2.0/server/time
+  public_reference_vectors_passed: 24
+  source: Client/XFEEliteDangerous.NativeFormat/EliteResponseEnvelopeCodec.cs
+  live_evidence: artifacts/online-solo-capture-20261020
+edserver_datagrams:
+  transport_in_official_client: UDP
+  header_bytes: 8
+  fields: [sender_run_id_48_bits, compression_flag_1_bit, packet_counter_15_bits]
+  mode_3_cipher: AES-256 feedback stream
+  seed: zero-extended packet counter as UInt32LE repeated four times
+  checksum: low UInt16 of reflected CRC32, polynomial 0xEDB88320, initial 0x1337, no final complement
+  key_source: captured server/list encryptionKey, retained only in ignored local evidence
+  public_reference_vectors_passed: 3
+  scoped_live_snapshot:
+    evidence: artifacts/online-solo-capture-20261020/udp-analysis-0624/summary.json
+    matching_key_and_checksum: 793
+    unresolved: 26
+    unresolved_observed_port: 3478
+    interpretation: wire compatibility only; not an implemented local world
+  cold_start_snapshot:
+    evidence: artifacts/online-solo-capture-20261020/cold-start/udp-final/summary.json
+    matching_key_and_checksum: 1847
+    unresolved: 48
+    structurally_parsed_packets: 1847
+    client_letter_type_bits: 8
+    server_letter_type_bits: 6
+    client_alignment_mode: 3
+    server_alignment_mode: 0
+    length_delimited_letters: false
+    duplicates_possible: true
+    application_semantics_complete: false
+verification:
+  local_data_unit_tests_passed: 731
+  native_aot_callback_fixture: passed
+  isolated_offline_native_login: LoginSuccess observed
+  isolated_offline_native_menu: MainMenu observed
+  isolated_offline_native_continue_menu: ContinueMenu observed through an eligible native button
+  isolated_offline_native_solo_button: eligible native button selected without changing its flags
+  isolated_offline_world: InGame / InGame reached and stable in original native Odyssey mode
+  original_native_odyssey_predicate: true, RVA 0x2609980, result unchanged
+  programmatic_flight: passed, bounded internal forward-axis input with original native physics
+  programmatic_flight_saved_distance_metres: 161.078
+  same_process_save_exit_reload: passed, native full reader result 0, position difference 0 metres
+  physical_keyboard_and_visual_acceptance: accepted by user on 2026-10-21 for the prior delivered Solo flow
+  actual_native_save_commit: verified, StateStore atomic replacement
+  native_full_save_reader_result: 0 (success), RVA 0x2404620
+  same_process_native_read_generations: verified
+  official_online_solo_capture: stopped-at-user-request
+  cold_start_capture: completed-with-cancelled-responses-marked
+  cold_start_http_responses: 360
+  cold_start_observer_errors: 0
+  official_online_capture_is_offline_acceptance: false
+local_reference_definitions:
+  source: Local/XFEEliteDangerous.Core/NativeOffline/NativeReferenceLibrary.cs
+  manifest: workspace/native-resources/manifest.json
+  version_and_sha256_checked: true
+  supported_global_operations: 11
+  exported_local_documents: 11
+  exported_local_bytes: 856926
+  refresh: validate all documents on a new manifest, then atomically replace the snapshot on request
+  includes_player_state_or_session_credentials: false
+  empty_powerplay_catalogue_rejected: true
+hot_read_business:
+  source: Local/XFEEliteDangerous.ReadBusiness
+  manifest: workspace/native-business/active.json
+  abi: UTF-8 JSON and explicitly freed native buffers, protocol 1
+  cross_runtime_managed_references: false
+  retained_old_native_aot_mappings: until process exit
+  reload: validated versioned DLL activated on the next matching GET, RPC or save upload
+  invalid_update: retain last validated generation and log source/exception
+  state_ownership: stable host retains identity, replication sessions and save transactions
+  rpc_abi: 1
+  rpc_methods: [2, 9, 17, 32, 89]
+  get_operations: 12
+  rpc_zero_emissions: legitimate one-way notification, normal reliable acknowledgement only
+  save_abi: 1
+  save_candidate_validation: stable host preserves protected inventory and world fields before committing
+  powerplay_digests:
+    operations: [galaxydigest_systemdata_part, galaxydigest_score_part]
+    initial_page: HTTP 200, empty systems array and current lastModified
+    subsequent_pages: HTTP 204 with an empty document
+    native_page_completion_rva: 0x3464c40
+    empty_200_is_not_end_of_pagination: true
+    same_game_process_activation: r20261020-225828-ab5cc7b5
+    native_world_ready_after_fix: location lifecycle 6 and InGame observed
+native_automation:
+  entry_script: scripts/Test-NativeSolo.ps1
+  os_input_or_screenshots: false
+  solo_action: original eligible Continue/SOLO callbacks on natural update thread
+  disconnect_dialog: original configured OK callback
+  checks: [full_native_save_result_0, location_lifecycle_6, actual_save_commit, stable_InGame]
+  flight_or_reload_assumed_from_entry: false
+location_diagnostics:
+  source: Client/XFEEliteDangerous.OfflineRuntime/NativeLocationProbe.cs
+  observed_native_check_rva: 0x1c4b620
+  state_mutation: false
+  values: [container_lifecycle, location_lifecycle, object_kind, activation_delay]
+  observed_blockers: [Powerplay, Polities, planet_settlement_data, IGalacticPolitics]
+  visual_acceptance: performed_by_user
+local_replication_boundary:
+  source: Client/XFEEliteDangerous.OfflineRuntime/InProcessNativeChannels.cs
+  authority: Local/XFEEliteDangerous.Core/NativeOffline/Sessions/OfflineWorldAuthority.cs
+  operating_system_endpoint_created: false
+  delivery: original native receive queue after natural update, never on send stack
+  identities_and_keys: fresh per launch, no official session replay
+  roles: [primary, missions]
+  native_manager_object_id_pool: shared across both connections
+  initial_ack_can_piggyback_reliable_group: true
+  native_joined_and_reconnect_verified: true
+  application_coverage: partial, unknown calls explicitly rejected
+  programmatic_world_flight_and_reload: passed
+  complete_visual_acceptance: false
+observed_service_contracts:
+  - path: /2.0/elite/survey/info
+    methods: [GET]
+    query: [systemAddr]
+    response_format: XML data/knownSystems/starSystem/bodies/item
+    local_handler: partial, authored Sol primary star only, no captured player discovery credit
+    map_visual_acceptance: pending
+  - path: /2.0/elite/colonisation/starsystem/info
+    methods: [GET]
+    query: [systemaddress]
+    local_handler: empty local project lookup, HTTP 204 and no body
+    native_http_completion: observed
+  - path: /2.0/elite/colonisation/starsystem/constructioneffortmaterials
+    methods: [GET]
+    query: [systemAddress]
+    response_format: JSON construction_efforts array
+    local_handler: empty local construction set
+    native_c_abi_contract: passed, actual native retry pending
+  - paths: [/2.0/elite/user/friends, /2.0/elite/user/ignore]
+    methods: [GET]
+    response_format: XML data/users
+    local_handler: stub, empty lists only, no relationship mutations
+    native_http_completion: observed HTTP 200 after same-process reload
+  - path: /2.0/elite/initiative/commander/list
+    methods: [GET]
+    response_format: XML data/initiatives
+    local_handler: stub, empty local list only, no initiative participation
+    native_http_completion: observed HTTP 200 after same-process reload
+  - path: /2.0/elite/commander/savegame
+    methods: [GET, PUT]
+    get_format: JSON, complete account-owned profile and fleet
+    put_format: JSON delta
+    response_format: XML data acknowledgement for JSON local delta
+  - path: /2.0/elite/server/list
+    methods: [GET]
+    response_format: JSON server and mission-server descriptors
+    embedded_fields: [runId, connectionDetails, encryptionKey]
+    local_world_session: in-process management sessions only, world business incomplete
+  - path: /2.0/elite/starsystem
+    methods: [GET]
+    response_format: JSON
+    local_data_coverage: partial
+  - path: /2.0/elite/ship/refuel
+    methods: [PUT]
+    query: [cmdrId, finalCredits, level, reserve]
+    response_format: XML data with credits, debt and fuel prices
+    local_handler: missing
+  - path: /2.0/elite/ship/repair
+    methods: [PUT]
+    query: [cmdrId, finalCredits, repairAll]
+    response_format: XML data with credits, debt and repair prices
+    local_handler: missing
+  - path: /2.0/elite/shipyard/restock
+    methods: [PUT]
+    query: [cmdrId, finalCredits, cost]
+    body: form fields ammo[native-slot-name]
+    response_format: JSON credits, debt and complete ship
+    local_handler: missing
+  - path: /2.0/elite/shipyard/modules/trade
+    methods: [PUT]
+    observed_transactions: [store, sellfromstorage, retrieve]
+    query: [cmdrId, marketId, moduleId, category, transactionType, unitPrice, finalCredits, finalMercCoins, slotName, withAmmo, storeOldModule, storageId, slotId]
+    response_format: XML data with catalogue, balances, complete ship, storage, storageSlots and storageCapacity
+    local_handler: missing
+  - path: /2.0/elite/shipyard/modules/transfer
+    methods: [PUT]
+    query: [cmdrId, marketId, slotId]
+    response_format: XML data with catalogue, storage and complete ship
+    local_handler: missing
+  - path: /2.0/elite/market/list
+    methods: [GET]
+    query: [cmdrId, marketId]
+    response_format: JSON inventory, commodities and allowsDumping
+    local_handler: missing
+  - path: /2.0/elite/market/trade
+    methods: [PUT]
+    observed_transactions: [buy]
+    query: [cmdrId, marketId, transactionType, commodityId, blackMarket, stolen, unitPrice, qty, finalQty]
+    response_format: JSON credits, debt, inventory, lastModified, commodities and allowsDumping
+    local_handler: missing
+  - path: /2.0/elite/shipyard/ships/buy
+    methods: [PUT]
+    query: [cmdrId, marketId, shipName, replace, transferCargo, finalCredits, finalQty]
+    response_format: JSON
+    local_handler: missing
+  - path: /2.0/elite/shipyard/ships/swap
+    methods: [PUT]
+    query: [cmdrId, marketId, ownedShipId, replace, transferCargo]
+    response_format: JSON
+    local_handler: missing
+unresolved:
+  - NPC, encounter, travel and world business beyond the minimal local Solo island.
+  - Full preservation and editing of nonempty player profiles and ship fleets.
+  - Station services, outfitting and commodity transactions with persistent local effects.
+  - Complete resource catalogues and systems beyond recorded coverage.
+  - User visual and physical keyboard acceptance of cockpit, flight and local system map.

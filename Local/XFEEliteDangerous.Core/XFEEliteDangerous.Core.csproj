@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net10.0</TargetFramework><AllowUnsafeBlocks>true</AllowUnsafeBlocks></PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="../data/*.json" />
+    <ProjectReference Include="../../Client/XFEEliteDangerous.Client/XFEEliteDangerous.Client.csproj" />
+    <ProjectReference Include="../../Client/XFEEliteDangerous.NativeFormat/XFEEliteDangerous.NativeFormat.csproj" />
+  </ItemGroup>
+</Project>

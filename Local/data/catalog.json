@@ -1,0 +1,4707 @@
+[
+  {
+    "id": "platinum",
+    "name": "Platinum",
+    "category": "cargo"
+  },
+  {
+    "id": "californium",
+    "name": "Californium",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "californium",
+    "name": "Californium",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "castfossil",
+    "name": "Cast Fossil",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "castfossil",
+    "name": "Cast Fossil",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "geneticsample",
+    "name": "Biological Sample",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "geneticsample",
+    "name": "Biological Sample",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "gmeds",
+    "name": "G-Meds",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "gmeds",
+    "name": "G-Meds",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "healthmonitor",
+    "name": "Health Monitor",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "healthmonitor",
+    "name": "Health Monitor",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "inertiacanister",
+    "name": "Inertia Canister",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "inertiacanister",
+    "name": "Inertia Canister",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "insight",
+    "name": "Insight",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "insight",
+    "name": "Insight",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "insightdatabank",
+    "name": "Insight Data Bank",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "insightdatabank",
+    "name": "Insight Data Bank",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "ionisedgas",
+    "name": "Ionised Gas",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "ionisedgas",
+    "name": "Ionised Gas",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "mutageniccatalyst",
+    "name": "Mutagenic Catalyst",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "mutageniccatalyst",
+    "name": "Mutagenic Catalyst",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "personalcomputer",
+    "name": "Personal Computer",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "personalcomputer",
+    "name": "Personal Computer",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "petrifiedfossil",
+    "name": "Petrified Fossil",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "petrifiedfossil",
+    "name": "Petrified Fossil",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "syntheticgenome",
+    "name": "Synthetic Genome",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "biochemicalagent",
+    "name": "Biochemical Agent",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "syntheticgenome",
+    "name": "Synthetic Genome",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "biochemicalagent",
+    "name": "Biochemical Agent",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "viscoelasticpolymer",
+    "name": "Viscoelastic Polymer",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "memorychip",
+    "name": "Memory Chip",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "metalcoil",
+    "name": "Metal Coil",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "metalcoil",
+    "name": "Metal Coil",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "microhydraulics",
+    "name": "Micro Hydraulics",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "microhydraulics",
+    "name": "Micro Hydraulics",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "microsupercapacitor",
+    "name": "Micro Supercapacitor",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "microsupercapacitor",
+    "name": "Micro Supercapacitor",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "microthrusters",
+    "name": "Micro Thrusters",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "microthrusters",
+    "name": "Micro Thrusters",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "microtransformer",
+    "name": "Micro Transformer",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "microtransformer",
+    "name": "Micro Transformer",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "motor",
+    "name": "Motor",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "motor",
+    "name": "Motor",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "opticalfibre",
+    "name": "Optical Fibre",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "opticalfibre",
+    "name": "Optical Fibre",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "opticallens",
+    "name": "Optical Lens",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "opticallens",
+    "name": "Optical Lens",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "scrambler",
+    "name": "Scrambler",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "scrambler",
+    "name": "Scrambler",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "titaniumplating",
+    "name": "Titanium Plating",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "titaniumplating",
+    "name": "Titanium Plating",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "transmitter",
+    "name": "Transmitter",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "transmitter",
+    "name": "Transmitter",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "tungstencarbide",
+    "name": "Tungsten Carbide",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "tungstencarbide",
+    "name": "Tungsten Carbide",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "viscoelasticpolymer",
+    "name": "Viscoelastic Polymer",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "trueformfossil",
+    "name": "True Form Fossil",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "trueformfossil",
+    "name": "True Form Fossil",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "geneticrepairmeds",
+    "name": "Genetic Repair Meds",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "personaldocuments",
+    "name": "Personal Documents",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "push",
+    "name": "Push",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "push",
+    "name": "Push",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "shipschematic",
+    "name": "Ship Schematic",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "shipschematic",
+    "name": "Ship Schematic",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "suitschematic",
+    "name": "Suit Schematic",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "suitschematic",
+    "name": "Suit Schematic",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "surveillanceequipment",
+    "name": "Surveillance Equipment",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "surveillanceequipment",
+    "name": "Surveillance Equipment",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "syntheticpathogen",
+    "name": "Synthetic Pathogen",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "syntheticpathogen",
+    "name": "Synthetic Pathogen",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "universaltranslator",
+    "name": "Universal Translator",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "universaltranslator",
+    "name": "Universal Translator",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "vehicleschematic",
+    "name": "Vehicle Schematic",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "vehicleschematic",
+    "name": "Vehicle Schematic",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "weaponschematic",
+    "name": "Weapon Schematic",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "weaponschematic",
+    "name": "Weapon Schematic",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "microelectrode",
+    "name": "Microelectrode",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "microelectrode",
+    "name": "Microelectrode",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "biometricdata",
+    "name": "Biometric Data",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "biometricdata",
+    "name": "Biometric Data",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "pyrolyticcatalyst",
+    "name": "Pyrolytic Catalyst",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "pyrolyticcatalyst",
+    "name": "Pyrolytic Catalyst",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "inorganiccontaminant",
+    "name": "Inorganic Contaminant",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "inorganiccontaminant",
+    "name": "Inorganic Contaminant",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "personaldocuments",
+    "name": "Personal Documents",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "nutritionalconcentrate",
+    "name": "Nutritional Concentrate",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "nutritionalconcentrate",
+    "name": "Nutritional Concentrate",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "microbialinhibitor",
+    "name": "Microbial Inhibitor",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "geneticrepairmeds",
+    "name": "Genetic Repair Meds",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "rdx",
+    "name": "RDX",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "rdx",
+    "name": "RDX",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "electromagnet",
+    "name": "Electromagnet",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "electromagnet",
+    "name": "Electromagnet",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "oxygenicbacteria",
+    "name": "Oxygenic Bacteria",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "oxygenicbacteria",
+    "name": "Oxygenic Bacteria",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "epinephrine",
+    "name": "Epinephrine",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "epinephrine",
+    "name": "Epinephrine",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "phneutraliser",
+    "name": "pH Neutraliser",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "phneutraliser",
+    "name": "pH Neutraliser",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "buildingschematic",
+    "name": "Building Schematic",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "memorychip",
+    "name": "Memory Chip",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "buildingschematic",
+    "name": "Building Schematic",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "compactlibrary",
+    "name": "Compact Library",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "deepmantlesample",
+    "name": "Deep Mantle Sample",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "deepmantlesample",
+    "name": "Deep Mantle Sample",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "hush",
+    "name": "Hush",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "hush",
+    "name": "Hush",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "infinity",
+    "name": "Infinity",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "infinity",
+    "name": "Infinity",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "insightentertainmentsuite",
+    "name": "Insight Entertainment Suite",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "insightentertainmentsuite",
+    "name": "Insight Entertainment Suite",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "lazarus",
+    "name": "Lazarus",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "lazarus",
+    "name": "Lazarus",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "microbialinhibitor",
+    "name": "Microbial Inhibitor",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "compactlibrary",
+    "name": "Compact Library",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "epoxyadhesive",
+    "name": "Epoxy Adhesive",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "epoxyadhesive",
+    "name": "Epoxy Adhesive",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "encryptedmemorychip",
+    "name": "Encrypted Memory Chip",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "wakesolutions",
+    "name": "Strange Wake Solutions",
+    "category": "Encoded"
+  },
+  {
+    "id": "emissiondata",
+    "name": "Unexpected Emission Data",
+    "category": "Encoded"
+  },
+  {
+    "id": "shielddensityreports",
+    "name": "Untypical Shield Scans ",
+    "category": "Encoded"
+  },
+  {
+    "id": "securityfirmware",
+    "name": "Security Firmware Patch",
+    "category": "Encoded"
+  },
+  {
+    "id": "encryptionarchives",
+    "name": "Atypical Encryption Archives",
+    "category": "Encoded"
+  },
+  {
+    "id": "encodedscandata",
+    "name": "Divergent Scan Data",
+    "category": "Encoded"
+  },
+  {
+    "id": "hyperspacetrajectories",
+    "name": "Eccentric Hyperspace Trajectories",
+    "category": "Encoded"
+  },
+  {
+    "id": "decodedemissiondata",
+    "name": "Decoded Emission Data",
+    "category": "Encoded"
+  },
+  {
+    "id": "shieldpatternanalysis",
+    "name": "Aberrant Shield Pattern Analysis",
+    "category": "Encoded"
+  },
+  {
+    "id": "embeddedfirmware",
+    "name": "Modified Embedded Firmware",
+    "category": "Encoded"
+  },
+  {
+    "id": "adaptiveencryptors",
+    "name": "Adaptive Encryptors Capture",
+    "category": "Encoded"
+  },
+  {
+    "id": "classifiedscandata",
+    "name": "Classified Scan Fragment",
+    "category": "Encoded"
+  },
+  {
+    "id": "dataminedwake",
+    "name": "Datamined Wake Exceptions",
+    "category": "Encoded"
+  },
+  {
+    "id": "compactemissionsdata",
+    "name": "Abnormal Compact Emissions Data",
+    "category": "Encoded"
+  },
+  {
+    "id": "shieldfrequencydata",
+    "name": "Peculiar Shield Frequency Data",
+    "category": "Encoded"
+  },
+  {
+    "id": "unknownenergysource",
+    "name": "Sensor Fragment",
+    "category": "Manufactured"
+  },
+  {
+    "id": "unknownshipsignature",
+    "name": "Thargoid Ship Signature",
+    "category": "Encoded"
+  },
+  {
+    "id": "unknownwakedata",
+    "name": "Thargoid Wake Data",
+    "category": "Encoded"
+  },
+  {
+    "id": "ancientlanguagedata",
+    "name": "Pattern Delta Obelisk Data",
+    "category": "Encoded"
+  },
+  {
+    "id": "ancientbiologicaldata",
+    "name": "Pattern Alpha Obelisk Data",
+    "category": "Encoded"
+  },
+  {
+    "id": "ancientculturaldata",
+    "name": "Pattern Beta Obelisk Data",
+    "category": "Encoded"
+  },
+  {
+    "id": "ancienthistoricaldata",
+    "name": "Pattern Gamma Obelisk Data",
+    "category": "Encoded"
+  },
+  {
+    "id": "ancienttechnologicaldata",
+    "name": "Pattern Epsilon Obelisk Data",
+    "category": "Encoded"
+  },
+  {
+    "id": "tg_compositiondata",
+    "name": "Thargoid Material Composition Data",
+    "category": "Encoded"
+  },
+  {
+    "id": "tg_residuedata",
+    "name": "Thargoid Residue Data",
+    "category": "Encoded"
+  },
+  {
+    "id": "scandatabanks",
+    "name": "Classified Scan Databanks",
+    "category": "Encoded"
+  },
+  {
+    "id": "symmetrickeys",
+    "name": "Open Symmetric Keys",
+    "category": "Encoded"
+  },
+  {
+    "id": "industrialfirmware",
+    "name": "Cracked Industrial Firmware",
+    "category": "Encoded"
+  },
+  {
+    "id": "shieldsoakanalysis",
+    "name": "Inconsistent Shield Soak Analysis",
+    "category": "Encoded"
+  },
+  {
+    "id": "heatvanes",
+    "name": "Heat Vanes",
+    "category": "Manufactured"
+  },
+  {
+    "id": "compoundshielding",
+    "name": "Compound Shielding",
+    "category": "Manufactured"
+  },
+  {
+    "id": "fedproprietarycomposites",
+    "name": "Proprietary Composites",
+    "category": "Manufactured"
+  },
+  {
+    "id": "protolightalloys",
+    "name": "Proto Light Alloys",
+    "category": "Manufactured"
+  },
+  {
+    "id": "chemicalmanipulators",
+    "name": "Chemical Manipulators",
+    "category": "Manufactured"
+  },
+  {
+    "id": "militarysupercapacitors",
+    "name": "Military Supercapacitors",
+    "category": "Manufactured"
+  },
+  {
+    "id": "exquisitefocuscrystals",
+    "name": "Exquisite Focus Crystals",
+    "category": "Manufactured"
+  },
+  {
+    "id": "militarygradealloys",
+    "name": "Military Grade Alloys",
+    "category": "Manufactured"
+  },
+  {
+    "id": "biotechconductors",
+    "name": "Biotech Conductors",
+    "category": "Manufactured"
+  },
+  {
+    "id": "improvisedcomponents",
+    "name": "Improvised Components",
+    "category": "Manufactured"
+  },
+  {
+    "id": "protoheatradiators",
+    "name": "Proto Heat Radiators",
+    "category": "Manufactured"
+  },
+  {
+    "id": "imperialshielding",
+    "name": "Imperial Shielding",
+    "category": "Manufactured"
+  },
+  {
+    "id": "tg_structuraldata",
+    "name": "Thargoid Structural Data",
+    "category": "Encoded"
+  },
+  {
+    "id": "fedcorecomposites",
+    "name": "Core Dynamics Composites",
+    "category": "Manufactured"
+  },
+  {
+    "id": "pharmaceuticalisolators",
+    "name": "Pharmaceutical Isolators",
+    "category": "Manufactured"
+  },
+  {
+    "id": "legacyfirmware",
+    "name": "Specialised Legacy Firmware",
+    "category": "Encoded"
+  },
+  {
+    "id": "encryptedfiles",
+    "name": "Unusual Encrypted Files",
+    "category": "Encoded"
+  },
+  {
+    "id": "bulkscandata",
+    "name": "Anomalous Bulk Scan Data",
+    "category": "Encoded"
+  },
+  {
+    "id": "disruptedwakeechoes",
+    "name": "Atypical Disrupted Wake Echoes",
+    "category": "Encoded"
+  },
+  {
+    "id": "scrambledemissiondata",
+    "name": "Exceptional Scrambled Emission Data",
+    "category": "Encoded"
+  },
+  {
+    "id": "shieldcyclerecordings",
+    "name": "Distorted Shield Cycle Recordings",
+    "category": "Encoded"
+  },
+  {
+    "id": "consumerfirmware",
+    "name": "Modified Consumer Firmware",
+    "category": "Encoded"
+  },
+  {
+    "id": "encryptioncodes",
+    "name": "Tagged Encryption Codes",
+    "category": "Encoded"
+  },
+  {
+    "id": "scanarchives",
+    "name": "Unidentified Scan Archives",
+    "category": "Encoded"
+  },
+  {
+    "id": "fsdtelemetry",
+    "name": "Anomalous FSD Telemetry",
+    "category": "Encoded"
+  },
+  {
+    "id": "archivedemissiondata",
+    "name": "Irregular Emission Data",
+    "category": "Encoded"
+  },
+  {
+    "id": "protoradiolicalloys",
+    "name": "Proto Radiolic Alloys",
+    "category": "Manufactured"
+  },
+  {
+    "id": "agriculturalprocesssample",
+    "name": "Agricultural Process Sample",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "unknowncarapace",
+    "name": "Thargoid Carapace",
+    "category": "Manufactured"
+  },
+  {
+    "id": "unknownorganiccircuitry",
+    "name": "Thargoid Organic Circuitry",
+    "category": "Manufactured"
+  },
+  {
+    "id": "amm_grenade_shield",
+    "name": "Shield Projector",
+    "category": "ShipLocker.Consumables"
+  },
+  {
+    "id": "amm_grenade_shield",
+    "name": "Shield Projector",
+    "category": "Backpack.Consumables"
+  },
+  {
+    "id": "chemicalsample",
+    "name": "Chemical Sample",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "chemicalsample",
+    "name": "Chemical Sample",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "bypass",
+    "name": "E-Breach",
+    "category": "ShipLocker.Consumables"
+  },
+  {
+    "id": "bypass",
+    "name": "E-Breach",
+    "category": "Backpack.Consumables"
+  },
+  {
+    "id": "spyware",
+    "name": "Spyware",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "spyware",
+    "name": "Spyware",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "aerogel",
+    "name": "Aerogel",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "aerogel",
+    "name": "Aerogel",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "carbonfibreplating",
+    "name": "Carbon Fibre Plating",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "carbonfibreplating",
+    "name": "Carbon Fibre Plating",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "chemicalcatalyst",
+    "name": "Chemical Catalyst",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "chemicalcatalyst",
+    "name": "Chemical Catalyst",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "chemicalsuperbase",
+    "name": "Chemical Superbase",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "chemicalsuperbase",
+    "name": "Chemical Superbase",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "circuitboard",
+    "name": "Circuit Board",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "circuitboard",
+    "name": "Circuit Board",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "circuitswitch",
+    "name": "Circuit Switch",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "circuitswitch",
+    "name": "Circuit Switch",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "electricalfuse",
+    "name": "Electrical Fuse",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "electricalfuse",
+    "name": "Electrical Fuse",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "electricalwiring",
+    "name": "Electrical Wiring",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "electricalwiring",
+    "name": "Electrical Wiring",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "encryptedmemorychip",
+    "name": "Encrypted Memory Chip",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "amm_grenade_frag",
+    "name": "Frag Grenade",
+    "category": "Backpack.Consumables"
+  },
+  {
+    "id": "amm_grenade_frag",
+    "name": "Frag Grenade",
+    "category": "ShipLocker.Consumables"
+  },
+  {
+    "id": "amm_grenade_emp",
+    "name": "Shield Disruptor",
+    "category": "Backpack.Consumables"
+  },
+  {
+    "id": "amm_grenade_emp",
+    "name": "Shield Disruptor",
+    "category": "ShipLocker.Consumables"
+  },
+  {
+    "id": "unknowntechnologycomponents",
+    "name": "Thargoid Technological Components",
+    "category": "Manufactured"
+  },
+  {
+    "id": "tg_biomechanicalconduits",
+    "name": "Bio-Mechanical Conduits",
+    "category": "Manufactured"
+  },
+  {
+    "id": "tg_propulsionelement",
+    "name": "Propulsion Elements",
+    "category": "Manufactured"
+  },
+  {
+    "id": "tg_weaponparts",
+    "name": "Weapon Parts",
+    "category": "Manufactured"
+  },
+  {
+    "id": "tg_wreckagecomponents",
+    "name": "Wreckage Components",
+    "category": "Manufactured"
+  },
+  {
+    "id": "tg_shipflightdata",
+    "name": "Ship Flight Data",
+    "category": "Encoded"
+  },
+  {
+    "id": "tg_shipsystemsdata",
+    "name": "Ship Systems Data",
+    "category": "Encoded"
+  },
+  {
+    "id": "guardian_powercell",
+    "name": "Guardian Power Cell",
+    "category": "Manufactured"
+  },
+  {
+    "id": "guardian_powerconduit",
+    "name": "Guardian Power Conduit",
+    "category": "Manufactured"
+  },
+  {
+    "id": "guardian_techcomponent",
+    "name": "Guardian Technology Component",
+    "category": "Manufactured"
+  },
+  {
+    "id": "guardian_sentinel_weaponparts",
+    "name": "Guardian Sentinel Weapon Parts",
+    "category": "Manufactured"
+  },
+  {
+    "id": "guardian_sentinel_wreckagecomponents",
+    "name": "Guardian Sentinel Wreckage Components",
+    "category": "Manufactured"
+  },
+  {
+    "id": "unknownenergycell",
+    "name": "Thargoid Energy Cell",
+    "category": "Manufactured"
+  },
+  {
+    "id": "guardian_weaponblueprint",
+    "name": "Guardian Weapon Blueprint Segment",
+    "category": "Encoded"
+  },
+  {
+    "id": "guardian_vesselblueprint",
+    "name": "Guardian Vessel Blueprint Segment",
+    "category": "Encoded"
+  },
+  {
+    "id": "rhenium",
+    "name": "Rhenium",
+    "category": "Raw"
+  },
+  {
+    "id": "lead",
+    "name": "Lead",
+    "category": "Raw"
+  },
+  {
+    "id": "boron",
+    "name": "Boron",
+    "category": "Raw"
+  },
+  {
+    "id": "graphene",
+    "name": "Graphene",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "graphene",
+    "name": "Graphene",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "internalcorrespondence",
+    "name": "Internal Correspondence",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "internalcorrespondence",
+    "name": "Internal Correspondence",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "healthpack",
+    "name": "Medkit",
+    "category": "ShipLocker.Consumables"
+  },
+  {
+    "id": "healthpack",
+    "name": "Medkit",
+    "category": "Backpack.Consumables"
+  },
+  {
+    "id": "energycell",
+    "name": "Energy Cell",
+    "category": "ShipLocker.Consumables"
+  },
+  {
+    "id": "energycell",
+    "name": "Energy Cell",
+    "category": "Backpack.Consumables"
+  },
+  {
+    "id": "guardian_moduleblueprint",
+    "name": "Guardian Module Blueprint Segment",
+    "category": "Encoded"
+  },
+  {
+    "id": "agriculturalprocesssample",
+    "name": "Agricultural Process Sample",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "chemicalprocesssample",
+    "name": "Chemical Process Sample",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "chemicalprocesssample",
+    "name": "Chemical Process Sample",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "politicalaffiliations",
+    "name": "Political Affiliations",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "politicalaffiliations",
+    "name": "Political Affiliations",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "prisonerlogs",
+    "name": "Prisoner Logs",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "prisonerlogs",
+    "name": "Prisoner Logs",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "productionreports",
+    "name": "Production Reports",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "productionreports",
+    "name": "Production Reports",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "productionschedule",
+    "name": "Production Schedule",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "productionschedule",
+    "name": "Production Schedule",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "propaganda",
+    "name": "Propaganda",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "propaganda",
+    "name": "Propaganda",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "purchaserecords",
+    "name": "Purchase Records",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "purchaserecords",
+    "name": "Purchase Records",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "purchaserequests",
+    "name": "Purchase Requests",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "purchaserequests",
+    "name": "Purchase Requests",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "radioactivitydata",
+    "name": "Radioactivity Data",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "radioactivitydata",
+    "name": "Radioactivity Data",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "reactoroutputreview",
+    "name": "Reactor Output Review",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "reactoroutputreview",
+    "name": "Reactor Output Review",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "recyclinglogs",
+    "name": "Recycling Logs",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "recyclinglogs",
+    "name": "Recycling Logs",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "residentialdirectory",
+    "name": "Residential Directory",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "residentialdirectory",
+    "name": "Residential Directory",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "riskassessments",
+    "name": "Risk Assessments",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "riskassessments",
+    "name": "Risk Assessments",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "salesrecords",
+    "name": "Sales Records",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "plantgrowthcharts",
+    "name": "Plant Growth Charts",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "plantgrowthcharts",
+    "name": "Plant Growth Charts",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "photoalbums",
+    "name": "Photo Albums",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "photoalbums",
+    "name": "Photo Albums",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "medicaltrialrecords",
+    "name": "Clinical Trial Records",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "medicaltrialrecords",
+    "name": "Clinical Trial Records",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "meetingminutes",
+    "name": "Meeting Minutes",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "meetingminutes",
+    "name": "Meeting Minutes",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "mineralsurvey",
+    "name": "Mineral Survey",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "mineralsurvey",
+    "name": "Mineral Survey",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "mininganalytics",
+    "name": "Mining Analytics",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "mininganalytics",
+    "name": "Mining Analytics",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "multimediaentertainment",
+    "name": "Multimedia Entertainment",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "multimediaentertainment",
+    "name": "Multimedia Entertainment",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "networkaccesshistory",
+    "name": "Network Access History",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "networkaccesshistory",
+    "name": "Network Access History",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "salesrecords",
+    "name": "Sales Records",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "networksecurityprotocols",
+    "name": "Network Security Protocols",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "nextofkinrecords",
+    "name": "Next of Kin Records",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "nextofkinrecords",
+    "name": "Next of Kin Records",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "operationalmanual",
+    "name": "Operational Manual",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "operationalmanual",
+    "name": "Operational Manual",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "opinionpolls",
+    "name": "Opinion Polls",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "opinionpolls",
+    "name": "Opinion Polls",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "patienthistory",
+    "name": "Patient History",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "patienthistory",
+    "name": "Patient History",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "patrolroutes",
+    "name": "Patrol Routes",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "patrolroutes",
+    "name": "Patrol Routes",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "personallogs",
+    "name": "Personal Logs",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "personallogs",
+    "name": "Personal Logs",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "networksecurityprotocols",
+    "name": "Network Security Protocols",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "medicalrecords",
+    "name": "Medical Records",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "securityexpenses",
+    "name": "Security Expenses",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "seedgeneaology",
+    "name": "Seed Geneaology",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "vaccinationrecords",
+    "name": "Vaccination Records",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "vaccineresearch",
+    "name": "Vaccine Research",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "vaccineresearch",
+    "name": "Vaccine Research",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "vipsecuritydetail",
+    "name": "VIP Security Detail",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "vipsecuritydetail",
+    "name": "VIP Security Detail",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "virologydata",
+    "name": "Virology Data",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "virologydata",
+    "name": "Virology Data",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "virus",
+    "name": "Virus",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "virus",
+    "name": "Virus",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "visitorregister",
+    "name": "Visitor Register",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "visitorregister",
+    "name": "Visitor Register",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "weaponinventory",
+    "name": "Weapon Inventory",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "weaponinventory",
+    "name": "Weapon Inventory",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "weapontestdata",
+    "name": "Weapon Test Data",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "weapontestdata",
+    "name": "Weapon Test Data",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "xenodefenceprotocols",
+    "name": "Xeno-Defence Protocols",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "xenodefenceprotocols",
+    "name": "Xeno-Defence Protocols",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "payrollinformation",
+    "name": "Payroll Information",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "payrollinformation",
+    "name": "Payroll Information",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "geologicaldata",
+    "name": "Geological Data",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "geologicaldata",
+    "name": "Geological Data",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "criminalrecords",
+    "name": "Criminal Records",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "criminalrecords",
+    "name": "Criminal Records",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "factiondonatorlist",
+    "name": "Faction Donator List",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "factiondonatorlist",
+    "name": "Faction Donator List",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "vaccinationrecords",
+    "name": "Vaccination Records",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "unionmembership",
+    "name": "Union Membership",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "unionmembership",
+    "name": "Union Membership",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "troopdeploymentrecords",
+    "name": "Troop Deployment Records",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "seedgeneaology",
+    "name": "Seed Geneaology",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "settlementassaultplans",
+    "name": "Settlement Assault Plans",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "settlementassaultplans",
+    "name": "Settlement Assault Plans",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "settlementdefenceplans",
+    "name": "Settlement Defence Plans",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "settlementdefenceplans",
+    "name": "Settlement Defence Plans",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "shareholderinformation",
+    "name": "Shareholder Information",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "shareholderinformation",
+    "name": "Shareholder Information",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "slushfundlogs",
+    "name": "Slush Fund Logs",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "slushfundlogs",
+    "name": "Slush Fund Logs",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "smearcampaignplans",
+    "name": "Smear Campaign Plans",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "smearcampaignplans",
+    "name": "Smear Campaign Plans",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "spectralanalysisdata",
+    "name": "Spectral Analysis Data",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "securityexpenses",
+    "name": "Security Expenses",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "spectralanalysisdata",
+    "name": "Spectral Analysis Data",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "stellaractivitylogs",
+    "name": "Stellar Activity Logs",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "surveilleancelogs",
+    "name": "Surveillance Logs",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "surveilleancelogs",
+    "name": "Surveillance Logs",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "tacticalplans",
+    "name": "Tactical Plans",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "tacticalplans",
+    "name": "Tactical Plans",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "taxrecords",
+    "name": "Tax Records",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "taxrecords",
+    "name": "Tax Records",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "topographicalsurveys",
+    "name": "Topographical Surveys",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "topographicalsurveys",
+    "name": "Topographical Surveys",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "travelpermits",
+    "name": "Travel Permits",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "travelpermits",
+    "name": "Travel Permits",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "troopdeploymentrecords",
+    "name": "Troop Deployment Records",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "stellaractivitylogs",
+    "name": "Stellar Activity Logs",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "configurablecomponents",
+    "name": "Configurable Components",
+    "category": "Manufactured"
+  },
+  {
+    "id": "medicalrecords",
+    "name": "Medical Records",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "manufacturinginstructions",
+    "name": "Manufacturing Instructions",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "bloodtestresults",
+    "name": "Blood Test Results",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "bloodtestresults",
+    "name": "Blood Test Results",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "campaignplans",
+    "name": "Campaign Plans",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "campaignplans",
+    "name": "Campaign Plans",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "catmedia",
+    "name": "Cat Media",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "catmedia",
+    "name": "Cat Media",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "censusdata",
+    "name": "Census Data",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "censusdata",
+    "name": "Census Data",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "chemicalexperimentdata",
+    "name": "Chemical Experiment Data",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "chemicalexperimentdata",
+    "name": "Chemical Experiment Data",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "chemicalformulae",
+    "name": "Chemical Formulae",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "chemicalformulae",
+    "name": "Chemical Formulae",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "chemicalinventory",
+    "name": "Chemical Inventory",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "chemicalinventory",
+    "name": "Chemical Inventory",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "chemicalpatents",
+    "name": "Chemical Patents",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "chemicalpatents",
+    "name": "Chemical Patents",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "chemicalweapondata",
+    "name": "Chemical Weapon Data",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "chemicalweapondata",
+    "name": "Chemical Weapon Data",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "classicentertainment",
+    "name": "Classic Entertainment",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "classicentertainment",
+    "name": "Classic Entertainment",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "cocktailrecipes",
+    "name": "Cocktail Recipes",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "cocktailrecipes",
+    "name": "Cocktail Recipes",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "combattrainingmaterial",
+    "name": "Combat Training Material",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "combattrainingmaterial",
+    "name": "Combat Training Material",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "combatantperformance",
+    "name": "Combatant Performance",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "blacklistdata",
+    "name": "Blacklist Data",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "blacklistdata",
+    "name": "Blacklist Data",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "biologicalweapondata",
+    "name": "Biological Weapon Data",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "biologicalweapondata",
+    "name": "Biological Weapon Data",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "refinementprocesssample",
+    "name": "Refinement Process Sample",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "refinementprocesssample",
+    "name": "Refinement Process Sample",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "compressionliquefiedgas",
+    "name": "Compression-Liquefied Gas",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "compressionliquefiedgas",
+    "name": "Compression-Liquefied Gas",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "degradedpowerregulator",
+    "name": "Degraded Power Regulator",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "degradedpowerregulator",
+    "name": "Degraded Power Regulator",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "largecapacitypowerregulator",
+    "name": "Power Regulator",
+    "category": "ShipLocker.Items"
+  },
+  {
+    "id": "largecapacitypowerregulator",
+    "name": "Power Regulator",
+    "category": "Backpack.Items"
+  },
+  {
+    "id": "ionbattery",
+    "name": "Ion Battery",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "ionbattery",
+    "name": "Ion Battery",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "weaponcomponent",
+    "name": "Weapon Component",
+    "category": "ShipLocker.Components"
+  },
+  {
+    "id": "weaponcomponent",
+    "name": "Weapon Component",
+    "category": "Backpack.Components"
+  },
+  {
+    "id": "combatantperformance",
+    "name": "Combatant Performance",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "nocdata",
+    "name": "NOC Data",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "axcombatlogs",
+    "name": "AX Combat Logs",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "axcombatlogs",
+    "name": "AX Combat Logs",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "accidentlogs",
+    "name": "Accident Logs",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "accidentlogs",
+    "name": "Accident Logs",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "airqualityreports",
+    "name": "Air Quality Reports",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "airqualityreports",
+    "name": "Air Quality Reports",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "atmosphericdata",
+    "name": "Atmospheric Data",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "atmosphericdata",
+    "name": "Atmospheric Data",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "audiologs",
+    "name": "Audio Logs",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "audiologs",
+    "name": "Audio Logs",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "ballisticsdata",
+    "name": "Ballistics Data",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "ballisticsdata",
+    "name": "Ballistics Data",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "nocdata",
+    "name": "NOC Data",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "manufacturinginstructions",
+    "name": "Manufacturing Instructions",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "conflicthistory",
+    "name": "Conflict History",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "cropyieldanalysis",
+    "name": "Crop Yield Analysis",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "factionnews",
+    "name": "Faction News",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "fleetregistry",
+    "name": "Fleet Registry",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "fleetregistry",
+    "name": "Fleet Registry",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "genesequencingdata",
+    "name": "Gene Sequencing Data",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "genesequencingdata",
+    "name": "Gene Sequencing Data",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "geneticresearch",
+    "name": "Genetic Research",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "geneticresearch",
+    "name": "Genetic Research",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "hydroponicdata",
+    "name": "Hydroponic Data",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "hydroponicdata",
+    "name": "Hydroponic Data",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "incidentlogs",
+    "name": "Incident Logs",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "incidentlogs",
+    "name": "Incident Logs",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "influenceprojections",
+    "name": "Influence Projections",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "influenceprojections",
+    "name": "Influence Projections",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "interrogationrecordings",
+    "name": "Interrogation Recordings",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "interrogationrecordings",
+    "name": "Interrogation Recordings",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "interviewrecordings",
+    "name": "Interview Recordings",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "interviewrecordings",
+    "name": "Interview Recordings",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "jobapplications",
+    "name": "Job Applications",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "jobapplications",
+    "name": "Job Applications",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "kompromat",
+    "name": "Kompromat",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "kompromat",
+    "name": "Kompromat",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "literaryfiction",
+    "name": "Literary Fiction",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "literaryfiction",
+    "name": "Literary Fiction",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "maintenancelogs",
+    "name": "Maintenance Logs",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "maintenancelogs",
+    "name": "Maintenance Logs",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "factionnews",
+    "name": "Faction News",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "financialprojections",
+    "name": "Financial Projections",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "financialprojections",
+    "name": "Financial Projections",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "factionassociates",
+    "name": "Faction Associates",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "cropyieldanalysis",
+    "name": "Crop Yield Analysis",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "culinaryrecipes",
+    "name": "Culinary Recipes",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "culinaryrecipes",
+    "name": "Culinary Recipes",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "digitaldesigns",
+    "name": "Digital Designs",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "digitaldesigns",
+    "name": "Digital Designs",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "dutyrota",
+    "name": "Duty Rota",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "dutyrota",
+    "name": "Duty Rota",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "employeedirectory",
+    "name": "Employee Directory",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "employeedirectory",
+    "name": "Employee Directory",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "employeeexpenses",
+    "name": "Employee Expenses",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "employeeexpenses",
+    "name": "Employee Expenses",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "employeegeneticdata",
+    "name": "Employee Genetic Data",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "conflicthistory",
+    "name": "Conflict History",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "employeegeneticdata",
+    "name": "Employee Genetic Data",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "employmenthistory",
+    "name": "Employment History",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "enhancedinterrogationrecordings",
+    "name": "Enhanced Interrogation Recordings",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "enhancedinterrogationrecordings",
+    "name": "Enhanced Interrogation Recordings",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "espionagematerial",
+    "name": "Espionage Material",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "espionagematerial",
+    "name": "Espionage Material",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "evacuationprotocols",
+    "name": "Evacuation Protocols",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "evacuationprotocols",
+    "name": "Evacuation Protocols",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "explorationjournals",
+    "name": "Exploration Journals",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "explorationjournals",
+    "name": "Exploration Journals",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "extractionyielddata",
+    "name": "Extraction Yield Data",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "extractionyielddata",
+    "name": "Extraction Yield Data",
+    "category": "Backpack.Data"
+  },
+  {
+    "id": "factionassociates",
+    "name": "Faction Associates",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "employmenthistory",
+    "name": "Employment History",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "pharmaceuticalpatents",
+    "name": "Pharmaceutical Patents",
+    "category": "ShipLocker.Data"
+  },
+  {
+    "id": "conductivepolymers",
+    "name": "Conductive Polymers",
+    "category": "Manufactured"
+  },
+  {
+    "id": "refinedfocuscrystals",
+    "name": "Refined Focus Crystals",
+    "category": "Manufactured"
+  },
+  {
+    "id": "praseodymium",
+    "name": "Praseodymium",
+    "category": "cargo"
+  },
+  {
+    "id": "bromellite",
+    "name": "Bromellite",
+    "category": "cargo"
+  },
+  {
+    "id": "samarium",
+    "name": "Samarium",
+    "category": "cargo"
+  },
+  {
+    "id": "lowtemperaturediamond",
+    "name": "Low Temperature Diamonds",
+    "category": "cargo"
+  },
+  {
+    "id": "hydrogenperoxide",
+    "name": "Hydrogen Peroxide",
+    "category": "cargo"
+  },
+  {
+    "id": "liquidoxygen",
+    "name": "Liquid oxygen",
+    "category": "cargo"
+  },
+  {
+    "id": "methanolmonohydratecrystals",
+    "name": "Methanol Monohydrate Crystals",
+    "category": "cargo"
+  },
+  {
+    "id": "lithiumhydroxide",
+    "name": "Lithium Hydroxide",
+    "category": "cargo"
+  },
+  {
+    "id": "methaneclathrate",
+    "name": "Methane Clathrate",
+    "category": "cargo"
+  },
+  {
+    "id": "insulatingmembrane",
+    "name": "Insulating Membrane",
+    "category": "cargo"
+  },
+  {
+    "id": "cmmcomposite",
+    "name": "CMM Composite",
+    "category": "cargo"
+  },
+  {
+    "id": "coolinghoses",
+    "name": "Micro-weave Cooling Hoses",
+    "category": "cargo"
+  },
+  {
+    "id": "neofabricinsulation",
+    "name": "Neofabric Insulation",
+    "category": "cargo"
+  },
+  {
+    "id": "articulationmotors",
+    "name": "Articulation Motors",
+    "category": "cargo"
+  },
+  {
+    "id": "hnshockmount",
+    "name": "HN Shock Mount",
+    "category": "cargo"
+  },
+  {
+    "id": "emergencypowercells",
+    "name": "Emergency Power Cells",
+    "category": "cargo"
+  },
+  {
+    "id": "powerconverter",
+    "name": "Power Converter",
+    "category": "cargo"
+  },
+  {
+    "id": "powergridassembly",
+    "name": "Energy Grid Assembly",
+    "category": "cargo"
+  },
+  {
+    "id": "powertransferconduits",
+    "name": "Power Transfer Bus",
+    "category": "cargo"
+  },
+  {
+    "id": "radiationbaffle",
+    "name": "Radiation Baffle",
+    "category": "cargo"
+  },
+  {
+    "id": "exhaustmanifold",
+    "name": "Exhaust Manifold",
+    "category": "cargo"
+  },
+  {
+    "id": "reinforcedmountingplate",
+    "name": "Reinforced Mounting Plate",
+    "category": "cargo"
+  },
+  {
+    "id": "heatsinkinterlink",
+    "name": "Heatsink Interlink",
+    "category": "cargo"
+  },
+  {
+    "id": "magneticemittercoil",
+    "name": "Magnetic Emitter Coil",
+    "category": "cargo"
+  },
+  {
+    "id": "modularterminals",
+    "name": "Modular Terminals",
+    "category": "cargo"
+  },
+  {
+    "id": "damagedescapepod",
+    "name": "Damaged Escape Pod",
+    "category": "cargo"
+  },
+  {
+    "id": "nanobreakers",
+    "name": "Nanobreakers",
+    "category": "cargo"
+  },
+  {
+    "id": "unstabledatacore",
+    "name": "Unstable Data Core",
+    "category": "cargo"
+  },
+  {
+    "id": "taaffeite",
+    "name": "Taaffeite",
+    "category": "cargo"
+  },
+  {
+    "id": "genebank",
+    "name": "Gene Bank",
+    "category": "cargo"
+  },
+  {
+    "id": "timecapsule",
+    "name": "Time Capsule",
+    "category": "cargo"
+  },
+  {
+    "id": "cryolite",
+    "name": "Cryolite",
+    "category": "cargo"
+  },
+  {
+    "id": "goslarite",
+    "name": "Goslarite",
+    "category": "cargo"
+  },
+  {
+    "id": "moissanite",
+    "name": "Moissanite",
+    "category": "cargo"
+  },
+  {
+    "id": "pyrophyllite",
+    "name": "Pyrophyllite",
+    "category": "cargo"
+  },
+  {
+    "id": "lanthanum",
+    "name": "Lanthanum",
+    "category": "cargo"
+  },
+  {
+    "id": "thallium",
+    "name": "Thallium",
+    "category": "cargo"
+  },
+  {
+    "id": "bismuth",
+    "name": "Bismuth",
+    "category": "cargo"
+  },
+  {
+    "id": "thorium",
+    "name": "Thorium",
+    "category": "cargo"
+  },
+  {
+    "id": "ceramiccomposites",
+    "name": "Ceramic Composites",
+    "category": "cargo"
+  },
+  {
+    "id": "syntheticreagents",
+    "name": "Synthetic Reagents",
+    "category": "cargo"
+  },
+  {
+    "id": "nerveagents",
+    "name": "Nerve Agents",
+    "category": "cargo"
+  },
+  {
+    "id": "surfacestabilisers",
+    "name": "Surface Stabilisers",
+    "category": "cargo"
+  },
+  {
+    "id": "bootlegliquor",
+    "name": "Bootleg Liquor",
+    "category": "cargo"
+  },
+  {
+    "id": "geologicalequipment",
+    "name": "Geological Equipment",
+    "category": "cargo"
+  },
+  {
+    "id": "thermalcoolingunits",
+    "name": "Thermal Cooling Units",
+    "category": "cargo"
+  },
+  {
+    "id": "buildingfabricators",
+    "name": "Building Fabricators",
+    "category": "cargo"
+  },
+  {
+    "id": "mutomimager",
+    "name": "Muon Imager",
+    "category": "cargo"
+  },
+  {
+    "id": "structuralregulators",
+    "name": "Structural Regulators",
+    "category": "cargo"
+  },
+  {
+    "id": "landmines",
+    "name": "Landmines",
+    "category": "cargo"
+  },
+  {
+    "id": "skimercomponents",
+    "name": "Skimmer Components",
+    "category": "cargo"
+  },
+  {
+    "id": "evacuationshelter",
+    "name": "Evacuation Shelter",
+    "category": "cargo"
+  },
+  {
+    "id": "geologicalsamples",
+    "name": "Geological Samples",
+    "category": "cargo"
+  },
+  {
+    "id": "metaalloys",
+    "name": "Meta-Alloys",
+    "category": "cargo"
+  },
+  {
+    "id": "jadeite",
+    "name": "Jadeite",
+    "category": "cargo"
+  },
+  {
+    "id": "telemetrysuite",
+    "name": "Telemetry Suite",
+    "category": "cargo"
+  },
+  {
+    "id": "microcontrollers",
+    "name": "Micro Controllers",
+    "category": "cargo"
+  },
+  {
+    "id": "iondistributor",
+    "name": "Ion Distributor",
+    "category": "cargo"
+  },
+  {
+    "id": "m_tissuesample_fluid",
+    "name": "Mollusc Fluid",
+    "category": "cargo"
+  },
+  {
+    "id": "m_tissuesample_soft",
+    "name": "Mollusc Soft Tissue",
+    "category": "cargo"
+  },
+  {
+    "id": "m_tissuesample_nerves",
+    "name": "Mollusc Brain Tissue",
+    "category": "cargo"
+  },
+  {
+    "id": "s_tissuesample_cells",
+    "name": "Pod Core Tissue",
+    "category": "cargo"
+  },
+  {
+    "id": "s_tissuesample_surface",
+    "name": "Pod Dead Tissue",
+    "category": "cargo"
+  },
+  {
+    "id": "s_tissuesample_core",
+    "name": "Pod Surface Tissue",
+    "category": "cargo"
+  },
+  {
+    "id": "p_particulatesample",
+    "name": "Anomaly Particles",
+    "category": "cargo"
+  },
+  {
+    "id": "s9_tissuesample_shell",
+    "name": "Pod Tissue",
+    "category": "cargo"
+  },
+  {
+    "id": "m3_tissuesample_membrane",
+    "name": "Mollusc Membrane",
+    "category": "cargo"
+  },
+  {
+    "id": "m3_tissuesample_mycelium",
+    "name": "Mollusc Mycelium",
+    "category": "cargo"
+  },
+  {
+    "id": "m3_tissuesample_spores",
+    "name": "Mollusc Spores",
+    "category": "cargo"
+  },
+  {
+    "id": "s6_tissuesample_mesoglea",
+    "name": "Pod Mesoglea",
+    "category": "cargo"
+  },
+  {
+    "id": "s6_tissuesample_cells",
+    "name": "Pod Outer Tissue",
+    "category": "cargo"
+  },
+  {
+    "id": "s6_tissuesample_coenosarc",
+    "name": "Pod Shell Tissue",
+    "category": "cargo"
+  },
+  {
+    "id": "rhodplumsite",
+    "name": "Rhodplumsite",
+    "category": "cargo"
+  },
+  {
+    "id": "serendibite",
+    "name": "Serendibite",
+    "category": "cargo"
+  },
+  {
+    "id": "monazite",
+    "name": "Monazite",
+    "category": "cargo"
+  },
+  {
+    "id": "musgravite",
+    "name": "Musgravite",
+    "category": "cargo"
+  },
+  {
+    "id": "benitoite",
+    "name": "Benitoite",
+    "category": "cargo"
+  },
+  {
+    "id": "grandidierite",
+    "name": "Grandidierite",
+    "category": "cargo"
+  },
+  {
+    "id": "alexandrite",
+    "name": "Alexandrite",
+    "category": "cargo"
+  },
+  {
+    "id": "opal",
+    "name": "Void Opal",
+    "category": "cargo"
+  },
+  {
+    "id": "rockforthfertiliser",
+    "name": "Rockforth Fertiliser",
+    "category": "cargo"
+  },
+  {
+    "id": "agronomictreatment",
+    "name": "Agronomic Treatment",
+    "category": "cargo"
+  },
+  {
+    "id": "tritium",
+    "name": "Tritium",
+    "category": "cargo"
+  },
+  {
+    "id": "thargoidtissuesampletype4",
+    "name": "Thargoid Hydra Tissue Sample",
+    "category": "cargo"
+  },
+  {
+    "id": "ancientkey",
+    "name": "Ancient Key",
+    "category": "cargo"
+  },
+  {
+    "id": "thargoidscouttissuesample",
+    "name": "Thargoid Scout Tissue Sample",
+    "category": "cargo"
+  },
+  {
+    "id": "thargoidtissuesampletype3",
+    "name": "Thargoid Medusa Tissue Sample",
+    "category": "cargo"
+  },
+  {
+    "id": "diagnosticsensor",
+    "name": "Hardware Diagnostic Sensor",
+    "category": "cargo"
+  },
+  {
+    "id": "unknownartifact2",
+    "name": "Thargoid Probe",
+    "category": "cargo"
+  },
+  {
+    "id": "conductivefabrics",
+    "name": "Conductive Fabrics",
+    "category": "cargo"
+  },
+  {
+    "id": "militarygradefabrics",
+    "name": "Military Grade Fabrics",
+    "category": "cargo"
+  },
+  {
+    "id": "advancedmedicines",
+    "name": "Advanced Medicines",
+    "category": "cargo"
+  },
+  {
+    "id": "medicaldiagnosticequipment",
+    "name": "Medical Diagnostic Equipment",
+    "category": "cargo"
+  },
+  {
+    "id": "survivalequipment",
+    "name": "Survival Equipment",
+    "category": "cargo"
+  },
+  {
+    "id": "datacore",
+    "name": "Data Core",
+    "category": "cargo"
+  },
+  {
+    "id": "mysteriousidol",
+    "name": "Mysterious Idol",
+    "category": "cargo"
+  },
+  {
+    "id": "prohibitedresearchmaterials",
+    "name": "Prohibited Research Materials",
+    "category": "cargo"
+  },
+  {
+    "id": "antimattercontainmentunit",
+    "name": "Antimatter Containment Unit",
+    "category": "cargo"
+  },
+  {
+    "id": "spacepioneerrelics",
+    "name": "Space Pioneer Relics",
+    "category": "cargo"
+  },
+  {
+    "id": "earthrelics",
+    "name": "Earth Relics",
+    "category": "cargo"
+  },
+  {
+    "id": "fossilremnants",
+    "name": "Fossil Remnants",
+    "category": "cargo"
+  },
+  {
+    "id": "ancientorb",
+    "name": "Guardian Orb",
+    "category": "cargo"
+  },
+  {
+    "id": "ancientcasket",
+    "name": "Guardian Casket",
+    "category": "cargo"
+  },
+  {
+    "id": "ancienttablet",
+    "name": "Guardian Tablet",
+    "category": "cargo"
+  },
+  {
+    "id": "ancienturn",
+    "name": "Guardian Urn",
+    "category": "cargo"
+  },
+  {
+    "id": "ancienttotem",
+    "name": "Guardian Totem",
+    "category": "cargo"
+  },
+  {
+    "id": "unknownresin",
+    "name": "Thargoid Resin",
+    "category": "cargo"
+  },
+  {
+    "id": "unknownbiologicalmatter",
+    "name": "Thargoid Biological Matter",
+    "category": "cargo"
+  },
+  {
+    "id": "unknowntechnologysamples",
+    "name": "Thargoid Technology Samples",
+    "category": "cargo"
+  },
+  {
+    "id": "unknownartifact3",
+    "name": "Thargoid Link",
+    "category": "cargo"
+  },
+  {
+    "id": "thargoidheart",
+    "name": "Thargoid Heart",
+    "category": "cargo"
+  },
+  {
+    "id": "thargoidtissuesampletype1",
+    "name": "Thargoid Cyclops Tissue Sample",
+    "category": "cargo"
+  },
+  {
+    "id": "thargoidtissuesampletype2",
+    "name": "Thargoid Basilisk Tissue Sample",
+    "category": "cargo"
+  },
+  {
+    "id": "ancientrelic",
+    "name": "Guardian Relic",
+    "category": "cargo"
+  },
+  {
+    "id": "preciousgems",
+    "name": "Precious Gems",
+    "category": "cargo"
+  },
+  {
+    "id": "antiquejewellery",
+    "name": "Antique Jewellery",
+    "category": "cargo"
+  },
+  {
+    "id": "smallexplorationdatacash",
+    "name": "Small Survey Data Cache",
+    "category": "cargo"
+  },
+  {
+    "id": "coffee",
+    "name": "Coffee",
+    "category": "cargo"
+  },
+  {
+    "id": "leather",
+    "name": "Leather",
+    "category": "cargo"
+  },
+  {
+    "id": "naturalfabrics",
+    "name": "Natural Fabrics",
+    "category": "cargo"
+  },
+  {
+    "id": "syntheticfabrics",
+    "name": "Synthetic Fabrics",
+    "category": "cargo"
+  },
+  {
+    "id": "polymers",
+    "name": "Polymers",
+    "category": "cargo"
+  },
+  {
+    "id": "semiconductors",
+    "name": "Semiconductors",
+    "category": "cargo"
+  },
+  {
+    "id": "superconductors",
+    "name": "Superconductors",
+    "category": "cargo"
+  },
+  {
+    "id": "hydrogenfuel",
+    "name": "Hydrogen Fuel",
+    "category": "cargo"
+  },
+  {
+    "id": "mineraloil",
+    "name": "Mineral Oil",
+    "category": "cargo"
+  },
+  {
+    "id": "explosives",
+    "name": "Explosives",
+    "category": "cargo"
+  },
+  {
+    "id": "pesticides",
+    "name": "Pesticides",
+    "category": "cargo"
+  },
+  {
+    "id": "agriculturalmedicines",
+    "name": "Agri-Medicines",
+    "category": "cargo"
+  },
+  {
+    "id": "performanceenhancers",
+    "name": "Performance Enhancers",
+    "category": "cargo"
+  },
+  {
+    "id": "basicmedicines",
+    "name": "Basic Medicines",
+    "category": "cargo"
+  },
+  {
+    "id": "basicnarcotics",
+    "name": "Narcotics",
+    "category": "cargo"
+  },
+  {
+    "id": "tobacco",
+    "name": "Tobacco",
+    "category": "cargo"
+  },
+  {
+    "id": "beer",
+    "name": "Beer",
+    "category": "cargo"
+  },
+  {
+    "id": "wine",
+    "name": "Wine",
+    "category": "cargo"
+  },
+  {
+    "id": "liquor",
+    "name": "Liquor",
+    "category": "cargo"
+  },
+  {
+    "id": "powergenerators",
+    "name": "Power Generators",
+    "category": "cargo"
+  },
+  {
+    "id": "waterpurifiers",
+    "name": "Water Purifiers",
+    "category": "cargo"
+  },
+  {
+    "id": "heliostaticfurnaces",
+    "name": "Microbial Furnaces",
+    "category": "cargo"
+  },
+  {
+    "id": "mineralextractors",
+    "name": "Mineral Extractors",
+    "category": "cargo"
+  },
+  {
+    "id": "cropharvesters",
+    "name": "Crop Harvesters",
+    "category": "cargo"
+  },
+  {
+    "id": "marinesupplies",
+    "name": "Marine Equipment",
+    "category": "cargo"
+  },
+  {
+    "id": "tea",
+    "name": "Tea",
+    "category": "cargo"
+  },
+  {
+    "id": "syntheticmeat",
+    "name": "Synthetic Meat",
+    "category": "cargo"
+  },
+  {
+    "id": "foodcartridges",
+    "name": "Food Cartridges",
+    "category": "cargo"
+  },
+  {
+    "id": "fish",
+    "name": "Fish",
+    "category": "cargo"
+  },
+  {
+    "id": "palladium",
+    "name": "Palladium",
+    "category": "cargo"
+  },
+  {
+    "id": "gold",
+    "name": "Gold",
+    "category": "cargo"
+  },
+  {
+    "id": "silver",
+    "name": "Silver",
+    "category": "cargo"
+  },
+  {
+    "id": "bertrandite",
+    "name": "Bertrandite",
+    "category": "cargo"
+  },
+  {
+    "id": "indite",
+    "name": "Indite",
+    "category": "cargo"
+  },
+  {
+    "id": "gallite",
+    "name": "Gallite",
+    "category": "cargo"
+  },
+  {
+    "id": "coltan",
+    "name": "Coltan",
+    "category": "cargo"
+  },
+  {
+    "id": "uraninite",
+    "name": "Uraninite",
+    "category": "cargo"
+  },
+  {
+    "id": "lepidolite",
+    "name": "Lepidolite",
+    "category": "cargo"
+  },
+  {
+    "id": "cobalt",
+    "name": "Cobalt",
+    "category": "cargo"
+  },
+  {
+    "id": "rutile",
+    "name": "Rutile",
+    "category": "cargo"
+  },
+  {
+    "id": "bauxite",
+    "name": "Bauxite",
+    "category": "cargo"
+  },
+  {
+    "id": "computercomponents",
+    "name": "Computer Components",
+    "category": "cargo"
+  },
+  {
+    "id": "water",
+    "name": "Water",
+    "category": "cargo"
+  },
+  {
+    "id": "indium",
+    "name": "Indium",
+    "category": "cargo"
+  },
+  {
+    "id": "gallium",
+    "name": "Gallium",
+    "category": "cargo"
+  },
+  {
+    "id": "tantalum",
+    "name": "Tantalum",
+    "category": "cargo"
+  },
+  {
+    "id": "uranium",
+    "name": "Uranium",
+    "category": "cargo"
+  },
+  {
+    "id": "lithium",
+    "name": "Lithium",
+    "category": "cargo"
+  },
+  {
+    "id": "titanium",
+    "name": "Titanium",
+    "category": "cargo"
+  },
+  {
+    "id": "copper",
+    "name": "Copper",
+    "category": "cargo"
+  },
+  {
+    "id": "aluminium",
+    "name": "Aluminium",
+    "category": "cargo"
+  },
+  {
+    "id": "algae",
+    "name": "Algae",
+    "category": "cargo"
+  },
+  {
+    "id": "fruitandvegetables",
+    "name": "Fruit and Vegetables",
+    "category": "cargo"
+  },
+  {
+    "id": "grain",
+    "name": "Grain",
+    "category": "cargo"
+  },
+  {
+    "id": "animalmeat",
+    "name": "Animal Meat",
+    "category": "cargo"
+  },
+  {
+    "id": "beryllium",
+    "name": "Beryllium",
+    "category": "cargo"
+  },
+  {
+    "id": "onionheadc",
+    "name": "Onionhead Gamma Strain",
+    "category": "cargo"
+  },
+  {
+    "id": "hazardousenvironmentsuits",
+    "name": "H.E. Suits",
+    "category": "cargo"
+  },
+  {
+    "id": "autofabricators",
+    "name": "Auto-Fabricators",
+    "category": "cargo"
+  },
+  {
+    "id": "usscargotechnicalblueprints",
+    "name": "Technical Blueprints",
+    "category": "cargo"
+  },
+  {
+    "id": "imperialslaves",
+    "name": "Imperial Slaves",
+    "category": "cargo"
+  },
+  {
+    "id": "unknownartifact",
+    "name": "Thargoid Sensor",
+    "category": "cargo"
+  },
+  {
+    "id": "airelics",
+    "name": "AI Relics",
+    "category": "cargo"
+  },
+  {
+    "id": "hafnium178",
+    "name": "Hafnium 178",
+    "category": "cargo"
+  },
+  {
+    "id": "painite",
+    "name": "Painite",
+    "category": "cargo"
+  },
+  {
+    "id": "antiquities",
+    "name": "Antiquities",
+    "category": "cargo"
+  },
+  {
+    "id": "militaryintelligence",
+    "name": "Military Intelligence",
+    "category": "cargo"
+  },
+  {
+    "id": "osmium",
+    "name": "Osmium",
+    "category": "cargo"
+  },
+  {
+    "id": "sap8corecontainer",
+    "name": "SAP 8 Core Container",
+    "category": "cargo"
+  },
+  {
+    "id": "trinketsoffortune",
+    "name": "Trinkets of Hidden Fortune",
+    "category": "cargo"
+  },
+  {
+    "id": "wreckagecomponents",
+    "name": "Wreckage Components",
+    "category": "cargo"
+  },
+  {
+    "id": "encripteddatastorage",
+    "name": "Encrypted Data Storage",
+    "category": "cargo"
+  },
+  {
+    "id": "occupiedcryopod",
+    "name": "Occupied Escape Pod",
+    "category": "cargo"
+  },
+  {
+    "id": "personaleffects",
+    "name": "Personal Effects",
+    "category": "cargo"
+  },
+  {
+    "id": "comercialsamples",
+    "name": "Commercial Samples",
+    "category": "cargo"
+  },
+  {
+    "id": "tacticaldata",
+    "name": "Tactical Data",
+    "category": "cargo"
+  },
+  {
+    "id": "assaultplans",
+    "name": "Assault Plans",
+    "category": "cargo"
+  },
+  {
+    "id": "encryptedcorrespondence",
+    "name": "Encrypted Correspondence",
+    "category": "cargo"
+  },
+  {
+    "id": "diplomaticbag",
+    "name": "Diplomatic Bag",
+    "category": "cargo"
+  },
+  {
+    "id": "scientificresearch",
+    "name": "Scientific Research",
+    "category": "cargo"
+  },
+  {
+    "id": "scientificsamples",
+    "name": "Scientific Samples",
+    "category": "cargo"
+  },
+  {
+    "id": "politicalprisoner",
+    "name": "Political Prisoners",
+    "category": "cargo"
+  },
+  {
+    "id": "hostage",
+    "name": "Hostages",
+    "category": "cargo"
+  },
+  {
+    "id": "largeexplorationdatacash",
+    "name": "Large Survey Data Cache",
+    "category": "cargo"
+  },
+  {
+    "id": "usscargoprototypetech",
+    "name": "Prototype Tech",
+    "category": "cargo"
+  },
+  {
+    "id": "usscargorebeltransmissions",
+    "name": "Rebel Transmissions",
+    "category": "cargo"
+  },
+  {
+    "id": "usscargoexperimentalchemicals",
+    "name": "Experimental Chemicals",
+    "category": "cargo"
+  },
+  {
+    "id": "usscargorareartwork",
+    "name": "Rare Artwork",
+    "category": "cargo"
+  },
+  {
+    "id": "animalmonitors",
+    "name": "Animal Monitors",
+    "category": "cargo"
+  },
+  {
+    "id": "aquaponicsystems",
+    "name": "Aquaponic Systems",
+    "category": "cargo"
+  },
+  {
+    "id": "advancedcatalysers",
+    "name": "Advanced Catalysers",
+    "category": "cargo"
+  },
+  {
+    "id": "terrainenrichmentsystems",
+    "name": "Land Enrichment Systems",
+    "category": "cargo"
+  },
+  {
+    "id": "personalweapons",
+    "name": "Personal Weapons",
+    "category": "cargo"
+  },
+  {
+    "id": "battleweapons",
+    "name": "Battle Weapons",
+    "category": "cargo"
+  },
+  {
+    "id": "reactivearmour",
+    "name": "Reactive Armour",
+    "category": "cargo"
+  },
+  {
+    "id": "nonlethalweapons",
+    "name": "Non-Lethal Weapons",
+    "category": "cargo"
+  },
+  {
+    "id": "domesticappliances",
+    "name": "Domestic Appliances",
+    "category": "cargo"
+  },
+  {
+    "id": "consumertechnology",
+    "name": "Consumer Technology",
+    "category": "cargo"
+  },
+  {
+    "id": "clothing",
+    "name": "Clothing",
+    "category": "cargo"
+  },
+  {
+    "id": "slaves",
+    "name": "Slaves",
+    "category": "cargo"
+  },
+  {
+    "id": "robotics",
+    "name": "Robotics",
+    "category": "cargo"
+  },
+  {
+    "id": "biowaste",
+    "name": "Biowaste",
+    "category": "cargo"
+  },
+  {
+    "id": "chemicalwaste",
+    "name": "Chemical Waste",
+    "category": "cargo"
+  },
+  {
+    "id": "scrap",
+    "name": "Scrap",
+    "category": "cargo"
+  },
+  {
+    "id": "progenitorcells",
+    "name": "Progenitor Cells",
+    "category": "cargo"
+  },
+  {
+    "id": "combatstabilisers",
+    "name": "Combat Stabilisers",
+    "category": "cargo"
+  },
+  {
+    "id": "resonatingseparators",
+    "name": "Resonating Separators",
+    "category": "cargo"
+  },
+  {
+    "id": "bioreducinglichen",
+    "name": "Bioreducing Lichen",
+    "category": "cargo"
+  },
+  {
+    "id": "atmosphericextractors",
+    "name": "Atmospheric Processors",
+    "category": "cargo"
+  },
+  {
+    "id": "drones",
+    "name": "Limpets",
+    "category": "cargo"
+  },
+  {
+    "id": "usscargoblackbox",
+    "name": "Black Box",
+    "category": "cargo"
+  },
+  {
+    "id": "usscargotradedata",
+    "name": "Trade Data",
+    "category": "cargo"
+  },
+  {
+    "id": "usscargomilitaryplans",
+    "name": "Military Plans",
+    "category": "cargo"
+  },
+  {
+    "id": "usscargoancientartefact",
+    "name": "Ancient Artefact",
+    "category": "cargo"
+  },
+  {
+    "id": "toxicwaste",
+    "name": "Toxic Waste",
+    "category": "cargo"
+  },
+  {
+    "id": "ancientrelictg",
+    "name": "Unclassified Relic",
+    "category": "cargo"
+  },
+  {
+    "id": "thargoidtissuesampletype5",
+    "name": "Thargoid Orthrus Tissue Sample",
+    "category": "cargo"
+  },
+  {
+    "id": "thargoidgeneratortissuesample",
+    "name": "Caustic Tissue Sample",
+    "category": "cargo"
+  },
+  {
+    "id": "momusbogspaniel",
+    "name": "Momus Bog Spaniel",
+    "category": "cargo"
+  },
+  {
+    "id": "disomacorn",
+    "name": "Diso Ma Corn",
+    "category": "cargo"
+  },
+  {
+    "id": "leestianeviljuice",
+    "name": "Leestian Evil Juice",
+    "category": "cargo"
+  },
+  {
+    "id": "bluemilk",
+    "name": "Azure Milk",
+    "category": "cargo"
+  },
+  {
+    "id": "alieneggs",
+    "name": "Leathery Eggs",
+    "category": "cargo"
+  },
+  {
+    "id": "alyabodilysoap",
+    "name": "Alya Body Soap",
+    "category": "cargo"
+  },
+  {
+    "id": "vidavantianlace",
+    "name": "Vidavantian Lace",
+    "category": "cargo"
+  },
+  {
+    "id": "transgeniconionhead",
+    "name": "Lucan Onionhead",
+    "category": "cargo"
+  },
+  {
+    "id": "jaquesquinentianstill",
+    "name": "Jaques Quinentian Still",
+    "category": "cargo"
+  },
+  {
+    "id": "soontillrelics",
+    "name": "Soontill Relics",
+    "category": "cargo"
+  },
+  {
+    "id": "advert1",
+    "name": "Ultra-Compact Processor Prototypes",
+    "category": "cargo"
+  },
+  {
+    "id": "thehuttonmug",
+    "name": "The Hutton Mug",
+    "category": "cargo"
+  },
+  {
+    "id": "sothiscrystallinegold",
+    "name": "Sothis Crystalline Gold",
+    "category": "cargo"
+  },
+  {
+    "id": "masterchefs",
+    "name": "Master Chefs",
+    "category": "cargo"
+  },
+  {
+    "id": "personalgifts",
+    "name": "Festive Gifts",
+    "category": "cargo"
+  },
+  {
+    "id": "crystallinespheres",
+    "name": "Crystalline Spheres",
+    "category": "cargo"
+  },
+  {
+    "id": "onionheada",
+    "name": "Onionhead Alpha Strain",
+    "category": "cargo"
+  },
+  {
+    "id": "onionheadb",
+    "name": "Onionhead Beta Strain",
+    "category": "cargo"
+  },
+  {
+    "id": "galactictravelguide",
+    "name": "Galactic Travel Guide",
+    "category": "cargo"
+  },
+  {
+    "id": "animaleffigies",
+    "name": "Crom Silver Fesh",
+    "category": "cargo"
+  },
+  {
+    "id": "shanscharisorchid",
+    "name": "Shan's Charis Orchid",
+    "category": "cargo"
+  },
+  {
+    "id": "buckyballbeermats",
+    "name": "Buckyball Beer Mats",
+    "category": "cargo"
+  },
+  {
+    "id": "harmasilversearum",
+    "name": "Harma Silver Sea Rum",
+    "category": "cargo"
+  },
+  {
+    "id": "platinumaloy",
+    "name": "Platinum Alloy",
+    "category": "cargo"
+  },
+  {
+    "id": "nanomedicines",
+    "name": "Nanomedicines",
+    "category": "cargo"
+  },
+  {
+    "id": "uszaiantreegrub",
+    "name": "Uszaian Tree Grub",
+    "category": "cargo"
+  },
+  {
+    "id": "orrerianviciousbrew",
+    "name": "Orrerian Vicious Brew",
+    "category": "cargo"
+  },
+  {
+    "id": "chameleoncloth",
+    "name": "Chameleon Cloth",
+    "category": "cargo"
+  },
+  {
+    "id": "fujintea",
+    "name": "Fujin Tea",
+    "category": "cargo"
+  },
+  {
+    "id": "jaradharrepuzzlebox",
+    "name": "Jaradharre Puzzle Box",
+    "category": "cargo"
+  },
+  {
+    "id": "korrokungpellets",
+    "name": "Koro Kung Pellets",
+    "category": "cargo"
+  },
+  {
+    "id": "lftvoidextractcoffee",
+    "name": "Void Extract Coffee",
+    "category": "cargo"
+  },
+  {
+    "id": "honestypills",
+    "name": "Honesty Pills",
+    "category": "cargo"
+  },
+  {
+    "id": "noneuclidianexotanks",
+    "name": "Non Euclidian Exotanks",
+    "category": "cargo"
+  },
+  {
+    "id": "ltthypersweet",
+    "name": "LTT Hyper Sweet",
+    "category": "cargo"
+  },
+  {
+    "id": "mechucoshightea",
+    "name": "Mechucos High Tea",
+    "category": "cargo"
+  },
+  {
+    "id": "medbstarlube",
+    "name": "Medb Starlube",
+    "category": "cargo"
+  },
+  {
+    "id": "mokojingbeastfeast",
+    "name": "Mokojing Beast Feast",
+    "category": "cargo"
+  },
+  {
+    "id": "mukusubiichitinos",
+    "name": "Mukusubii Chitin-os",
+    "category": "cargo"
+  },
+  {
+    "id": "mulachigiantfungus",
+    "name": "Mulachi Giant Fungus",
+    "category": "cargo"
+  },
+  {
+    "id": "ngadandarifireopals",
+    "name": "Ngadandari Fire Opals",
+    "category": "cargo"
+  },
+  {
+    "id": "duradrives",
+    "name": "Duradrives",
+    "category": "cargo"
+  },
+  {
+    "id": "tiegfriessynthsilk",
+    "name": "Tiegfries Synth Silk",
+    "category": "cargo"
+  },
+  {
+    "id": "vherculisbodyrub",
+    "name": "V Herculis Body Rub",
+    "category": "cargo"
+  },
+  {
+    "id": "wheemetewheatcakes",
+    "name": "Wheemete Wheat Cakes",
+    "category": "cargo"
+  },
+  {
+    "id": "vegaslimweed",
+    "name": "Vega Slimweed",
+    "category": "cargo"
+  },
+  {
+    "id": "altairianskin",
+    "name": "Altairian Skin",
+    "category": "cargo"
+  },
+  {
+    "id": "pavoniseargrubs",
+    "name": "Pavonis Ear Grubs",
+    "category": "cargo"
+  },
+  {
+    "id": "jotunmookah",
+    "name": "Jotun Mookah",
+    "category": "cargo"
+  },
+  {
+    "id": "giantverrix",
+    "name": "Giant Verrix",
+    "category": "cargo"
+  },
+  {
+    "id": "indibourbon",
+    "name": "Indi Bourbon",
+    "category": "cargo"
+  },
+  {
+    "id": "aroucaconventualsweets",
+    "name": "Arouca Conventual Sweets",
+    "category": "cargo"
+  },
+  {
+    "id": "taurichimes",
+    "name": "Tauri Chimes",
+    "category": "cargo"
+  },
+  {
+    "id": "zeesszeantglue",
+    "name": "Zeessze Ant Grub Glue",
+    "category": "cargo"
+  },
+  {
+    "id": "pantaaprayersticks",
+    "name": "Pantaa Prayer Sticks",
+    "category": "cargo"
+  },
+  {
+    "id": "uzumokulowgwings",
+    "name": "Uzumoku Low-G Wings",
+    "category": "cargo"
+  },
+  {
+    "id": "hiporganophosphates",
+    "name": "HIP Organophosphates",
+    "category": "cargo"
+  },
+  {
+    "id": "apavietii",
+    "name": "Apa Vietii",
+    "category": "cargo"
+  },
+  {
+    "id": "iron",
+    "name": "Iron",
+    "category": "Raw"
+  },
+  {
+    "id": "wornshieldemitters",
+    "name": "Worn Shield Emitters",
+    "category": "Manufactured"
+  },
+  {
+    "id": "compactcomposites",
+    "name": "Compact Composites",
+    "category": "Manufactured"
+  },
+  {
+    "id": "salvagedalloys",
+    "name": "Salvaged Alloys",
+    "category": "Manufactured"
+  },
+  {
+    "id": "chemicalstorageunits",
+    "name": "Chemical Storage Units",
+    "category": "Manufactured"
+  },
+  {
+    "id": "hybridcapacitors",
+    "name": "Hybrid Capacitors",
+    "category": "Manufactured"
+  },
+  {
+    "id": "uncutfocuscrystals",
+    "name": "Flawed Focus Crystals",
+    "category": "Manufactured"
+  },
+  {
+    "id": "heatresistantceramics",
+    "name": "Heat Resistant Ceramics",
+    "category": "Manufactured"
+  },
+  {
+    "id": "conductivecomponents",
+    "name": "Conductive Components",
+    "category": "Manufactured"
+  },
+  {
+    "id": "mechanicalequipment",
+    "name": "Mechanical Equipment",
+    "category": "Manufactured"
+  },
+  {
+    "id": "heatdispersionplate",
+    "name": "Heat Dispersion Plate",
+    "category": "Manufactured"
+  },
+  {
+    "id": "shieldemitters",
+    "name": "Shield Emitters",
+    "category": "Manufactured"
+  },
+  {
+    "id": "filamentcomposites",
+    "name": "Filament Composites",
+    "category": "Manufactured"
+  },
+  {
+    "id": "galvanisingalloys",
+    "name": "Galvanising Alloys",
+    "category": "Manufactured"
+  },
+  {
+    "id": "chemicalprocessors",
+    "name": "Chemical Processors",
+    "category": "Manufactured"
+  },
+  {
+    "id": "electrochemicalarrays",
+    "name": "Electrochemical Arrays",
+    "category": "Manufactured"
+  },
+  {
+    "id": "focuscrystals",
+    "name": "Focus Crystals",
+    "category": "Manufactured"
+  },
+  {
+    "id": "precipitatedalloys",
+    "name": "Precipitated Alloys",
+    "category": "Manufactured"
+  },
+  {
+    "id": "conductiveceramics",
+    "name": "Conductive Ceramics",
+    "category": "Manufactured"
+  },
+  {
+    "id": "mechanicalcomponents",
+    "name": "Mechanical Components",
+    "category": "Manufactured"
+  },
+  {
+    "id": "heatexchangers",
+    "name": "Heat Exchangers",
+    "category": "Manufactured"
+  },
+  {
+    "id": "shieldingsensors",
+    "name": "Shielding Sensors",
+    "category": "Manufactured"
+  },
+  {
+    "id": "highdensitycomposites",
+    "name": "High Density Composites",
+    "category": "Manufactured"
+  },
+  {
+    "id": "phasealloys",
+    "name": "Phase Alloys",
+    "category": "Manufactured"
+  },
+  {
+    "id": "chemicaldistillery",
+    "name": "Chemical Distillery",
+    "category": "Manufactured"
+  },
+  {
+    "id": "polymercapacitors",
+    "name": "Polymer Capacitors",
+    "category": "Manufactured"
+  },
+  {
+    "id": "heatconductionwiring",
+    "name": "Heat Conduction Wiring",
+    "category": "Manufactured"
+  },
+  {
+    "id": "mechanicalscrap",
+    "name": "Mechanical Scrap",
+    "category": "Manufactured"
+  },
+  {
+    "id": "basicconductors",
+    "name": "Basic Conductors",
+    "category": "Manufactured"
+  },
+  {
+    "id": "temperedalloys",
+    "name": "Tempered Alloys",
+    "category": "Manufactured"
+  },
+  {
+    "id": "nickel",
+    "name": "Nickel",
+    "category": "Raw"
+  },
+  {
+    "id": "tin",
+    "name": "Tin",
+    "category": "Raw"
+  },
+  {
+    "id": "zinc",
+    "name": "Zinc",
+    "category": "Raw"
+  },
+  {
+    "id": "carbon",
+    "name": "Carbon",
+    "category": "Raw"
+  },
+  {
+    "id": "sulphur",
+    "name": "Sulphur",
+    "category": "Raw"
+  },
+  {
+    "id": "phosphorus",
+    "name": "Phosphorus",
+    "category": "Raw"
+  },
+  {
+    "id": "manganese",
+    "name": "Manganese",
+    "category": "Raw"
+  },
+  {
+    "id": "selenium",
+    "name": "Selenium",
+    "category": "Raw"
+  },
+  {
+    "id": "chromium",
+    "name": "Chromium",
+    "category": "Raw"
+  },
+  {
+    "id": "vanadium",
+    "name": "Vanadium",
+    "category": "Raw"
+  },
+  {
+    "id": "germanium",
+    "name": "Germanium",
+    "category": "Raw"
+  },
+  {
+    "id": "cadmium",
+    "name": "Cadmium",
+    "category": "Raw"
+  },
+  {
+    "id": "classifiedexperimentalequipment",
+    "name": "Classified Experimental Equipment",
+    "category": "cargo"
+  },
+  {
+    "id": "tungsten",
+    "name": "Tungsten",
+    "category": "Raw"
+  },
+  {
+    "id": "molybdenum",
+    "name": "Molybdenum",
+    "category": "Raw"
+  },
+  {
+    "id": "niobium",
+    "name": "Niobium",
+    "category": "Raw"
+  },
+  {
+    "id": "zirconium",
+    "name": "Zirconium",
+    "category": "Raw"
+  },
+  {
+    "id": "mercury",
+    "name": "Mercury",
+    "category": "Raw"
+  },
+  {
+    "id": "yttrium",
+    "name": "Yttrium",
+    "category": "Raw"
+  },
+  {
+    "id": "tellurium",
+    "name": "Tellurium",
+    "category": "Raw"
+  },
+  {
+    "id": "polonium",
+    "name": "Polonium",
+    "category": "Raw"
+  },
+  {
+    "id": "technetium",
+    "name": "Technetium",
+    "category": "Raw"
+  },
+  {
+    "id": "ruthenium",
+    "name": "Ruthenium",
+    "category": "Raw"
+  },
+  {
+    "id": "antimony",
+    "name": "Antimony",
+    "category": "Raw"
+  },
+  {
+    "id": "gridresistors",
+    "name": "Grid Resistors",
+    "category": "Manufactured"
+  },
+  {
+    "id": "crystalshards",
+    "name": "Crystal Shards",
+    "category": "Manufactured"
+  },
+  {
+    "id": "arsenic",
+    "name": "Arsenic",
+    "category": "Raw"
+  },
+  {
+    "id": "thermicalloys",
+    "name": "Thermic Alloys",
+    "category": "Manufactured"
+  },
+  {
+    "id": "burnhambiledistillate",
+    "name": "Burnham Bile Distillate",
+    "category": "cargo"
+  },
+  {
+    "id": "haidneblackbrew",
+    "name": "Haiden Black Brew",
+    "category": "cargo"
+  },
+  {
+    "id": "sapphire",
+    "name": "Sapphire",
+    "category": "cargo"
+  },
+  {
+    "id": "diamond",
+    "name": "Diamond",
+    "category": "cargo"
+  },
+  {
+    "id": "ruby",
+    "name": "Ruby",
+    "category": "cargo"
+  },
+  {
+    "id": "magnesite",
+    "name": "Magnesite",
+    "category": "cargo"
+  },
+  {
+    "id": "eraninpearlwhisky",
+    "name": "Eranin Pearl Whisky",
+    "category": "cargo"
+  },
+  {
+    "id": "lavianbrandy",
+    "name": "Lavian Brandy",
+    "category": "cargo"
+  },
+  {
+    "id": "hip10175bushmeat",
+    "name": "HIP 10175 Bush Meat",
+    "category": "cargo"
+  },
+  {
+    "id": "albinoquechuamammoth",
+    "name": "Albino Quechua Mammoth Meat",
+    "category": "cargo"
+  },
+  {
+    "id": "utgaroarmillenialeggs",
+    "name": "Utgaroar Millennial Eggs",
+    "category": "cargo"
+  },
+  {
+    "id": "witchhaulkobebeef",
+    "name": "Witchhaul Kobe Beef",
+    "category": "cargo"
+  },
+  {
+    "id": "karsukilocusts",
+    "name": "Karsuki Locusts",
+    "category": "cargo"
+  },
+  {
+    "id": "giantirukamasnails",
+    "name": "Giant Irukama Snails",
+    "category": "cargo"
+  },
+  {
+    "id": "baltahsinevacuumkrill",
+    "name": "Baltah'sine Vacuum Krill",
+    "category": "cargo"
+  },
+  {
+    "id": "cetirabbits",
+    "name": "Ceti Rabbits",
+    "category": "cargo"
+  },
+  {
+    "id": "kachiriginleaches",
+    "name": "Kachirigin Filter Leeches",
+    "category": "cargo"
+  },
+  {
+    "id": "lyraeweed",
+    "name": "Lyrae Weed",
+    "category": "cargo"
+  },
+  {
+    "id": "onionhead",
+    "name": "Onionhead",
+    "category": "cargo"
+  },
+  {
+    "id": "tarachtorspice",
+    "name": "Tarach Spice",
+    "category": "cargo"
+  },
+  {
+    "id": "wolf1301fesh",
+    "name": "Wolf Fesh",
+    "category": "cargo"
+  },
+  {
+    "id": "borasetanipathogenetics",
+    "name": "Borasetani Pathogenetics",
+    "category": "cargo"
+  },
+  {
+    "id": "hip118311swarm",
+    "name": "HIP 118311 Swarm",
+    "category": "cargo"
+  },
+  {
+    "id": "konggaale",
+    "name": "Kongga Ale",
+    "category": "cargo"
+  },
+  {
+    "id": "wuthielokufroth",
+    "name": "Wuthielo Ku Froth",
+    "category": "cargo"
+  },
+  {
+    "id": "alacarakmoskinart",
+    "name": "Alacarakmo Skin Art",
+    "category": "cargo"
+  },
+  {
+    "id": "eleuthermals",
+    "name": "Eleu Thermals",
+    "category": "cargo"
+  },
+  {
+    "id": "periclasedunite",
+    "name": "Periclase Dunite",
+    "category": "cargo"
+  },
+  {
+    "id": "olivine",
+    "name": "Olivine",
+    "category": "cargo"
+  },
+  {
+    "id": "quartzpyroxenite",
+    "name": "Quartz Pyroxenite",
+    "category": "cargo"
+  },
+  {
+    "id": "thortveitite",
+    "name": "Thortveitite",
+    "category": "cargo"
+  },
+  {
+    "id": "unocuppiedescapepod",
+    "name": "Unoccupied Escape Pod",
+    "category": "cargo"
+  },
+  {
+    "id": "thargoidtissuesampletype6",
+    "name": "Thargoid Glaive Tissue Sample",
+    "category": "cargo"
+  },
+  {
+    "id": "thargoidtissuesampletype7",
+    "name": "Thargoid Scythe Tissue Sample",
+    "category": "cargo"
+  },
+  {
+    "id": "thargoidtissuesampletype9a",
+    "name": "Titan Deep Tissue Sample",
+    "category": "cargo"
+  },
+  {
+    "id": "thargoidtissuesampletype9b",
+    "name": "Titan Tissue Sample",
+    "category": "cargo"
+  },
+  {
+    "id": "thargoidtissuesampletype9c",
+    "name": "Titan Partial Tissue Sample",
+    "category": "cargo"
+  },
+  {
+    "id": "thargoidtissuesampletype10a",
+    "name": "Titan Maw Deep Tissue Sample",
+    "category": "cargo"
+  },
+  {
+    "id": "thargoidtissuesampletype10b",
+    "name": "Titan Maw Tissue Sample",
+    "category": "cargo"
+  },
+  {
+    "id": "thargoidtissuesampletype10c",
+    "name": "Titan Maw Partial Tissue Sample",
+    "category": "cargo"
+  },
+  {
+    "id": "unknownsack",
+    "name": "Protective Membrane Scrap",
+    "category": "cargo"
+  },
+  {
+    "id": "thargoidpod",
+    "name": "Xenobiological Prison Pod",
+    "category": "cargo"
+  },
+  {
+    "id": "coralsap",
+    "name": "Coral Sap",
+    "category": "cargo"
+  },
+  {
+    "id": "eshuumbrellas",
+    "name": "Eshu Umbrellas",
+    "category": "cargo"
+  },
+  {
+    "id": "unknownmineral",
+    "name": "Impure Spire Mineral",
+    "category": "cargo"
+  },
+  {
+    "id": "thargoidtitandrivecomponent",
+    "name": "Titan Drive Component",
+    "category": "cargo"
+  },
+  {
+    "id": "thargoidcystspecimen",
+    "name": "Cyst Specimen",
+    "category": "cargo"
+  },
+  {
+    "id": "thargoidbonefragments",
+    "name": "Bone Fragments",
+    "category": "cargo"
+  },
+  {
+    "id": "thargoidorgansample",
+    "name": "Organ Sample",
+    "category": "cargo"
+  },
+  {
+    "id": "steel",
+    "name": "Steel",
+    "category": "cargo"
+  },
+  {
+    "id": "haematite",
+    "name": "Haematite",
+    "category": "cargo"
+  },
+  {
+    "id": "curatedcommodity",
+    "name": "Curated Commodity Package",
+    "category": "cargo"
+  },
+  {
+    "id": "iridium",
+    "name": "Iridium",
+    "category": "cargo"
+  },
+  {
+    "id": "helium",
+    "name": "Helium",
+    "category": "cargo"
+  },
+  {
+    "id": "helium3",
+    "name": "Helium-3",
+    "category": "cargo"
+  },
+  {
+    "id": "bastnasite",
+    "name": "Bastnasite",
+    "category": "cargo"
+  },
+  {
+    "id": "deuterium",
+    "name": "Deuterium",
+    "category": "cargo"
+  },
+  {
+    "id": "unknownrefinedmineral",
+    "name": "Semi-Refined Spire Mineral",
+    "category": "cargo"
+  },
+  {
+    "id": "havasupaidreamcatcher",
+    "name": "Havasupai Dream Catcher",
+    "category": "cargo"
+  },
+  {
+    "id": "karetiicouture",
+    "name": "Karetii Couture",
+    "category": "cargo"
+  },
+  {
+    "id": "anynacoffee",
+    "name": "Any Na Coffee",
+    "category": "cargo"
+  },
+  {
+    "id": "gilyasignatureweapons",
+    "name": "Gilya Signature Weapons",
+    "category": "cargo"
+  },
+  {
+    "id": "deltaphoenicispalms",
+    "name": "Delta Phoenicis Palms",
+    "category": "cargo"
+  },
+  {
+    "id": "toxandjivirocide",
+    "name": "Toxandji Virocide",
+    "category": "cargo"
+  },
+  {
+    "id": "xihecompanions",
+    "name": "Xihe Biomorphic Companions",
+    "category": "cargo"
+  },
+  {
+    "id": "sanumameat",
+    "name": "Sanuma Decorative Meat",
+    "category": "cargo"
+  },
+  {
+    "id": "ethgrezeteabuds",
+    "name": "Ethgreze Tea Buds",
+    "category": "cargo"
+  },
+  {
+    "id": "ceremonialheiketea",
+    "name": "Ceremonial Heike Tea",
+    "category": "cargo"
+  },
+  {
+    "id": "tanmarktranquiltea",
+    "name": "Tanmark Tranquil Tea",
+    "category": "cargo"
+  },
+  {
+    "id": "azcancriformula42",
+    "name": "AZ Cancri Formula 42",
+    "category": "cargo"
+  },
+  {
+    "id": "kamitracigars",
+    "name": "Kamitra Cigars",
+    "category": "cargo"
+  },
+  {
+    "id": "rusanioldsmokey",
+    "name": "Rusani Old Smokey",
+    "category": "cargo"
+  },
+  {
+    "id": "yasokondileaf",
+    "name": "Yaso Kondi Leaf",
+    "category": "cargo"
+  },
+  {
+    "id": "chateaudeaegaeon",
+    "name": "Chateau De Aegaeon",
+    "category": "cargo"
+  },
+  {
+    "id": "watersofshintara",
+    "name": "The Waters of Shintara",
+    "category": "cargo"
+  },
+  {
+    "id": "ophiuchiexinoartefacts",
+    "name": "Ophiuch Exino Artefacts",
+    "category": "cargo"
+  },
+  {
+    "id": "bakedgreebles",
+    "name": "Baked Greebles",
+    "category": "cargo"
+  },
+  {
+    "id": "cetiaepyornisegg",
+    "name": "Aepyornis Egg",
+    "category": "cargo"
+  },
+  {
+    "id": "saxonwine",
+    "name": "Saxon Wine",
+    "category": "cargo"
+  },
+  {
+    "id": "centaurimegagin",
+    "name": "Centauri Mega Gin",
+    "category": "cargo"
+  },
+  {
+    "id": "anduligafireworks",
+    "name": "Anduliga Fire Works",
+    "category": "cargo"
+  },
+  {
+    "id": "bankiamphibiousleather",
+    "name": "Banki Amphibious Leather",
+    "category": "cargo"
+  },
+  {
+    "id": "cherbonesbloodcrystals",
+    "name": "Cherbones Blood Crystals",
+    "category": "cargo"
+  },
+  {
+    "id": "motronaexperiencejelly",
+    "name": "Motrona Experience Jelly",
+    "category": "cargo"
+  },
+  {
+    "id": "geawendancedust",
+    "name": "Geawen Dance Dust",
+    "category": "cargo"
+  },
+  {
+    "id": "gerasiangueuzebeer",
+    "name": "Gerasian Gueuze Beer",
+    "category": "cargo"
+  },
+  {
+    "id": "kamorinhistoricweapons",
+    "name": "Kamorin Historic Weapons",
+    "category": "cargo"
+  },
+  {
+    "id": "holvaduellingblades",
+    "name": "Holva Duelling Blades",
+    "category": "cargo"
+  },
+  {
+    "id": "terramaterbloodbores",
+    "name": "Terra Mater Blood Bores",
+    "category": "cargo"
+  },
+  {
+    "id": "aganipperush",
+    "name": "Aganippe Rush",
+    "category": "cargo"
+  },
+  {
+    "id": "cd75catcoffee",
+    "name": "CD-75 Kitten Brand Coffee",
+    "category": "cargo"
+  },
+  {
+    "id": "gomanyauponcoffee",
+    "name": "Goman Yaupon Coffee",
+    "category": "cargo"
+  },
+  {
+    "id": "volkhabbeedrones",
+    "name": "Volkhab Bee Drones",
+    "category": "cargo"
+  },
+  {
+    "id": "kinagoinstruments",
+    "name": "Kinago Violins",
+    "category": "cargo"
+  },
+  {
+    "id": "ngunamodernantiques",
+    "name": "Nguna Modern Antiques",
+    "category": "cargo"
+  },
+  {
+    "id": "rajukrustoves",
+    "name": "Rajukru Multi-Stoves",
+    "category": "cargo"
+  },
+  {
+    "id": "tiolcewaste2pasteunits",
+    "name": "Tiolce Waste2Paste Units",
+    "category": "cargo"
+  },
+  {
+    "id": "chieridanimarinepaste",
+    "name": "Chi Eridani Marine Paste",
+    "category": "cargo"
+  },
+  {
+    "id": "esusekucaviar",
+    "name": "Esuseku Caviar",
+    "category": "cargo"
+  },
+  {
+    "id": "livehecateseaworms",
+    "name": "Live Hecate Sea Worms",
+    "category": "cargo"
+  },
+  {
+    "id": "helvetitjpearls",
+    "name": "Helvetitj Pearls",
+    "category": "cargo"
+  },
+  {
+    "id": "hip41181squid",
+    "name": "HIP Proto-Squid",
+    "category": "cargo"
+  },
+  {
+    "id": "njangarisaddles",
+    "name": "Njangari Saddles",
+    "category": "cargo"
+  },
+  {
+    "id": "coquimspongiformvictuals",
+    "name": "Coquim Spongiform Victuals",
+    "category": "cargo"
+  },
+  {
+    "id": "neritusberries",
+    "name": "Neritus Berries",
+    "category": "cargo"
+  },
+  {
+    "id": "ochoengchillies",
+    "name": "Ochoeng Chillies",
+    "category": "cargo"
+  },
+  {
+    "id": "deuringastruffles",
+    "name": "Deuringas Truffles",
+    "category": "cargo"
+  },
+  {
+    "id": "hr7221wheat",
+    "name": "HR 7221 Wheat",
+    "category": "cargo"
+  },
+  {
+    "id": "jarouarice",
+    "name": "Jaroua Rice",
+    "category": "cargo"
+  },
+  {
+    "id": "belalansrayleather",
+    "name": "Belalans Ray Leather",
+    "category": "cargo"
+  },
+  {
+    "id": "damnacarapaces",
+    "name": "Damna Carapaces",
+    "category": "cargo"
+  },
+  {
+    "id": "rapabaosnakeskins",
+    "name": "Rapa Bao Snake Skins",
+    "category": "cargo"
+  },
+  {
+    "id": "vanayequirhinofur",
+    "name": "Vanayequi Ceratomorpha Fur",
+    "category": "cargo"
+  },
+  {
+    "id": "bastsnakegin",
+    "name": "Bast Snake Gin",
+    "category": "cargo"
+  },
+  {
+    "id": "thrutiscream",
+    "name": "Thrutis Cream",
+    "category": "cargo"
+  },
+  {
+    "id": "wulpahyperboresystems",
+    "name": "Wulpa Hyperbore Systems",
+    "category": "cargo"
+  },
+  {
+    "id": "aerialedenapple",
+    "name": "Eden Apples of Aerial",
+    "category": "cargo"
+  },
+  {
+    "id": "pharmaceuticalpatents",
+    "name": "Pharmaceutical Patents",
+    "category": "Backpack.Data"
+  }
+]

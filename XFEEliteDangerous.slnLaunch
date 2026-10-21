@@ -1,0 +1,6 @@
+[
+  {
+    "Name": "本机服务器与管理端",
+    "Projects": [{ "Path": "Server\\XFEEliteDangerous.Server\\XFEEliteDangerous.Server.csproj", "Action": "Start" },{ "Path": "Client\\XFEEliteDangerous.Desktop\\XFEEliteDangerous.Desktop.csproj", "Action": "Start" }]
+  }
+]

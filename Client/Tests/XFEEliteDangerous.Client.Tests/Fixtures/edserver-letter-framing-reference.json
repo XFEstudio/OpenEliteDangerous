@@ -1,0 +1,83 @@
+{
+  "source": "Independent Python least-significant-bit writer, translated from native RVA4C17310/4C23F5B/54DCE0; public synthetic MTU1360; no game execution or credentials.",
+  "vectors": [
+    {
+      "startBit": 0,
+      "typeBits": 11,
+      "type": 7,
+      "alignmentMode": 3,
+      "lengthDelimited": true,
+      "mtu": 1360,
+      "bodyStartBit": 35,
+      "bodyEndBit": 51,
+      "declaredBodyBits": 21,
+      "endBit": 72,
+      "hex": "07a80000802a00defa"
+    },
+    {
+      "startBit": 3,
+      "typeBits": 4,
+      "type": 7,
+      "alignmentMode": 3,
+      "lengthDelimited": true,
+      "mtu": 1360,
+      "bodyStartBit": 31,
+      "bodyEndBit": 47,
+      "declaredBodyBits": 17,
+      "endBit": 64,
+      "hex": "b8080000a802defa"
+    },
+    {
+      "startBit": 5,
+      "typeBits": 11,
+      "type": 7,
+      "alignmentMode": 0,
+      "lengthDelimited": true,
+      "mtu": 1360,
+      "bodyStartBit": 40,
+      "bodyEndBit": 56,
+      "declaredBodyBits": 16,
+      "endBit": 72,
+      "hex": "e0001000005005defa"
+    },
+    {
+      "startBit": 0,
+      "typeBits": 11,
+      "type": 7,
+      "alignmentMode": 3,
+      "lengthDelimited": false,
+      "mtu": 1360,
+      "bodyStartBit": 11,
+      "bodyEndBit": 27,
+      "declaredBodyBits": null,
+      "endBit": 32,
+      "hex": "07802a00"
+    },
+    {
+      "startBit": 1,
+      "typeBits": 16,
+      "type": 0,
+      "alignmentMode": 3,
+      "lengthDelimited": true,
+      "mtu": 1360,
+      "bodyStartBit": 17,
+      "bodyEndBit": 33,
+      "declaredBodyBits": null,
+      "endBit": 40,
+      "hex": "0000a00a00"
+    },
+    {
+      "startBit": 0,
+      "typeBits": 16,
+      "type": 7,
+      "alignmentMode": 255,
+      "lengthDelimited": true,
+      "mtu": 1360,
+      "bodyStartBit": 40,
+      "bodyEndBit": 56,
+      "declaredBodyBits": 16,
+      "endBit": 72,
+      "hex": "07001000005005defa"
+    }
+  ]
+}

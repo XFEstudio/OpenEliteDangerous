@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework><RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <PublishAot>true</PublishAot><NativeLib>Shared</NativeLib><AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <JsonSerializerIsReflectionEnabledByDefault>true</JsonSerializerIsReflectionEnabledByDefault>
+    <StackTraceSupport>true</StackTraceSupport><IlcGenerateStackTraceData>true</IlcGenerateStackTraceData>
+    <DebugSymbols>true</DebugSymbols><DebugType>portable</DebugType><StripSymbols>false</StripSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Iced" Version="1.21.0" />
+    <ProjectReference Include="../../Local/XFEEliteDangerous.Core/XFEEliteDangerous.Core.csproj" />
+    <ProjectReference Include="../XFEEliteDangerous.NativeFormat/XFEEliteDangerous.NativeFormat.csproj" />
+    <TrimmerRootAssembly Include="XFEEliteDangerous.Core" /><TrimmerRootAssembly Include="XFEEliteDangerous.Client" />
+  </ItemGroup>
+</Project>

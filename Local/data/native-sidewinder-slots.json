@@ -1,0 +1,327 @@
+{
+  "version": "2026.09.03.332841",
+  "nativeSha256": "e6be8bbe04e6a7ae226d4318945af7f367de13dc5a007a261964d9ba8144e988",
+  "sourceContract": "docs/protocol-evidence/native-sidewinder-fixed-module-contract.json",
+  "slots": [
+    {
+      "name": "ShipCockpit",
+      "fixedModule": true,
+      "resourceDefault": "Sidewinder_Cockpit"
+    },
+    {
+      "name": "LegsRightFront",
+      "fixedModule": true,
+      "resourceDefault": "Ext_LandingGear_SideWinder_Right"
+    },
+    {
+      "name": "LegsLeftFront",
+      "fixedModule": true,
+      "resourceDefault": "Ext_LandingGear_SideWinder_Left"
+    },
+    {
+      "name": "LegsFront",
+      "fixedModule": true,
+      "resourceDefault": "Ext_LandingGear_SideWinder_Front"
+    },
+    {
+      "name": "CargoHatch",
+      "fixedModule": true,
+      "resourceDefault": "ModularCargoBayDoor"
+    },
+    {
+      "name": "DriveUnit0",
+      "fixedModule": true,
+      "resourceDefault": "Ext_Drive_Class1_A"
+    },
+    {
+      "name": "DriveUnit1",
+      "fixedModule": true,
+      "resourceDefault": "Ext_Drive_Class1_A"
+    },
+    {
+      "name": "ThrusterUnit0",
+      "fixedModule": true,
+      "resourceDefault": "Ext_Thruster_Small"
+    },
+    {
+      "name": "ThrusterUnit1",
+      "fixedModule": true,
+      "resourceDefault": "Ext_Thruster_Small"
+    },
+    {
+      "name": "ThrusterUnit2",
+      "fixedModule": true,
+      "resourceDefault": "Ext_Thruster_Small"
+    },
+    {
+      "name": "ThrusterUnit3",
+      "fixedModule": true,
+      "resourceDefault": "Ext_Thruster_Small"
+    },
+    {
+      "name": "ThrusterUnit4",
+      "fixedModule": true,
+      "resourceDefault": "Ext_Thruster_Small"
+    },
+    {
+      "name": "ThrusterUnit5",
+      "fixedModule": true,
+      "resourceDefault": "Ext_Thruster_Small"
+    },
+    {
+      "name": "ThrusterUnit6",
+      "fixedModule": true,
+      "resourceDefault": "Ext_Thruster_Small"
+    },
+    {
+      "name": "ThrusterUnit7",
+      "fixedModule": true,
+      "resourceDefault": "Ext_Thruster_Small"
+    },
+    {
+      "name": "SideWinder_Shield",
+      "fixedModule": true,
+      "resourceDefault": "Ext_Emitter_Standard"
+    },
+    {
+      "name": "HeatRadiator",
+      "fixedModule": true,
+      "resourceDefault": "Ext_Radiator_Standard"
+    },
+    {
+      "name": "SmallHardpoint1",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "SmallHardpoint2",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "TinyHardpoint1",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "TinyHardpoint2",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "Armour",
+      "fixedModule": false,
+      "resourceDefault": "SideWinder_Armour_Grade1"
+    },
+    {
+      "name": "PaintJob",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "PowerPlant",
+      "fixedModule": false,
+      "resourceDefault": "Int_PowerPlant_Size2_Class3"
+    },
+    {
+      "name": "MainEngines",
+      "fixedModule": false,
+      "resourceDefault": "Int_Engine_Size2_Class3"
+    },
+    {
+      "name": "FrameShiftDrive",
+      "fixedModule": false,
+      "resourceDefault": "Int_Hyperdrive_Size2_Class3"
+    },
+    {
+      "name": "LifeSupport",
+      "fixedModule": false,
+      "resourceDefault": "Int_LifeSupport_Size1_Class3"
+    },
+    {
+      "name": "PowerDistributor",
+      "fixedModule": false,
+      "resourceDefault": "Int_PowerDistributor_Size1_Class3"
+    },
+    {
+      "name": "Radar",
+      "fixedModule": false,
+      "resourceDefault": "Int_Sensors_Size1_Class3"
+    },
+    {
+      "name": "FuelTank",
+      "fixedModule": false,
+      "resourceDefault": "Int_FuelTank_Size1_Class3"
+    },
+    {
+      "name": "Decal1",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "ShipName0",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "ShipName1",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "ShipID0",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "ShipID1",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "Slot01_Size2",
+      "fixedModule": false,
+      "resourceDefault": "Int_ShieldGenerator_Size2_Class3"
+    },
+    {
+      "name": "Slot02_Size2",
+      "fixedModule": false,
+      "resourceDefault": "Int_CargoRack_Size2_Class1"
+    },
+    {
+      "name": "Slot03_Size1",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "Slot04_Size1",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "Slot05_Size1",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "Slot06_Size1",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "PlanetaryApproachSuite",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "Bobble01",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "Bobble02",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "Bobble03",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "Bobble04",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "Bobble05",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "Bobble06",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "Bobble07",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "Bobble08",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "Bobble09",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "Bobble10",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "ShipKitSpoiler",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "ShipKitWings",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "ShipKitTail",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "ShipKitBumper",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "WeaponColour",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "EngineColour",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "VesselVoice",
+      "fixedModule": false,
+      "resourceDefault": "VoicePack_Verity"
+    },
+    {
+      "name": "DataLinkScanner",
+      "fixedModule": true,
+      "resourceDefault": "Hpt_ShipDataLinkScanner"
+    },
+    {
+      "name": "CodexScanner",
+      "fixedModule": true,
+      "resourceDefault": "Int_CodexScanner"
+    },
+    {
+      "name": "DiscoveryScanner",
+      "fixedModule": true,
+      "resourceDefault": "Int_StellarBodyDiscoveryScanner_Standard"
+    },
+    {
+      "name": "StringLights",
+      "fixedModule": false,
+      "resourceDefault": null
+    },
+    {
+      "name": "ColonisationSuite",
+      "fixedModule": true,
+      "resourceDefault": "Int_Colonisation"
+    }
+  ]
+}

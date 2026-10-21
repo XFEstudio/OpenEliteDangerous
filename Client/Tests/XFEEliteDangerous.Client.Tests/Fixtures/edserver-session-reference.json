@@ -1,0 +1,97 @@
+{
+  "source": "Independent Python LSB bit writer based on native 0x6522C0/0x6523C0/0x6528F0/0x652AE0/0x4C18CD0. Synthetic public IDs; no game execution or credentials.",
+  "vectors": [
+    {
+      "kind": "request",
+      "startBit": 0,
+      "endBit": 112,
+      "sessionId": 20015998343868,
+      "initialObjectIdBase": "18364758544493064720",
+      "firstIds": [],
+      "secondIds": [],
+      "hex": "bc9a785634121032547698badcfe"
+    },
+    {
+      "kind": "request",
+      "startBit": 3,
+      "endBit": 115,
+      "sessionId": 20015998343868,
+      "initialObjectIdBase": "18364758544493064720",
+      "firstIds": [],
+      "secondIds": [],
+      "hex": "e0d5c4b3a2918090a1b2c3d4e5f607"
+    },
+    {
+      "kind": "left",
+      "startBit": 7,
+      "endBit": 55,
+      "sessionId": 20015998343868,
+      "initialObjectIdBase": "18364758544493064720",
+      "firstIds": [],
+      "secondIds": [],
+      "hex": "005e4d3c2b1a09"
+    },
+    {
+      "kind": "members",
+      "startBit": 0,
+      "endBit": 117,
+      "sessionId": 20015998343868,
+      "initialObjectIdBase": "18364758544493064720",
+      "firstIds": [],
+      "secondIds": [],
+      "hex": "bc9a785634121032547698badcfe00"
+    },
+    {
+      "kind": "members",
+      "startBit": 5,
+      "endBit": 268,
+      "sessionId": 20015998343868,
+      "initialObjectIdBase": "18364758544493064720",
+      "firstIds": [
+        "1",
+        "0",
+        "281474976710655"
+      ],
+      "secondIds": [],
+      "hex": "805713cf8a46024286ca0e5397db5f100000000000000000000000f0ffffffffff0f"
+    },
+    {
+      "kind": "joined",
+      "startBit": 0,
+      "endBit": 56,
+      "sessionId": 20015998343868,
+      "initialObjectIdBase": "18364758544493064720",
+      "firstIds": [],
+      "secondIds": [],
+      "hex": "bc9a7856341200"
+    },
+    {
+      "kind": "joined",
+      "startBit": 3,
+      "endBit": 205,
+      "sessionId": 20015998343868,
+      "initialObjectIdBase": "18364758544493064720",
+      "firstIds": [
+        "4096",
+        "4097"
+      ],
+      "secondIds": [
+        "281474976710655"
+      ],
+      "hex": "e0d5c4b3a29188010002000000200002000000e0ffffffffff1f"
+    },
+    {
+      "kind": "joined",
+      "startBit": 1,
+      "endBit": 154,
+      "sessionId": 20015998343868,
+      "initialObjectIdBase": "18364758544493064720",
+      "firstIds": [],
+      "secondIds": [
+        "77",
+        "78"
+      ],
+      "hex": "7835f1ac68242036010000000038010000000000"
+    }
+  ]
+}

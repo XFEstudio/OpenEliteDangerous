@@ -1,0 +1,24 @@
+<Solution>
+  <Configurations><Platform Name="x64" /></Configurations>
+  <Folder Name="/Client/">
+    <Project Path="Client/XFEEliteDangerous.Desktop/XFEEliteDangerous.Desktop.csproj"><Platform Solution="*|x64" Project="x64" /><Deploy Solution="*|*" Project="false" /></Project>
+    <Project Path="Client/XFEEliteDangerous.Client/XFEEliteDangerous.Client.csproj" />
+    <Project Path="Client/XFEEliteDangerous.Tool/XFEEliteDangerous.Tool.csproj" />
+    <Project Path="Client/XFEEliteDangerous.Bootstrapper/XFEEliteDangerous.Bootstrapper.csproj" />
+    <Project Path="Client/XFEEliteDangerous.NativeFormat/XFEEliteDangerous.NativeFormat.csproj" />
+    <Project Path="Client/XFEEliteDangerous.OfflineRuntime/XFEEliteDangerous.OfflineRuntime.csproj" />
+    <Project Path="Client/XFEEliteDangerous.ManagementClient/XFEEliteDangerous.ManagementClient.csproj" />
+    <Project Path="Client/XFEEliteDangerous.OnlineClient/XFEEliteDangerous.OnlineClient.csproj" />
+  </Folder>
+  <Folder Name="/Local/">
+    <Project Path="Local/XFEEliteDangerous.Core/XFEEliteDangerous.Core.csproj" />
+    <Project Path="Local/XFEEliteDangerous.ReadBusiness/XFEEliteDangerous.ReadBusiness.csproj" />
+  </Folder>
+  <Folder Name="/Tests/">
+    <Project Path="Client/Tests/XFEEliteDangerous.Client.Tests/XFEEliteDangerous.Client.Tests.csproj" />
+    <Project Path="Local/Tests/XFEEliteDangerous.Tests/XFEEliteDangerous.Tests.csproj" />
+  </Folder>
+  <Folder Name="/Server/">
+    <Project Path="Server/XFEEliteDangerous.Server/XFEEliteDangerous.Server.csproj" />
+  </Folder>
+</Solution>

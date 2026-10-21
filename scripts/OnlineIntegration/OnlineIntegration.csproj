@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net10.0</TargetFramework></PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../Server/XFEEliteDangerous.Server/XFEEliteDangerous.Server.csproj" />
+    <ProjectReference Include="../../Client/XFEEliteDangerous.OnlineClient/XFEEliteDangerous.OnlineClient.csproj" />
+  </ItemGroup>
+</Project>
