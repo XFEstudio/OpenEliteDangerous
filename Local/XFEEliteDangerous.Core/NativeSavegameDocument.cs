@@ -90,6 +90,7 @@ public sealed record NativeModuleSnapshot
     public bool? Free { get; init; }
     public NativeModuleAmmo? Ammo { get; init; }
     public uint? Class { get; init; }
+    public NativeModuleEngineering? Engineering { get; init; }
 }
 
 public sealed record NativeFiregroupSnapshot([property: JsonRequired] uint Index,
@@ -257,6 +258,7 @@ public static class NativeSavegameDocument
             ModuleIdentity(module.Id, module.Name, modules, fixedModule || definition.ResourceDefaultName == module.Name);
             if (module.Default is { } defaultModule) ModuleIdentity(defaultModule.Id, defaultModule.Name, modules,
                 fixedModule || definition.ResourceDefaultName == defaultModule.Name);
+            NativeEngineering.Validate(module.Engineering);
         }
     }
 
@@ -368,6 +370,13 @@ public static class NativeSavegameDocument
         if(module.Class is {} moduleClass)writer.WriteNumber("class",moduleClass);
         if(module.Ammo is {} ammo)
         {writer.WriteStartObject("ammo");writer.WriteNumber("clip",ammo.Clip);writer.WriteNumber("hopper",ammo.Hopper);writer.WriteEndObject();}
+        if(module.Engineering is {} engineering)
+        {
+            writer.WriteString("recipeName",engineering.RecipeName);writer.WriteNumber("recipeLevel",engineering.Level);writer.WriteNumber("craftCount",engineering.CraftCount);
+            writer.WriteStartObject("modifiers");writer.WriteNumber("engineerID",engineering.EngineerId);writer.WriteNumber("recipeID",engineering.RecipeId);writer.WriteNumber("progress",engineering.Progress);
+            writer.WriteStartArray("modifiers");foreach(var item in engineering.Modifiers){writer.WriteStartObject();writer.WriteString("name",item.Name);writer.WriteNumber("value",item.Value);writer.WriteNumber("type",item.Type);writer.WriteEndObject();}
+            writer.WriteEndArray();writer.WriteEndObject();
+        }
         writer.WriteEndObject();
     }
 

@@ -7,18 +7,16 @@ namespace XFEEliteDangerous.Desktop;
 
 public sealed record FleetShipChoice(uint Id,string Name,string Prototype,bool Active)
 {public string Label=>$"{Name} · {Prototype}"+(Active?AppText.Get("FleetPage.Text118"):"");}
-public sealed record FleetSlotChoice(string Name,string Module,JsonNode Data)
-{public string Label=>$"{Name} · {(string.IsNullOrEmpty(Module)?AppText.Get("FleetPage.Text119"):Module)}";}
 public sealed record StoredModuleChoice(uint Id,string Module)
-{public string Label=>AppText.Format("FleetPage.Text120", (Module), (Id));}
+{public string Label=>AppText.Format("FleetPage.Text120", FleetEditorProjection.ModuleName(Module), Id);}
 
-public sealed class FleetPage : DesktopPage
+public sealed partial class FleetPage : DesktopPage
 {
     private readonly ComboBox accounts=new(){MinWidth=380,DisplayMemberPath=nameof(AccountChoice.Label)};
     private readonly ComboBox ships=new(){MinWidth=440,DisplayMemberPath=nameof(FleetShipChoice.Label)};
-    private readonly ListView slots=new(){MinHeight=150,MaxHeight=400,DisplayMemberPath=nameof(FleetSlotChoice.Label)};
-    private readonly ComboBox modules=new(){MinWidth=440,PlaceholderText=AppText.Get("FleetPage.Text121")};
-    private readonly ComboBox storage=new(){MinWidth=440,DisplayMemberPath=nameof(StoredModuleChoice.Label),PlaceholderText=AppText.Get("FleetPage.Text122")};
+    private readonly GridView slots=new(){MinHeight=360,MaxHeight=650,SelectionMode=ListViewSelectionMode.Single};
+    private readonly ComboBox modules=new(){HorizontalAlignment=HorizontalAlignment.Stretch,PlaceholderText=AppText.Get("FleetPage.Text121")};
+    private readonly ComboBox storage=new(){HorizontalAlignment=HorizontalAlignment.Stretch,DisplayMemberPath=nameof(StoredModuleChoice.Label),PlaceholderText=AppText.Get("FleetPage.Text122")};
     private readonly TextBox name=new(){PlaceholderText=AppText.Get("FleetPage.Text123"),MaxLength=100,MinWidth=240};
     private readonly TextBox ident=new(){PlaceholderText=AppText.Get("FleetPage.Text124"),MaxLength=24,MinWidth=140};
     private readonly TextBlock details=new(){TextWrapping=TextWrapping.Wrap};
@@ -48,17 +46,7 @@ public sealed class FleetPage : DesktopPage
             if(AccountId is not {} id)throw new InvalidOperationException(AppText.Get("FleetPage.Text137"));
             await ManagedGameLauncher.StartAsync(id,Lifetime.Token);Success(AppText.Get("FleetPage.Text138"));
         }),true);launch.Name="LaunchManagedSolo";Body.Children.Add(launch);
-        Body.Children.Add(Card(AppText.Get("FleetPage.Text139"),AppText.Get("FleetPage.Text140"),slots));
-        slots.SelectionChanged+=(_,_)=>
-        {
-            var compatible=(slots.SelectedItem as FleetSlotChoice)?.Data["compatible"].Rows().Select(value=>value.Text("name")).ToArray()??[];
-            modules.ItemsSource=compatible;modules.SelectedIndex=compatible.Length>0?0:-1;
-        };
-        var fit=Button(AppText.Get("FleetPage.Text141"),()=>RunAsync(()=>SlotAction("module")));fit.Name="FitFleetModule";
-        var store=Button(AppText.Get("FleetPage.Text142"),()=>RunAsync(()=>SlotAction("store")));store.Name="StoreFleetModule";
-        Body.Children.Add(Horizontal(modules,fit,store));
-        Body.Children.Add(Card(AppText.Get("FleetPage.Text143"),AppText.Get("FleetPage.Text144"),Horizontal(storage,Button(AppText.Get("FleetPage.Text145"),()=>RunAsync(()=>SlotAction("retrieve"))))));
-        Body.Children.Add(new InfoBar{IsOpen=true,IsClosable=false,Severity=InfoBarSeverity.Informational,Title=AppText.Get("FleetPage.Text146"),Message=AppText.Get("FleetPage.Text147")});
+        BuildEditorWorkbench();
         var advanced=new Expander{Header=AppText.Get("FleetPage.Text148"),HorizontalAlignment=HorizontalAlignment.Stretch};
         advanced.Content=Horizontal(Button(AppText.Get("FleetPage.Text149"),()=>RunAsync(ExportAsync)),Button(AppText.Get("FleetPage.Text150"),()=>RunAsync(ImportAsync)));
         Body.Children.Add(advanced);
@@ -91,14 +79,21 @@ public sealed class FleetPage : DesktopPage
         var ship=fleet?["ships"].Rows().Single(value=>value.Number("id")==choice.Id);
         name.Text=ship?["label"].Text("name")??"";ident.Text=ship?["label"].Text("ident")??"";
         details.Text=AppText.Format("FleetPage.Text152", (choice.Id), (choice.Prototype), (ship?["fuel"].Text("level")), (ship?["fuel"].Text("capacity")));
-        slots.ItemsSource=ship?["slots"].Rows().Select(value=>new FleetSlotChoice(value.Text("name"),value["module"].Text("name"),value.DeepClone())).ToArray();
+        if(choice.Active&&fleet.Flag("liveRefit")&&fleet?["liveCargoCapacity"] is {} capacity)details.Text+="\n"+AppText.Format("Refit.LiveCargoCapacity",capacity.ToString());
+        editorSlots=ship is null?[]:FleetEditorProjection.Slots(ship);
+        RefreshEditorCategories();
+        FilterEditorSlots();
     }
     private async Task EditAsync(JsonObject command)
     {
         if(!DesktopContext.State.CanEditShips)throw new UnauthorizedAccessException(AppText.Get("FleetPage.Text153"));
         if(ships.SelectedItem is not FleetShipChoice ship)throw new InvalidOperationException(AppText.Get("FleetPage.Text154"));
         command["shipId"]=ship.Id;
-        await DesktopContext.Local.EditFleetAsync(AccountId,command,version,Lifetime.Token);await LoadAsync();Success(AppText.Get("FleetPage.Text155"));
+        var result=command["action"]?.GetValue<string>() is "module" or "store" or "retrieve"
+            ?await DesktopContext.Local.RefitAsync(AccountId,command,version,Lifetime.Token)
+            :await DesktopContext.Local.EditFleetAsync(AccountId,command,version,Lifetime.Token);
+        await LoadAsync();
+        ShowFleetApplyResult(result);
     }
     private async Task CloneAsync()
     {
@@ -116,9 +111,9 @@ public sealed class FleetPage : DesktopPage
     }
     private Task SlotAction(string action)
     {
-        if(slots.SelectedItem is not FleetSlotChoice slot)throw new InvalidOperationException(AppText.Get("FleetPage.Text164"));
+        if(slots.SelectedItem is not FleetEditorSlot slot)throw new InvalidOperationException(AppText.Get("FleetPage.Text164"));
         var command=new JsonObject{["action"]=action,["slot"]=slot.Name};
-        if(action=="module")command["module"]=modules.SelectedItem as string??throw new InvalidOperationException(AppText.Get("FleetPage.Text165"));
+        if(action=="module")command["module"]=(modules.SelectedItem as ModuleChoice)?.Symbol??throw new InvalidOperationException(AppText.Get("FleetPage.Text165"));
         if(action=="retrieve")command["storageId"]=(storage.SelectedItem as StoredModuleChoice)?.Id??throw new InvalidOperationException(AppText.Get("FleetPage.Text166"));
         return EditAsync(command);
     }

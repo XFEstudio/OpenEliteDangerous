@@ -26,14 +26,29 @@ public sealed partial class OfflineWorkspace
     {
         var account=Target(state,session,targetId);var save=account.NativeSave?.ExportCurrent(account);
         if(save is null)return Json(new{commander=account.Commander.Public(),native=false,ships=account.Commander.Ships,stored=Array.Empty<object>()});
+        var live=new LiveRefitMailbox(DirectoryPath,account.Id).ReadStatus();
+        var liveReady=LiveRefitMailbox.Fresh(live,clock.GetUtcNow())&&live!.Flow=="InGame"&&live.ShipId==save.Snapshot.CurrentVesselId;
+        NativeModuleSnapshot? VisibleModule(uint shipId,NativeSlotSnapshot slot)
+        {
+            var row=liveReady&&shipId==live!.ShipId?live.Slots.SingleOrDefault(value=>value.Slot==slot.Name):null;
+            return row?.Module is {} current&&slot.Module is {} before&&LiveRefitMailbox.Matches(current,before)
+                ?before with{On=current.On,Priority=row.PriorityEditable?current.Priority:before.Priority,HealthMillion=row.IntegrityEditable?current.HealthMillion:before.HealthMillion,Ammo=current.Ammo,Engineering=current.Engineering}:slot.Module;
+        }
         var ships=save.Snapshot.Vessels.Select(ship=>new
         {
             ship.Id,prototype=ship.Name,label=save.ShipLabels.GetValueOrDefault(ship.Id,new(ship.Name,"")),active=ship.Id==save.Snapshot.CurrentVesselId,
             ship.Fuel,ship.Health,
-            slots=ship.Modules.Select(slot=>new{slot.Name,slot.Module,removable=Removable(slot.Name),
-                compatible=save.Catalogue.Modules.Where(module=>Fits(slot,module)).ToArray()}).ToArray()
+            slots=ship.Modules.Select(slot=>new{slot.Name,Module=VisibleModule(ship.Id,slot),removable=Removable(slot.Name),
+                integrityEditable=!(liveReady&&ship.Id==live!.ShipId&&live.Slots.SingleOrDefault(value=>value.Slot==slot.Name) is {IntegrityEditable:false}),
+                priorityEditable=!(liveReady&&ship.Id==live!.ShipId&&live.Slots.SingleOrDefault(value=>value.Slot==slot.Name) is {PriorityEditable:false}),
+                ammoEditable=liveReady&&ship.Id==live!.ShipId&&live.Slots.SingleOrDefault(value=>value.Slot==slot.Name) is {AmmoEditable:true},
+                maximumHealth=liveReady&&ship.Id==live!.ShipId?live.Slots.SingleOrDefault(value=>value.Slot==slot.Name)?.MaximumHealth:null,
+                ammoCapacity=liveReady&&ship.Id==live!.ShipId?live.Slots.SingleOrDefault(value=>value.Slot==slot.Name)?.AmmoCapacity:null,
+                engineeringBlueprints=slot.Module is {} fitted?NativeEngineering.Blueprints(fitted.Name):[],
+                experimentalEffects=slot.Module is {} installed?NativeEngineering.Effects(installed.Name):[],
+                compatible=RefitDefinitions(save).Where(module=>Fits(slot,module)&&(!liveReady||ship.Id!=live!.ShipId||live.AvailableModules is null||live.AvailableModules.Contains(module.Name,StringComparer.Ordinal))).ToArray()}).ToArray()
         }).ToArray();
-        return Json(new{commander=account.Commander.Public(),native=true,ships,stored=save.StoredModules});
+        return Json(new{commander=account.Commander.Public(),native=true,ships,stored=save.StoredModules,liveRefit=liveReady,liveCargoCapacity=liveReady?live!.CargoCapacity:null});
     });
     public Task<JsonNode> EditFleetAsync(string? session,string? targetId,JsonObject command,string version)
     {
@@ -68,47 +83,53 @@ public sealed partial class OfflineWorkspace
                 if((ship.Location.Address&0x007F_FFFF_FFFF_FFFFUL)!=save.Profile.CurrentSystem)throw new InvalidDataException(AppText.Get("OfflineWorkspace_Fleet.Text409"));
                 save=save with{Snapshot=save.Snapshot with{CurrentVesselId=ship.Id,ParentVesselId=ship.Id,Location=ship.Location}};
             }
-            else if(action is "module" or "store" or "retrieve")
-            {
-                var slotName=Text(body,"slot",100);var slot=ship.Modules.SingleOrDefault(value=>value.Name==slotName)??throw new InvalidDataException(AppText.Get("OfflineWorkspace_Fleet.Text410"));
-                var storage=save.StoredModules.ToList();NativeModuleSnapshot? replacement;
-                if(action=="store")
-                {
-                    if(!Removable(slot.Name))throw new InvalidDataException(AppText.Get("OfflineWorkspace_Fleet.Text411"));
-                    replacement=null;
-                }
-                else if(action=="retrieve")
-                {
-                    var entry=storage.SingleOrDefault(value=>value.SlotId==Id("storageId"))??throw new InvalidDataException(AppText.Get("OfflineWorkspace_Fleet.Text412"));
-                    if(entry.InTransit)throw new InvalidDataException(AppText.Get("OfflineWorkspace_Fleet.Text413"));
-                    if(!Fits(slot,new(entry.Module.Id,entry.Module.Name)))throw new InvalidDataException(AppText.Get("OfflineWorkspace_Fleet.Text414"));
-                    replacement=entry.Module;storage.Remove(entry);
-                }
-                else
-                {
-                    var name=Text(body,"module",160);var definition=save.Catalogue.Modules.SingleOrDefault(value=>value.Name==name)
-                        ??throw new InvalidDataException(AppText.Get("OfflineWorkspace_Fleet.Text415"));
-                    if(!Fits(slot,definition))throw new InvalidDataException(AppText.Get("OfflineWorkspace_Fleet.Text416"));
-                    var source=save.Snapshot.Vessels.SelectMany(value=>value.Modules.Concat(value.FixedModules)).Select(value=>value.Module)
-                        .FirstOrDefault(value=>value?.Name==name)??save.StoredModules.Select(value=>value.Module).FirstOrDefault(value=>value.Name==name);
-                    replacement=source is {} template?template with{Uid=null}:new NativeModuleSnapshot{Id=definition.Id,Name=definition.Name,Value=0,Excess=0,On=true,Priority=0,HealthMillion=1_000_000,Free=true};
-                }
-                if(slot.Module is {} old)
-                {
-                    if(old.Id==0)throw new InvalidDataException(AppText.Get("OfflineWorkspace_Fleet.Text417"));
-                    var storageId=storage.Count==0?1:checked(storage.Max(value=>value.SlotId)+1);
-                    storage.Add(new(){SlotId=storageId,SystemName=save.SystemMetadata?.Name??"Local",MarketId=0,InTransit=false,TransferTime=0,Value=checked((long)old.Value),Module=old});
-                }
-                ship=ship with{Modules=ship.Modules.Select(value=>value.Name==slotName?value with{Module=replacement}:value).ToArray()};
-                ships[ships.FindIndex(value=>value.Id==ship.Id)]=ship;
-                save=save with{StoredModules=storage,Catalogue=save.Catalogue with{Ships=save.Catalogue.Ships.Select(definition=>definition.Name==ship.Name
-                    ?definition with{Modules=definition.Modules.Select(value=>Removable(value.Name)?value with{RequiredModule=false}:value).ToArray()}:definition).ToArray()}};
-            }
+            else if(action is "module" or "store" or "retrieve")return CommitManagedNative(account,EditFleetModule(save,ship,body,action));
             else throw new InvalidDataException(AppText.Get("OfflineWorkspace_Fleet.Text418"));
             save=save with{Snapshot=save.Snapshot with{Vessels=ships},ShipLabels=labels};
             return CommitManagedNative(account,save);
         });
     }
+
+    private static NativeCommanderSave EditFleetModule(NativeCommanderSave save,NativeShipSnapshot ship,JsonObject body,string action)
+    {
+        save=save with{Catalogue=save.Catalogue with{Modules=RefitDefinitions(save)}};
+        uint Id(string key)=>(uint)Integer(body,key,1,uint.MaxValue-1L);
+        var slotName=Text(body,"slot",100);var slot=ship.Modules.SingleOrDefault(value=>value.Name==slotName)??throw new InvalidDataException(AppText.Get("OfflineWorkspace_Fleet.Text410"));
+        var storage=save.StoredModules.ToList();NativeModuleSnapshot? replacement;
+        if(action=="store")
+        {
+            if(!Removable(slot.Name))throw new InvalidDataException(AppText.Get("OfflineWorkspace_Fleet.Text411"));
+            replacement=null;
+        }
+        else if(action=="retrieve")
+        {
+            var entry=storage.SingleOrDefault(value=>value.SlotId==Id("storageId"))??throw new InvalidDataException(AppText.Get("OfflineWorkspace_Fleet.Text412"));
+            if(entry.InTransit)throw new InvalidDataException(AppText.Get("OfflineWorkspace_Fleet.Text413"));
+            if(!Fits(slot,new(entry.Module.Id,entry.Module.Name)))throw new InvalidDataException(AppText.Get("OfflineWorkspace_Fleet.Text414"));
+            replacement=entry.Module;storage.Remove(entry);
+        }
+        else
+        {
+            var name=Text(body,"module",160);var definition=save.Catalogue.Modules.SingleOrDefault(value=>value.Name==name)
+                ??throw new InvalidDataException(AppText.Get("OfflineWorkspace_Fleet.Text415"));
+            if(!Fits(slot,definition))throw new InvalidDataException(AppText.Get("OfflineWorkspace_Fleet.Text416"));
+            var source=save.Snapshot.Vessels.SelectMany(value=>value.Modules.Concat(value.FixedModules)).Select(value=>value.Module)
+                .FirstOrDefault(value=>value?.Name==name)??save.StoredModules.Select(value=>value.Module).FirstOrDefault(value=>value.Name==name);
+            replacement=source is {} template?template with{Uid=null}:new NativeModuleSnapshot{Id=definition.Id,Name=definition.Name,Value=0,Excess=0,On=true,Priority=0,HealthMillion=1_000_000,Free=true};
+        }
+        if(slot.Module is {} old)
+        {
+            if(old.Id==0)throw new InvalidDataException(AppText.Get("OfflineWorkspace_Fleet.Text417"));
+            var storageId=storage.Count==0?1:checked(storage.Max(value=>value.SlotId)+1);
+            storage.Add(new(){SlotId=storageId,SystemName=save.SystemMetadata?.Name??"Local",MarketId=0,InTransit=false,TransferTime=0,Value=checked((long)old.Value),Module=old});
+        }
+        ship=ship with{Modules=ship.Modules.Select(value=>value.Name==slotName?value with{Module=replacement}:value).ToArray()};
+        save=save with{StoredModules=storage,Catalogue=save.Catalogue with{Ships=save.Catalogue.Ships.Select(definition=>definition.Name==ship.Name
+            ?definition with{Modules=definition.Modules.Select(value=>Removable(value.Name)?value with{RequiredModule=false}:value).ToArray()}:definition).ToArray()}};
+        return save with{Snapshot=save.Snapshot with{Vessels=save.Snapshot.Vessels.Select(value=>value.Id==ship.Id?ship:value).ToArray()}};
+    }
+    private static NativeModuleDefinition[] RefitDefinitions(NativeCommanderSave save)=>save.Catalogue.Modules
+        .Concat(NativeEngineering.Catalogue.Modules.Where(value=>!save.Catalogue.Modules.Any(original=>original.Name==value.Name||original.Id!=0&&original.Id==value.Id))).ToArray();
     private JsonNode CommitManagedNative(AccountState account,NativeCommanderSave save)
     {
         var inventory=save.CreateInventory(account,checked(account.Commander.Revision+1));

@@ -13,7 +13,8 @@ An experimental, unofficial interoperability project for **Elite Dangerous: Odys
 - Local accounts, administrator/player roles and separate permissions for credits, cargo, materials and ship editing.
 - Inventory search, quantity/credit editing and partial imports from local Player Journals.
 - Custom ships from recorded hull/outfitting templates, active ship selection, compatible modules and module storage.
-- Versioned native save import/export, backups, cross-process locking and atomic updates. Save and return to the game menu before editing; changes take effect on the next load.
+- A categorized outfitting workbench with slot cards, module properties, engineering presets, experimental effects and ammunition editing. Recorded module recipes load on demand; supported edits, storage and retrieval apply inside the running private game and persist after native readback. See [live refitting](docs/LIVE-REFIT.md) for scope and tests.
+- Versioned native save import/export, backups, cross-process locking and atomic updates. Other inventory/fleet operations require saving and returning to the game menu before editing.
 - One ServerInteractive process hosts the loopback management API and HTTPS game endpoint, owning online accounts, saves, factions, commodities and shared world definitions.
 - Certificate-pinned HTTPS between launcher and server; local IPC between the native game and adapter.
 - English and Simplified Chinese screens, launch messages and application errors. Choose **Preferences → Display language**; the choice is remembered and your session is retained.
@@ -27,6 +28,8 @@ Prior native validation covered SOLO flight/save/reload and **two clients on the
 Private captures, personal saves, reports and deployment outputs are excluded. Native acceptance tests require your own compatible installation and locally prepared data. Cloning the repository does not supply a playable commander or the official galaxy database.
 
 ## Build and test
+
+Prebuilt Windows packages and binary-only setup instructions are available in [GitHub Releases](https://github.com/XFEstudio/OpenEliteDangerous/releases) and the [release guide](docs/RELEASES.md). They include project tools and runtimes; compatible game files, private saves and native reference data must be supplied separately.
 
 Use Windows x64, the .NET 10 SDK specified in `global.json`, PowerShell 7 and Visual Studio C++/Windows SDK tools for NativeAOT publishing. WinUI/XFE dependencies restore through NuGet.
 

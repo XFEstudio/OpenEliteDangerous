@@ -13,6 +13,11 @@ public sealed class OnlineNativeGameData : INativeGameData,INativeWorldAuthority
     private readonly Task worker;
     private int pending;
     private Exception? failure;
+    private LiveRefitStatus? refitStatus;
+    private LiveRefitCommand? refitCommand;
+    private long nextRefitSend;
+    public void PublishRefit(LiveRefitStatus status)=>Volatile.Write(ref refitStatus,status);
+    public LiveRefitCommand? TakeRefit()=>Interlocked.Exchange(ref refitCommand,null);
     public INativeWorldAuthority World=>this;
     public Action<string>? Diagnostic{get;set;}
     public OnlineNativeGameData(string bridgeDirectory)
@@ -47,8 +52,11 @@ public sealed class OnlineNativeGameData : INativeGameData,INativeWorldAuthority
             while(!stop.IsCancellationRequested)
             {
                 var batch=new List<GameDatagram>();while(batch.Count<64&&outgoing.TryDequeue(out var item)){Interlocked.Decrement(ref pending);batch.Add(item);}
-                var response=world.Call(new("exchange",Datagrams:batch.ToArray()),TimeSpan.FromSeconds(10));
+                LiveRefitStatus? observation=null;
+                if(Environment.TickCount64>=nextRefitSend){nextRefitSend=Environment.TickCount64+500;observation=Volatile.Read(ref refitStatus);}
+                var response=world.Call(new("exchange",Datagrams:batch.ToArray(),Refit:observation),TimeSpan.FromSeconds(10));
                 if(response.Status!=200)throw new IOException(AppText.Get("OnlineNativeGameData.Text362")+response.Status);
+                if(response.Refit is {} command)Volatile.Write(ref refitCommand,command);
                 foreach(var packet in response.Datagrams??[])
                 {
                     if(packet.Payload.Length>1472||!CanRoute(packet.Port))throw new InvalidDataException(AppText.Get("OnlineNativeGameData.Text363"));

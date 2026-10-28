@@ -26,6 +26,7 @@ try
     await using var online=new OnlineGameHost(workspace,access.Key,options.ArtifactsRoot);
     OnlineGameService.Host=online;
     ManagementService.EditOnlineIdle=online.EditIdleAsync;
+    ManagementService.Refit=new LiveRefitService(workspace,online,options.ArtifactsRoot).ApplyAsync;
     using var onlineCertificate=options.Online is {Enabled:true} onlineOptions?onlineOptions.OpenCertificate(options.DataRoot):null;
     if(options.Online is {Enabled:true})await workspace.InitializeSharedGalaxyAsync();
     using var shutdown=new CancellationTokenSource();

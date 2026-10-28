@@ -19,6 +19,9 @@ public sealed class OnlineGameHost : IAsyncDisposable
         internal readonly DateTimeOffset Expires=DateTimeOffset.UtcNow.AddHours(12);
         internal bool Closed;
         internal volatile bool Playing;
+        internal string? RefitRuntime;
+        internal DateTimeOffset? RefitSourceTime;
+        internal long NextRefitPoll;
     }
     private readonly OfflineWorkspace workspace;
     private readonly string localKey;
@@ -40,6 +43,7 @@ public sealed class OnlineGameHost : IAsyncDisposable
     }
     public SharedWorldMember[] Members=>world.Snapshot();
     public bool AccountActive(string? account)=>sessions.Values.Any(value=>!value.Closed&&value.Playing&&value.Lease.AccountId==account);
+    internal bool OwnsRefit(string account,string runtime)=>sessions.Values.Any(value=>!value.Closed&&value.Playing&&value.Lease.AccountId==account&&value.RefitRuntime==runtime);
     public async Task<JsonNode> EditIdleAsync(string account,Func<Task<JsonNode>> edit)
     {
         var gate=accountGates.GetOrAdd(account,_=>new(1,1));await gate.WaitAsync();
@@ -126,7 +130,7 @@ public sealed class OnlineGameHost : IAsyncDisposable
             session.LastSeen=DateTimeOffset.UtcNow;
             if(request.Kind=="data")
             {
-                if(request.Method is null||request.Path is null||request.Fields is null||request.Body is null||request.Datagrams is not null)throw new InvalidDataException(AppText.Get("OnlineGameHost.Text446"));
+                if(request.Method is null||request.Path is null||request.Fields is null||request.Body is null||request.Datagrams is not null||request.Refit is not null)throw new InvalidDataException(AppText.Get("OnlineGameHost.Text446"));
                 var accountGate=accountGates.GetOrAdd(session.Lease.AccountId,_=>new(1,1));await accountGate.WaitAsync();
                 try
                 {
@@ -159,7 +163,23 @@ public sealed class OnlineGameHost : IAsyncDisposable
                 foreach(var port in session.Channels)replies.AddRange(session.Data.World.Poll(port).Select(reply=>new GameDatagram(port,reply.SourcePort,reply.Payload)));
                 replies.AddRange(world.Drain(session.Lease.RunId));
                 if(replies.Count>256)throw new InvalidDataException(AppText.Get("OnlineGameHost.Text450"));
-                return new(200,Datagrams:replies.ToArray());
+                LiveRefitCommand? refit=null;
+                if(request.Refit is {} observation)
+                {
+                    if(!LiveRefitMailbox.Fresh(observation,observation.ObservedUtc)||observation.ImageSha256!="e6be8bbe04e6a7ae226d4318945af7f367de13dc5a007a261964d9ba8144e988")throw new InvalidDataException("Invalid native refit observation.");
+                    var mailbox=new LiveRefitMailbox(workspace.DirectoryPath,session.Lease.AccountId);
+                    // Use server receipt time across machines. Repeated worker
+                    // messages cannot keep a stalled game frame fresh.
+                    if(session.RefitRuntime!=observation.RuntimeId||session.RefitSourceTime!=observation.ObservedUtc)
+                    {session.RefitRuntime=observation.RuntimeId;session.RefitSourceTime=observation.ObservedUtc;mailbox.Publish(observation with{ObservedUtc=DateTimeOffset.UtcNow});}
+                }
+                if(session.RefitRuntime is not null&&Environment.TickCount64>=session.NextRefitPoll)
+                {
+                    session.NextRefitPoll=Environment.TickCount64+200;
+                    var pending=new LiveRefitMailbox(workspace.DirectoryPath,session.Lease.AccountId).ReadCommand();
+                    if(pending?.RuntimeId==session.RefitRuntime&&pending.ExpiresUtc>DateTimeOffset.UtcNow)refit=pending;
+                }
+                return new(200,Datagrams:replies.ToArray(),Refit:refit);
             }
             if(request.Kind=="members")return new(200,System.Text.Json.JsonSerializer.Serialize(Members,Wire.Json));
             throw new InvalidDataException(AppText.Get("OnlineGameHost.Text451"));

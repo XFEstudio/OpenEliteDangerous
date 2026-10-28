@@ -16,6 +16,7 @@ public partial class ManagementService : ServerCoreStandardServiceBase
     private static string localKey="";
     private static Action stop=()=>{};
     internal static Func<string,Func<Task<JsonNode>>,Task<JsonNode>> EditOnlineIdle=(_,edit)=>edit();
+    internal static Func<string?,JsonObject,Func<Task<JsonNode>>,Task<JsonNode>> Refit=(token,input,idle)=>idle();
     public static void Configure(OfflineWorkspace data,ServerConfiguration options,string key,Action shutdown)
     {workspace=data;commands=new(data);configuration=options;localKey=key;stop=shutdown;OfflineDiagnostics.Current?.RegisterSecret(key);}
     [EntryPoint("health"),NoLog]
@@ -51,7 +52,27 @@ public partial class ManagementService : ServerCoreStandardServiceBase
             }
             else
             {
-                if(operation is "inventory/edit" or "fleet/edit" or "materials/prepare" or "native/import" or "native/initialize" or "journal/import")
+                if(operation=="fleet/refit")
+                {
+                    result=await Refit(token,input,async()=>
+                    {
+                        var actor=await workspace.ProfileAsync(token);
+                        var account=input["accountId"]?.GetValue<string>()??actor["id"]!.GetValue<string>();
+                        CheckNativeGameIdle();
+                        return await EditOnlineIdle(account,async()=>
+                        {
+                            if(input["action"]?.GetValue<string>()=="properties")
+                            {
+                                var values=(JsonObject)input.DeepClone();values["shipId"]=input["shipId"]!.ToString();
+                                return await workspace.EditAsync(token,account,InventoryEdit.Modules,values,input["version"]!.GetValue<string>());
+                            }
+                            if(input["action"]?.GetValue<string>() is "engineering" or "ammunition")
+                                return await workspace.SaveIdleRefitAsync(token,account,input,input["version"]!.GetValue<string>());
+                            return await commands.ExecuteAsync("fleet/edit",token,input);
+                        });
+                    });
+                }
+                else if(operation is "inventory/edit" or "fleet/edit" or "materials/prepare" or "native/import" or "native/initialize" or "journal/import")
                 {
                     var actor=await workspace.ProfileAsync(token);
                     var account=input["accountId"]?.GetValue<string>()??actor["id"]!.GetValue<string>();

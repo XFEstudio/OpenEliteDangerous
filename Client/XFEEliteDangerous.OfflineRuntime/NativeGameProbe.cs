@@ -155,6 +155,7 @@ internal static unsafe class NativeGameProbe
     {
         var result = originalUpdate(first, context, delta);
         InProcessNativeChannels.Pump();
+        NativeLiveRefit.Pump(observedCurrent,observedTarget);
         var now = Environment.TickCount64;
         if (now < Volatile.Read(ref nextFlow)) return result;
         Volatile.Write(ref nextFlow, now + 1000);

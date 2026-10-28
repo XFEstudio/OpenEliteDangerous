@@ -38,6 +38,8 @@ public sealed class LocalClient : IDisposable
     public Task<JsonNode> FleetAsync(string? id,CancellationToken cancel=default)=>Call("fleet",new{accountId=id},cancel);
     public Task<JsonNode> EditFleetAsync(string? id,JsonObject edit,string version,CancellationToken cancel=default)
     {var input=(JsonObject)edit.DeepClone();input["accountId"]=id;input["version"]=version;return Call("fleet/edit",input,cancel);}
+    public Task<JsonNode> RefitAsync(string? id,JsonObject edit,string version,CancellationToken cancel=default)
+    {var input=(JsonObject)edit.DeepClone();input["accountId"]=id;input["version"]=version;return Call("fleet/refit",input,cancel);}
     public Task<JsonNode> PrepareMaterialsAsync(string? id,string version,CancellationToken cancel=default)=>Call("materials/prepare",new{accountId=id,version},cancel);
     public Task<JsonNode> ExportNativeAsync(string? id,CancellationToken cancel=default)=>Call("native/export",new{accountId=id},cancel);
     public Task<JsonNode> InitializeNativeAsync(string? id,string version,CancellationToken cancel=default)=>Call("native/initialize",new{accountId=id,version},cancel);

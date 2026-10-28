@@ -1,0 +1,3241 @@
+{
+  "schema": 1,
+  "nativeImageSha256": "e6be8bbe04e6a7ae226d4318945af7f367de13dc5a007a261964d9ba8144e988",
+  "source": "Public definition fields extracted from the user-owned 2026-10-20 capture; no commander, token or inventory data.",
+  "modules": [
+    {
+      "id": 128049304,
+      "name": "Asp_Armour_Grade1"
+    },
+    {
+      "id": 128049346,
+      "name": "BelugaLiner_Armour_Grade1"
+    },
+    {
+      "id": 128049284,
+      "name": "CobraMkIII_Armour_Reactive"
+    },
+    {
+      "id": 129031231,
+      "name": "CobraMkV_Armour_Grade1"
+    },
+    {
+      "id": 129031233,
+      "name": "CobraMkV_Armour_Grade3"
+    },
+    {
+      "id": 129031322,
+      "name": "Corsair_Armour_Grade1"
+    },
+    {
+      "id": 129031324,
+      "name": "Corsair_Armour_Grade3"
+    },
+    {
+      "id": 128671832,
+      "name": "DiamondBackXL_Armour_Grade1"
+    },
+    {
+      "id": 128049262,
+      "name": "Hauler_Armour_Grade1"
+    },
+    {
+      "id": 129022081,
+      "name": "Hpt_ATDumbfireMissile_Fixed_Medium_V2"
+    },
+    {
+      "id": 129022088,
+      "name": "Hpt_ATMultiCannon_Gimbal_Large"
+    },
+    {
+      "id": 129030049,
+      "name": "Hpt_ATVentDisruptorPylon_Fixed_Medium"
+    },
+    {
+      "id": 128771884,
+      "name": "Hpt_AntiUnknownShutdown_Tiny"
+    },
+    {
+      "id": 129022663,
+      "name": "Hpt_AntiUnknownShutdown_Tiny_V2"
+    },
+    {
+      "id": 128049493,
+      "name": "Hpt_BasicMissileRack_Fixed_Medium"
+    },
+    {
+      "id": 128049433,
+      "name": "Hpt_BeamLaser_Gimbal_Medium"
+    },
+    {
+      "id": 128049432,
+      "name": "Hpt_BeamLaser_Gimbal_Small"
+    },
+    {
+      "id": 129019262,
+      "name": "Hpt_CausticSinkLauncher_Turret_Tiny"
+    },
+    {
+      "id": 128049513,
+      "name": "Hpt_ChaffLauncher_Tiny"
+    },
+    {
+      "id": 128662530,
+      "name": "Hpt_CrimeScanner_Size0_Class1"
+    },
+    {
+      "id": 128662534,
+      "name": "Hpt_CrimeScanner_Size0_Class5"
+    },
+    {
+      "id": 128672441,
+      "name": "Hpt_DataLinkScanner"
+    },
+    {
+      "id": 128049516,
+      "name": "Hpt_ElectronicCountermeasure_Tiny"
+    },
+    {
+      "id": 128891610,
+      "name": "Hpt_Guardian_GaussCannon_Fixed_Small"
+    },
+    {
+      "id": 128049519,
+      "name": "Hpt_HeatSinkLauncher_Turret_Tiny"
+    },
+    {
+      "id": 128915720,
+      "name": "Hpt_MRAScanner_Size0_Class3"
+    },
+    {
+      "id": 128915722,
+      "name": "Hpt_MRAScanner_Size0_Class5"
+    },
+    {
+      "id": 128049526,
+      "name": "Hpt_MiningLaser_Fixed_Medium"
+    },
+    {
+      "id": 128049525,
+      "name": "Hpt_MiningLaser_Fixed_Small"
+    },
+    {
+      "id": 129036137,
+      "name": "Hpt_MiningToolV2_Fixed_Large"
+    },
+    {
+      "id": 128915458,
+      "name": "Hpt_Mining_AbrBlstr_Fixed_Small"
+    },
+    {
+      "id": 128915460,
+      "name": "Hpt_Mining_SeismChrgWarhd_Fixed_Medium"
+    },
+    {
+      "id": 128915456,
+      "name": "Hpt_Mining_SubSurfDispMisle_Fixed_Medium"
+    },
+    {
+      "id": 129040538,
+      "name": "Hpt_MkIIPlasmaShockAutocannon_Fixed_Large"
+    },
+    {
+      "id": 129045962,
+      "name": "Hpt_MkII_BiologicalScanner_Class1"
+    },
+    {
+      "id": 128049456,
+      "name": "Hpt_MultiCannon_Fixed_Medium"
+    },
+    {
+      "id": 128049455,
+      "name": "Hpt_MultiCannon_Fixed_Small"
+    },
+    {
+      "id": 128049461,
+      "name": "Hpt_MultiCannon_Gimbal_Large"
+    },
+    {
+      "id": 128049460,
+      "name": "Hpt_MultiCannon_Gimbal_Medium"
+    },
+    {
+      "id": 128049459,
+      "name": "Hpt_MultiCannon_Gimbal_Small"
+    },
+    {
+      "id": 128049463,
+      "name": "Hpt_MultiCannon_Turret_Medium"
+    },
+    {
+      "id": 128049462,
+      "name": "Hpt_MultiCannon_Turret_Small"
+    },
+    {
+      "id": 128049522,
+      "name": "Hpt_PlasmaPointDefence_Turret_Tiny"
+    },
+    {
+      "id": 128049383,
+      "name": "Hpt_PulseLaser_Fixed_Large"
+    },
+    {
+      "id": 128049381,
+      "name": "Hpt_PulseLaser_Fixed_Small"
+    },
+    {
+      "id": 128049387,
+      "name": "Hpt_PulseLaser_Gimbal_Large"
+    },
+    {
+      "id": 128049386,
+      "name": "Hpt_PulseLaser_Gimbal_Medium"
+    },
+    {
+      "id": 128049385,
+      "name": "Hpt_PulseLaser_Gimbal_Small"
+    },
+    {
+      "id": 128049390,
+      "name": "Hpt_PulseLaser_Turret_Large"
+    },
+    {
+      "id": 128049389,
+      "name": "Hpt_PulseLaser_Turret_Medium"
+    },
+    {
+      "id": 128049388,
+      "name": "Hpt_PulseLaser_Turret_Small"
+    },
+    {
+      "id": 128668533,
+      "name": "Hpt_ShieldBooster_Size0_Class2"
+    },
+    {
+      "id": 128668534,
+      "name": "Hpt_ShieldBooster_Size0_Class3"
+    },
+    {
+      "id": 128668535,
+      "name": "Hpt_ShieldBooster_Size0_Class4"
+    },
+    {
+      "id": 128668536,
+      "name": "Hpt_ShieldBooster_Size0_Class5"
+    },
+    {
+      "id": 129045656,
+      "name": "Hpt_ShipDataLinkScanner"
+    },
+    {
+      "id": 128671321,
+      "name": "Hpt_Slugshot_Gimbal_Large"
+    },
+    {
+      "id": 128049451,
+      "name": "Hpt_Slugshot_Gimbal_Small"
+    },
+    {
+      "id": 128808878,
+      "name": "Hpt_XenoScannerMk2_Basic_Tiny"
+    },
+    {
+      "id": 128672289,
+      "name": "Int_BuggyBay_Size2_Class2"
+    },
+    {
+      "id": 128672291,
+      "name": "Int_BuggyBay_Size4_Class2"
+    },
+    {
+      "id": 128064338,
+      "name": "Int_CargoRack_Size1_Class1"
+    },
+    {
+      "id": 128064339,
+      "name": "Int_CargoRack_Size2_Class1"
+    },
+    {
+      "id": 128064340,
+      "name": "Int_CargoRack_Size3_Class1"
+    },
+    {
+      "id": 128064341,
+      "name": "Int_CargoRack_Size4_Class1"
+    },
+    {
+      "id": 128064342,
+      "name": "Int_CargoRack_Size5_Class1"
+    },
+    {
+      "id": 128064343,
+      "name": "Int_CargoRack_Size6_Class1"
+    },
+    {
+      "id": 128064344,
+      "name": "Int_CargoRack_Size7_Class1"
+    },
+    {
+      "id": 128064345,
+      "name": "Int_CargoRack_Size8_Class1"
+    },
+    {
+      "id": 128666634,
+      "name": "Int_DetailedSurfaceScanner_Tiny"
+    },
+    {
+      "id": 128935155,
+      "name": "Int_DockingComputer_Advanced"
+    },
+    {
+      "id": 128671233,
+      "name": "Int_DroneControl_Collection_Size1_Class5"
+    },
+    {
+      "id": 128671236,
+      "name": "Int_DroneControl_Collection_Size3_Class3"
+    },
+    {
+      "id": 128671243,
+      "name": "Int_DroneControl_Collection_Size5_Class5"
+    },
+    {
+      "id": 128671273,
+      "name": "Int_DroneControl_Prospector_Size1_Class5"
+    },
+    {
+      "id": 128671278,
+      "name": "Int_DroneControl_Prospector_Size3_Class5"
+    },
+    {
+      "id": 128777328,
+      "name": "Int_DroneControl_Repair_Size1_Class2"
+    },
+    {
+      "id": 128777331,
+      "name": "Int_DroneControl_Repair_Size1_Class5"
+    },
+    {
+      "id": 128777333,
+      "name": "Int_DroneControl_Repair_Size3_Class2"
+    },
+    {
+      "id": 128777338,
+      "name": "Int_DroneControl_Repair_Size5_Class2"
+    },
+    {
+      "id": 128793116,
+      "name": "Int_DroneControl_UnkVesselResearch"
+    },
+    {
+      "id": 128064068,
+      "name": "Int_Engine_Size2_Class1"
+    },
+    {
+      "id": 128064072,
+      "name": "Int_Engine_Size2_Class5"
+    },
+    {
+      "id": 128064078,
+      "name": "Int_Engine_Size4_Class1"
+    },
+    {
+      "id": 128064079,
+      "name": "Int_Engine_Size4_Class2"
+    },
+    {
+      "id": 128064080,
+      "name": "Int_Engine_Size4_Class3"
+    },
+    {
+      "id": 128064082,
+      "name": "Int_Engine_Size4_Class5"
+    },
+    {
+      "id": 128064083,
+      "name": "Int_Engine_Size5_Class1"
+    },
+    {
+      "id": 128064087,
+      "name": "Int_Engine_Size5_Class5"
+    },
+    {
+      "id": 128064088,
+      "name": "Int_Engine_Size6_Class1"
+    },
+    {
+      "id": 128064092,
+      "name": "Int_Engine_Size6_Class5"
+    },
+    {
+      "id": 128064093,
+      "name": "Int_Engine_Size7_Class1"
+    },
+    {
+      "id": 128064097,
+      "name": "Int_Engine_Size7_Class5"
+    },
+    {
+      "id": 129039228,
+      "name": "Int_Engine_Size7_Class5_GravityOptimised_MkII"
+    },
+    {
+      "id": 128064098,
+      "name": "Int_Engine_Size8_Class1"
+    },
+    {
+      "id": 128064102,
+      "name": "Int_Engine_Size8_Class5"
+    },
+    {
+      "id": 128666720,
+      "name": "Int_FSDInterdictor_Size1_Class5"
+    },
+    {
+      "id": 128727930,
+      "name": "Int_FighterBay_Size5_Class1"
+    },
+    {
+      "id": 128666677,
+      "name": "Int_FuelScoop_Size2_Class5"
+    },
+    {
+      "id": 128666678,
+      "name": "Int_FuelScoop_Size3_Class5"
+    },
+    {
+      "id": 128666679,
+      "name": "Int_FuelScoop_Size4_Class5"
+    },
+    {
+      "id": 128666680,
+      "name": "Int_FuelScoop_Size5_Class5"
+    },
+    {
+      "id": 128666681,
+      "name": "Int_FuelScoop_Size6_Class5"
+    },
+    {
+      "id": 128666682,
+      "name": "Int_FuelScoop_Size7_Class5"
+    },
+    {
+      "id": 128672809,
+      "name": "Int_FuelTank_Size0_Class3"
+    },
+    {
+      "id": 129046179,
+      "name": "Int_FuelTank_Size0_Class4"
+    },
+    {
+      "id": 128064347,
+      "name": "Int_FuelTank_Size2_Class3"
+    },
+    {
+      "id": 128064348,
+      "name": "Int_FuelTank_Size3_Class3"
+    },
+    {
+      "id": 128064349,
+      "name": "Int_FuelTank_Size4_Class3"
+    },
+    {
+      "id": 128064350,
+      "name": "Int_FuelTank_Size5_Class3"
+    },
+    {
+      "id": 128064351,
+      "name": "Int_FuelTank_Size6_Class3"
+    },
+    {
+      "id": 128064352,
+      "name": "Int_FuelTank_Size7_Class3"
+    },
+    {
+      "id": 128833978,
+      "name": "Int_GuardianFSDBooster_Size4"
+    },
+    {
+      "id": 128833979,
+      "name": "Int_GuardianFSDBooster_Size5"
+    },
+    {
+      "id": 128833972,
+      "name": "Int_GuardianShieldReinforcement_Size4_Class2"
+    },
+    {
+      "id": 128668538,
+      "name": "Int_HullReinforcement_Size1_Class2"
+    },
+    {
+      "id": 128668540,
+      "name": "Int_HullReinforcement_Size2_Class2"
+    },
+    {
+      "id": 128668542,
+      "name": "Int_HullReinforcement_Size3_Class2"
+    },
+    {
+      "id": 128668544,
+      "name": "Int_HullReinforcement_Size4_Class2"
+    },
+    {
+      "id": 128668546,
+      "name": "Int_HullReinforcement_Size5_Class2"
+    },
+    {
+      "id": 129030585,
+      "name": "Int_Hyperdrive_Overcharge_Size4_Class1"
+    },
+    {
+      "id": 129030485,
+      "name": "Int_Hyperdrive_Overcharge_Size4_Class3"
+    },
+    {
+      "id": 129030588,
+      "name": "Int_Hyperdrive_Overcharge_Size4_Class5"
+    },
+    {
+      "id": 129030589,
+      "name": "Int_Hyperdrive_Overcharge_Size5_Class1"
+    },
+    {
+      "id": 129030474,
+      "name": "Int_Hyperdrive_Overcharge_Size5_Class3"
+    },
+    {
+      "id": 129030592,
+      "name": "Int_Hyperdrive_Overcharge_Size5_Class5"
+    },
+    {
+      "id": 129030596,
+      "name": "Int_Hyperdrive_Overcharge_Size6_Class5"
+    },
+    {
+      "id": 129030597,
+      "name": "Int_Hyperdrive_Overcharge_Size7_Class1"
+    },
+    {
+      "id": 129030600,
+      "name": "Int_Hyperdrive_Overcharge_Size7_Class5"
+    },
+    {
+      "id": 129036576,
+      "name": "Int_Hyperdrive_Overcharge_Size8_Class1"
+    },
+    {
+      "id": 129038968,
+      "name": "Int_Hyperdrive_Overcharge_Size8_Class5_OverchargeBooster_MkII"
+    },
+    {
+      "id": 128064103,
+      "name": "Int_Hyperdrive_Size2_Class1"
+    },
+    {
+      "id": 128064117,
+      "name": "Int_Hyperdrive_Size4_Class5"
+    },
+    {
+      "id": 128064122,
+      "name": "Int_Hyperdrive_Size5_Class5"
+    },
+    {
+      "id": 129034963,
+      "name": "Int_LargeCargoRack_Size7_Class1"
+    },
+    {
+      "id": 129034964,
+      "name": "Int_LargeCargoRack_Size8_Class1"
+    },
+    {
+      "id": 128672442,
+      "name": "Int_LifeSupport_Size0_Class1"
+    },
+    {
+      "id": 128064138,
+      "name": "Int_LifeSupport_Size1_Class1"
+    },
+    {
+      "id": 128064142,
+      "name": "Int_LifeSupport_Size1_Class5"
+    },
+    {
+      "id": 128064144,
+      "name": "Int_LifeSupport_Size2_Class2"
+    },
+    {
+      "id": 128064148,
+      "name": "Int_LifeSupport_Size3_Class1"
+    },
+    {
+      "id": 128064149,
+      "name": "Int_LifeSupport_Size3_Class2"
+    },
+    {
+      "id": 128064153,
+      "name": "Int_LifeSupport_Size4_Class1"
+    },
+    {
+      "id": 128064154,
+      "name": "Int_LifeSupport_Size4_Class2"
+    },
+    {
+      "id": 128064158,
+      "name": "Int_LifeSupport_Size5_Class1"
+    },
+    {
+      "id": 128064159,
+      "name": "Int_LifeSupport_Size5_Class2"
+    },
+    {
+      "id": 128064162,
+      "name": "Int_LifeSupport_Size5_Class5"
+    },
+    {
+      "id": 128064163,
+      "name": "Int_LifeSupport_Size6_Class1"
+    },
+    {
+      "id": 128064167,
+      "name": "Int_LifeSupport_Size6_Class5"
+    },
+    {
+      "id": 128064174,
+      "name": "Int_LifeSupport_Size8_Class2"
+    },
+    {
+      "id": 129046053,
+      "name": "Int_MiningRigDeployment"
+    },
+    {
+      "id": 129041074,
+      "name": "Int_MkIIAgileBoost_Engine_Size5_Class5"
+    },
+    {
+      "id": 129046059,
+      "name": "Int_MkIILargeBuggyBay_Size4_Class3"
+    },
+    {
+      "id": 129043771,
+      "name": "Int_MkII_PassengerCabin_Size3_Class1"
+    },
+    {
+      "id": 129043773,
+      "name": "Int_MkII_PassengerCabin_Size4_Class1"
+    },
+    {
+      "id": 129043774,
+      "name": "Int_MkII_PassengerCabin_Size4_Class2"
+    },
+    {
+      "id": 129043776,
+      "name": "Int_MkII_PassengerCabin_Size5_Class2"
+    },
+    {
+      "id": 129043777,
+      "name": "Int_MkII_PassengerCabin_Size6_Class1"
+    },
+    {
+      "id": 129043778,
+      "name": "Int_MkII_PassengerCabin_Size6_Class2"
+    },
+    {
+      "id": 128737271,
+      "name": "Int_ModuleReinforcement_Size1_Class2"
+    },
+    {
+      "id": 128737273,
+      "name": "Int_ModuleReinforcement_Size2_Class2"
+    },
+    {
+      "id": 128737275,
+      "name": "Int_ModuleReinforcement_Size3_Class2"
+    },
+    {
+      "id": 128737277,
+      "name": "Int_ModuleReinforcement_Size4_Class2"
+    },
+    {
+      "id": 128737279,
+      "name": "Int_ModuleReinforcement_Size5_Class2"
+    },
+    {
+      "id": 129036138,
+      "name": "Int_MultiDroneControl_MiningV2_Size5_Class5"
+    },
+    {
+      "id": 129001923,
+      "name": "Int_MultiDroneControl_Operations_Size3_Class3"
+    },
+    {
+      "id": 129001924,
+      "name": "Int_MultiDroneControl_Operations_Size3_Class4"
+    },
+    {
+      "id": 128734691,
+      "name": "Int_PassengerCabin_Size3_Class1"
+    },
+    {
+      "id": 128734692,
+      "name": "Int_PassengerCabin_Size3_Class2"
+    },
+    {
+      "id": 128727922,
+      "name": "Int_PassengerCabin_Size4_Class1"
+    },
+    {
+      "id": 128727924,
+      "name": "Int_PassengerCabin_Size4_Class3"
+    },
+    {
+      "id": 128734693,
+      "name": "Int_PassengerCabin_Size5_Class1"
+    },
+    {
+      "id": 128734694,
+      "name": "Int_PassengerCabin_Size5_Class2"
+    },
+    {
+      "id": 128727926,
+      "name": "Int_PassengerCabin_Size6_Class1"
+    },
+    {
+      "id": 128727928,
+      "name": "Int_PassengerCabin_Size6_Class3"
+    },
+    {
+      "id": 128727929,
+      "name": "Int_PassengerCabin_Size6_Class4"
+    },
+    {
+      "id": 128975719,
+      "name": "Int_PlanetApproachSuite_Advanced"
+    },
+    {
+      "id": 128672438,
+      "name": "Int_PowerDistributor_Size0_Class1"
+    },
+    {
+      "id": 129046178,
+      "name": "Int_PowerDistributor_Size0_Class1_RNO"
+    },
+    {
+      "id": 128064178,
+      "name": "Int_PowerDistributor_Size1_Class1"
+    },
+    {
+      "id": 128064180,
+      "name": "Int_PowerDistributor_Size1_Class3"
+    },
+    {
+      "id": 128064189,
+      "name": "Int_PowerDistributor_Size3_Class2"
+    },
+    {
+      "id": 128064192,
+      "name": "Int_PowerDistributor_Size3_Class5"
+    },
+    {
+      "id": 128064193,
+      "name": "Int_PowerDistributor_Size4_Class1"
+    },
+    {
+      "id": 128064197,
+      "name": "Int_PowerDistributor_Size4_Class5"
+    },
+    {
+      "id": 128064198,
+      "name": "Int_PowerDistributor_Size5_Class1"
+    },
+    {
+      "id": 128064199,
+      "name": "Int_PowerDistributor_Size5_Class2"
+    },
+    {
+      "id": 128064202,
+      "name": "Int_PowerDistributor_Size5_Class5"
+    },
+    {
+      "id": 128064203,
+      "name": "Int_PowerDistributor_Size6_Class1"
+    },
+    {
+      "id": 128064207,
+      "name": "Int_PowerDistributor_Size6_Class5"
+    },
+    {
+      "id": 128064208,
+      "name": "Int_PowerDistributor_Size7_Class1"
+    },
+    {
+      "id": 128064212,
+      "name": "Int_PowerDistributor_Size7_Class5"
+    },
+    {
+      "id": 128672437,
+      "name": "Int_Powerplant_Size0_Class1"
+    },
+    {
+      "id": 128064033,
+      "name": "Int_Powerplant_Size2_Class1"
+    },
+    {
+      "id": 128064035,
+      "name": "Int_Powerplant_Size2_Class3"
+    },
+    {
+      "id": 128064042,
+      "name": "Int_Powerplant_Size3_Class5"
+    },
+    {
+      "id": 128064043,
+      "name": "Int_Powerplant_Size4_Class1"
+    },
+    {
+      "id": 128064047,
+      "name": "Int_Powerplant_Size4_Class5"
+    },
+    {
+      "id": 128064048,
+      "name": "Int_Powerplant_Size5_Class1"
+    },
+    {
+      "id": 128064052,
+      "name": "Int_Powerplant_Size5_Class5"
+    },
+    {
+      "id": 128064053,
+      "name": "Int_Powerplant_Size6_Class1"
+    },
+    {
+      "id": 128064057,
+      "name": "Int_Powerplant_Size6_Class5"
+    },
+    {
+      "id": 128064058,
+      "name": "Int_Powerplant_Size7_Class1"
+    },
+    {
+      "id": 128064062,
+      "name": "Int_Powerplant_Size7_Class5"
+    },
+    {
+      "id": 128064063,
+      "name": "Int_Powerplant_Size8_Class1"
+    },
+    {
+      "id": 128064067,
+      "name": "Int_Powerplant_Size8_Class5"
+    },
+    {
+      "id": 129046054,
+      "name": "Int_RefinerySRV_Size1_Class3"
+    },
+    {
+      "id": 128666701,
+      "name": "Int_Refinery_Size2_Class5"
+    },
+    {
+      "id": 128666702,
+      "name": "Int_Refinery_Size3_Class5"
+    },
+    {
+      "id": 128667631,
+      "name": "Int_Repairer_Size2_Class5"
+    },
+    {
+      "id": 128667632,
+      "name": "Int_Repairer_Size3_Class5"
+    },
+    {
+      "id": 128667634,
+      "name": "Int_Repairer_Size5_Class5"
+    },
+    {
+      "id": 128667635,
+      "name": "Int_Repairer_Size6_Class5"
+    },
+    {
+      "id": 128064218,
+      "name": "Int_Sensors_Size1_Class1"
+    },
+    {
+      "id": 128064223,
+      "name": "Int_Sensors_Size2_Class1"
+    },
+    {
+      "id": 128064224,
+      "name": "Int_Sensors_Size2_Class2"
+    },
+    {
+      "id": 128064227,
+      "name": "Int_Sensors_Size2_Class5"
+    },
+    {
+      "id": 128064228,
+      "name": "Int_Sensors_Size3_Class1"
+    },
+    {
+      "id": 128064229,
+      "name": "Int_Sensors_Size3_Class2"
+    },
+    {
+      "id": 128064234,
+      "name": "Int_Sensors_Size4_Class2"
+    },
+    {
+      "id": 128064238,
+      "name": "Int_Sensors_Size5_Class1"
+    },
+    {
+      "id": 128064239,
+      "name": "Int_Sensors_Size5_Class2"
+    },
+    {
+      "id": 128064242,
+      "name": "Int_Sensors_Size5_Class5"
+    },
+    {
+      "id": 128064243,
+      "name": "Int_Sensors_Size6_Class1"
+    },
+    {
+      "id": 128064244,
+      "name": "Int_Sensors_Size6_Class2"
+    },
+    {
+      "id": 128064253,
+      "name": "Int_Sensors_Size8_Class1"
+    },
+    {
+      "id": 128064254,
+      "name": "Int_Sensors_Size8_Class2"
+    },
+    {
+      "id": 128672439,
+      "name": "Int_Sensors_Surface_Size1_Class1"
+    },
+    {
+      "id": 128064317,
+      "name": "Int_ShieldCellBank_Size4_Class5"
+    },
+    {
+      "id": 128672444,
+      "name": "Int_ShieldGenerator_Size0_Class3"
+    },
+    {
+      "id": 128064263,
+      "name": "Int_ShieldGenerator_Size2_Class1"
+    },
+    {
+      "id": 128064269,
+      "name": "Int_ShieldGenerator_Size3_Class2"
+    },
+    {
+      "id": 128064272,
+      "name": "Int_ShieldGenerator_Size3_Class5"
+    },
+    {
+      "id": 128064273,
+      "name": "Int_ShieldGenerator_Size4_Class1"
+    },
+    {
+      "id": 128064274,
+      "name": "Int_ShieldGenerator_Size4_Class2"
+    },
+    {
+      "id": 128064275,
+      "name": "Int_ShieldGenerator_Size4_Class3"
+    },
+    {
+      "id": 128671334,
+      "name": "Int_ShieldGenerator_Size4_Class3_Fast"
+    },
+    {
+      "id": 128064277,
+      "name": "Int_ShieldGenerator_Size4_Class5"
+    },
+    {
+      "id": 128064278,
+      "name": "Int_ShieldGenerator_Size5_Class1"
+    },
+    {
+      "id": 128064279,
+      "name": "Int_ShieldGenerator_Size5_Class2"
+    },
+    {
+      "id": 128671335,
+      "name": "Int_ShieldGenerator_Size5_Class3_Fast"
+    },
+    {
+      "id": 128064282,
+      "name": "Int_ShieldGenerator_Size5_Class5"
+    },
+    {
+      "id": 128064283,
+      "name": "Int_ShieldGenerator_Size6_Class1"
+    },
+    {
+      "id": 128671336,
+      "name": "Int_ShieldGenerator_Size6_Class3_Fast"
+    },
+    {
+      "id": 128064288,
+      "name": "Int_ShieldGenerator_Size7_Class1"
+    },
+    {
+      "id": 128064292,
+      "name": "Int_ShieldGenerator_Size7_Class5"
+    },
+    {
+      "id": 128672443,
+      "name": "Int_SineWaveScanner_Size1_Class1"
+    },
+    {
+      "id": 128932273,
+      "name": "Int_SupercruiseAssist"
+    },
+    {
+      "id": 129036132,
+      "name": "LakonMiner_Armour_Grade1"
+    },
+    {
+      "id": 129045648,
+      "name": "Lander01_Armour_Grade1"
+    },
+    {
+      "id": 128915983,
+      "name": "Mamba_Armour_Grade3"
+    },
+    {
+      "id": 129030681,
+      "name": "Mandalay_Armour_Grade1"
+    },
+    {
+      "id": 129041444,
+      "name": "MediumTransport01_Armour_Grade1"
+    },
+    {
+      "id": 129041446,
+      "name": "MediumTransport01_Armour_Grade3"
+    },
+    {
+      "id": 129034271,
+      "name": "PantherMkII_Armour_Grade1"
+    },
+    {
+      "id": 128049340,
+      "name": "Python_Armour_Grade1"
+    },
+    {
+      "id": 128049342,
+      "name": "Python_Armour_Grade3"
+    },
+    {
+      "id": 128672435,
+      "name": "Scarab_Armour_Grade1"
+    },
+    {
+      "id": 128049286,
+      "name": "Type6_Armour_Grade1"
+    },
+    {
+      "id": 129030535,
+      "name": "Type8_Armour_Grade1"
+    },
+    {
+      "id": 128049336,
+      "name": "Type9_Armour_Grade3"
+    },
+    {
+      "id": 128816578,
+      "name": "TypeX_Armour_Grade3"
+    },
+    {
+      "id": 128049312,
+      "name": "Vulture_Armour_Grade3"
+    }
+  ],
+  "blueprints": [
+    {
+      "key": "c41d301f7c2b5e3b329dd5f3",
+      "modulePrefix": "Hpt_Guardian_",
+      "state": {
+        "engineerId": 300110,
+        "recipeId": 129030458,
+        "recipeName": "GuardianModule_Sturdy",
+        "level": 1,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_guardian_module_resistance",
+            "value": 1,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "d402b710b46045636daca1d0",
+      "modulePrefix": "Int_Engine_",
+      "state": {
+        "engineerId": 300220,
+        "recipeId": 128673659,
+        "recipeName": "Engine_Dirty",
+        "level": 5,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_passive_power",
+            "value": 0.12,
+            "type": 1
+          },
+          {
+            "name": "mod_engine_heat",
+            "value": 0.6,
+            "type": 1
+          },
+          {
+            "name": "mod_health",
+            "value": -0.15,
+            "type": 1
+          },
+          {
+            "name": "mod_engine_mass_curve",
+            "value": -0.125,
+            "type": 1
+          },
+          {
+            "name": "mod_engine_mass_curve_multiplier",
+            "value": 0.4,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "8ded722973ea4fbd19c388ec",
+      "modulePrefix": "Hpt_MiningLaser_",
+      "state": {
+        "engineerId": 300210,
+        "recipeId": 128673614,
+        "recipeName": "Weapon_LongRange",
+        "level": 5,
+        "progress": 0,
+        "craftCount": 1,
+        "modifiers": [
+          {
+            "name": "mod_weapon_range",
+            "value": 4,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_falloffrange_from_range",
+            "value": 3,
+            "type": 1
+          },
+          {
+            "name": "mod_passive_power",
+            "value": 0.15,
+            "type": 1
+          },
+          {
+            "name": "mod_mass",
+            "value": 0.2,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "27ae6dacc6bfdb34f0b0c34d",
+      "modulePrefix": "Int_Hyperdrive_",
+      "state": {
+        "engineerId": 300100,
+        "recipeId": 128673694,
+        "recipeName": "FSD_LongRange",
+        "level": 5,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_passive_power",
+            "value": 0.15,
+            "type": 1
+          },
+          {
+            "name": "mod_mass",
+            "value": 0.3,
+            "type": 1
+          },
+          {
+            "name": "mod_health",
+            "value": -0.15,
+            "type": 1
+          },
+          {
+            "name": "mod_fsd_optimised_mass",
+            "value": 0.55,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "2248708e365f7d25e1321984",
+      "modulePrefix": "Hpt_PulseLaser_",
+      "state": {
+        "engineerId": 300180,
+        "recipeId": 128673575,
+        "recipeName": "Weapon_LongRange",
+        "level": 1,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_passive_power",
+            "value": 0.03,
+            "type": 1
+          },
+          {
+            "name": "mod_mass",
+            "value": 0.1,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_range",
+            "value": 0.2,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_falloffrange_from_range",
+            "value": 1,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "dd29e34d6bfbc930ecaffa0b",
+      "modulePrefix": "Hpt_MultiCannon_",
+      "state": {
+        "engineerId": 300260,
+        "recipeId": 128673486,
+        "recipeName": "Weapon_HighCapacity",
+        "level": 2,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_passive_power",
+            "value": 0.08,
+            "type": 1
+          },
+          {
+            "name": "mod_mass",
+            "value": 0.3,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_ammo_capacity",
+            "value": 0.52,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_clip_size",
+            "value": 0.52,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_burst_interval",
+            "value": -0.04,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "4807f03f686d939884a203b4",
+      "modulePrefix": "Int_Powerplant_",
+      "state": {
+        "engineerId": 300090,
+        "recipeId": 128673761,
+        "recipeName": "PowerPlant_Armoured",
+        "level": 2,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_mass",
+            "value": 0.08,
+            "type": 1
+          },
+          {
+            "name": "mod_health",
+            "value": 0.6,
+            "type": 1
+          },
+          {
+            "name": "mod_powerplant_heat",
+            "value": -0.06,
+            "type": 1
+          },
+          {
+            "name": "mod_powerplant_power",
+            "value": 0.06,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "601a750bc5573698e9c5e24c",
+      "modulePrefix": "Int_Engine_",
+      "state": {
+        "engineerId": 300220,
+        "recipeId": 128673656,
+        "recipeName": "Engine_Dirty",
+        "level": 2,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_passive_power",
+            "value": 0.06,
+            "type": 1
+          },
+          {
+            "name": "mod_engine_heat",
+            "value": 0.3,
+            "type": 1
+          },
+          {
+            "name": "mod_health",
+            "value": -0.06,
+            "type": 1
+          },
+          {
+            "name": "mod_engine_mass_curve",
+            "value": -0.05,
+            "type": 1
+          },
+          {
+            "name": "mod_engine_mass_curve_multiplier",
+            "value": 0.19,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "664f75babc97d20a978a38ec",
+      "modulePrefix": "Int_PowerDistributor_",
+      "state": {
+        "engineerId": 300180,
+        "recipeId": 128673736,
+        "recipeName": "PowerDistributor_HighFrequency",
+        "level": 2,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_powerdistributor_global_charge",
+            "value": -0.02,
+            "type": 1
+          },
+          {
+            "name": "mod_powerdistributor_global_rate",
+            "value": 0.18,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "805e6e877709b3ee8bad7b8b",
+      "modulePrefix": "Hpt_HeatSinkLauncher_",
+      "state": {
+        "engineerId": 300110,
+        "recipeId": 128731666,
+        "recipeName": "Misc_HeatSinkCapacity",
+        "level": 1,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_weapon_reload_time",
+            "value": 0.5,
+            "type": 1
+          },
+          {
+            "name": "mod_mass",
+            "value": 1,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_ammo_capacity",
+            "value": 0.5,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "24f5ea7b6cf78ce1bb3800b1",
+      "modulePrefix": "Hpt_CausticSinkLauncher_",
+      "state": {
+        "engineerId": 300110,
+        "recipeId": 128731666,
+        "recipeName": "Misc_HeatSinkCapacity",
+        "level": 1,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_weapon_reload_time",
+            "value": 0.5,
+            "type": 1
+          },
+          {
+            "name": "mod_mass",
+            "value": 1,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_ammo_capacity",
+            "value": 0.5,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "e4a900e0f0104d9cbcf00934",
+      "modulePrefix": "Int_Powerplant_",
+      "state": {
+        "engineerId": 300200,
+        "recipeId": 128673772,
+        "recipeName": "PowerPlant_Stealth",
+        "level": 3,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_powerplant_power",
+            "value": -0.09,
+            "type": 1
+          },
+          {
+            "name": "mod_mass",
+            "value": 0.12,
+            "type": 1
+          },
+          {
+            "name": "mod_powerplant_heat",
+            "value": -0.45,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "167d24311bcd99bf4a5e6189",
+      "modulePrefix": "Int_Engine_",
+      "state": {
+        "engineerId": 300220,
+        "recipeId": 128673658,
+        "recipeName": "Engine_Dirty",
+        "level": 4,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_passive_power",
+            "value": 0.1,
+            "type": 1
+          },
+          {
+            "name": "mod_engine_heat",
+            "value": 0.5,
+            "type": 1
+          },
+          {
+            "name": "mod_health",
+            "value": -0.12,
+            "type": 1
+          },
+          {
+            "name": "mod_engine_mass_curve",
+            "value": -0.1,
+            "type": 1
+          },
+          {
+            "name": "mod_engine_mass_curve_multiplier",
+            "value": 0.33,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "ddf1205c6ee42cba82dacac9",
+      "modulePrefix": "Int_Hyperdrive_",
+      "state": {
+        "engineerId": 300100,
+        "recipeId": 128673693,
+        "recipeName": "FSD_LongRange",
+        "level": 4,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_passive_power",
+            "value": 0.12,
+            "type": 1
+          },
+          {
+            "name": "mod_mass",
+            "value": 0.25,
+            "type": 1
+          },
+          {
+            "name": "mod_health",
+            "value": -0.12,
+            "type": 1
+          },
+          {
+            "name": "mod_fsd_optimised_mass",
+            "value": 0.45,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "90300a7bad183cece8918cbe",
+      "modulePrefix": "Int_PowerDistributor_",
+      "state": {
+        "engineerId": 300200,
+        "recipeId": 128673737,
+        "recipeName": "PowerDistributor_HighFrequency",
+        "level": 3,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_powerdistributor_global_charge",
+            "value": -0.03,
+            "type": 1
+          },
+          {
+            "name": "mod_powerdistributor_global_rate",
+            "value": 0.27,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "e2e66edf4abd68ef536accd0",
+      "modulePrefix": "Hpt_BeamLaser_",
+      "state": {
+        "engineerId": 300030,
+        "recipeId": 128739089,
+        "recipeName": "Weapon_Efficient",
+        "level": 3,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_weapon_active_heat",
+            "value": -0.475,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_damage",
+            "value": 0.16,
+            "type": 1
+          },
+          {
+            "name": "mod_passive_power",
+            "value": -0.24,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_active_power",
+            "value": -0.25,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "fce37b02c776fc24a3adf7c1",
+      "modulePrefix": "Krait_MkII_Armour_",
+      "state": {
+        "engineerId": 300210,
+        "recipeId": 128673642,
+        "recipeName": "Armour_HeavyDuty",
+        "level": 3,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_mass",
+            "value": 0.2,
+            "type": 1
+          },
+          {
+            "name": "mod_defencemodifier_health_mult",
+            "value": 0.22,
+            "type": 1
+          },
+          {
+            "name": "mod_defencemodifier_global_hull_mult",
+            "value": -0.03,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "d16f4d7ccbf4d0e74e0a296d",
+      "modulePrefix": "Int_Powerplant_",
+      "state": {
+        "engineerId": 300200,
+        "recipeId": 128673771,
+        "recipeName": "PowerPlant_Stealth",
+        "level": 2,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_powerplant_power",
+            "value": -0.06,
+            "type": 1
+          },
+          {
+            "name": "mod_mass",
+            "value": 0.08,
+            "type": 1
+          },
+          {
+            "name": "mod_powerplant_heat",
+            "value": -0.35,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "6160d1993a6212b80d7990f4",
+      "modulePrefix": "Int_ShieldGenerator_",
+      "state": {
+        "engineerId": 300000,
+        "recipeId": 128673836,
+        "recipeName": "ShieldGenerator_Reinforced",
+        "level": 2,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_shield_energy_per_regen",
+            "value": 0.06,
+            "type": 1
+          },
+          {
+            "name": "mod_shield_broken_regen",
+            "value": -0.1,
+            "type": 1
+          },
+          {
+            "name": "mod_shield_global_mult",
+            "value": -0.075,
+            "type": 1
+          },
+          {
+            "name": "mod_shield_mass_curve_multiplier",
+            "value": 0.2,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "b4ce53e3415f966343f41012",
+      "modulePrefix": "Int_HullReinforcement_",
+      "state": {
+        "engineerId": 300210,
+        "recipeId": 128673717,
+        "recipeName": "HullReinforcement_HeavyDuty",
+        "level": 3,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_mass",
+            "value": 0.24,
+            "type": 1
+          },
+          {
+            "name": "mod_defencemodifier_health_add",
+            "value": 0.48,
+            "type": 1
+          },
+          {
+            "name": "mod_defencemodifier_global_hull_mult",
+            "value": -0.09,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "a835a152837558007a401d7e",
+      "modulePrefix": "Hpt_BasicMissileRack_",
+      "state": {
+        "engineerId": 300130,
+        "recipeId": 128673475,
+        "recipeName": "Weapon_HighCapacity",
+        "level": 1,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_passive_power",
+            "value": 0.04,
+            "type": 1
+          },
+          {
+            "name": "mod_mass",
+            "value": 0.2,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_ammo_capacity",
+            "value": 0.36,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_clip_size",
+            "value": 0.36,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_burst_interval",
+            "value": -0.02,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "9f504d9e69f43a886bd28c5f",
+      "modulePrefix": "Int_Powerplant_",
+      "state": {
+        "engineerId": 300200,
+        "recipeId": 128673762,
+        "recipeName": "PowerPlant_Armoured",
+        "level": 3,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_mass",
+            "value": 0.12,
+            "type": 1
+          },
+          {
+            "name": "mod_health",
+            "value": 0.8,
+            "type": 1
+          },
+          {
+            "name": "mod_powerplant_heat",
+            "value": -0.08,
+            "type": 1
+          },
+          {
+            "name": "mod_powerplant_power",
+            "value": 0.08,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "bbdc738742c3ea731193000a",
+      "modulePrefix": "Int_ShieldGenerator_",
+      "state": {
+        "engineerId": 300000,
+        "recipeId": 128673837,
+        "recipeName": "ShieldGenerator_Reinforced",
+        "level": 3,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_shield_energy_per_regen",
+            "value": 0.08,
+            "type": 1
+          },
+          {
+            "name": "mod_shield_broken_regen",
+            "value": -0.1,
+            "type": 1
+          },
+          {
+            "name": "mod_shield_global_mult",
+            "value": -0.105,
+            "type": 1
+          },
+          {
+            "name": "mod_shield_mass_curve_multiplier",
+            "value": 0.26,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "cd06ae6dd7ad9c157b5bc319",
+      "modulePrefix": "Int_ShieldGenerator_",
+      "state": {
+        "engineerId": 300120,
+        "recipeId": 128673839,
+        "recipeName": "ShieldGenerator_Reinforced",
+        "level": 5,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_shield_energy_per_regen",
+            "value": 0.12,
+            "type": 1
+          },
+          {
+            "name": "mod_shield_broken_regen",
+            "value": -0.1,
+            "type": 1
+          },
+          {
+            "name": "mod_shield_global_mult",
+            "value": -0.165,
+            "type": 1
+          },
+          {
+            "name": "mod_shield_mass_curve_multiplier",
+            "value": 0.38,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "8b8e65cffe80ee1a2c210e21",
+      "modulePrefix": "Asp_Armour_",
+      "state": {
+        "engineerId": 300210,
+        "recipeId": 128673642,
+        "recipeName": "Armour_HeavyDuty",
+        "level": 3,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_mass",
+            "value": 0.2,
+            "type": 1
+          },
+          {
+            "name": "mod_defencemodifier_health_mult",
+            "value": 0.22,
+            "type": 1
+          },
+          {
+            "name": "mod_defencemodifier_global_hull_mult",
+            "value": -0.03,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "6356b39e927691b1ab950fdc",
+      "modulePrefix": "Int_Powerplant_",
+      "state": {
+        "engineerId": 300200,
+        "recipeId": 128673768,
+        "recipeName": "PowerPlant_Boosted",
+        "level": 4,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_powerplant_heat",
+            "value": 0.2,
+            "type": 1
+          },
+          {
+            "name": "mod_health",
+            "value": -0.2,
+            "type": 1
+          },
+          {
+            "name": "mod_powerplant_power",
+            "value": 0.33,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "ad5ccd381bf423c3e47b62c1",
+      "modulePrefix": "Int_ShieldGenerator_",
+      "state": {
+        "engineerId": 300280,
+        "recipeId": 128673825,
+        "recipeName": "ShieldGenerator_Optimised",
+        "level": 1,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_shield_mass_curve",
+            "value": -0.02,
+            "type": 1
+          },
+          {
+            "name": "mod_health",
+            "value": -0.05,
+            "type": 1
+          },
+          {
+            "name": "mod_passive_power",
+            "value": -0.2,
+            "type": 1
+          },
+          {
+            "name": "mod_mass",
+            "value": -0.18,
+            "type": 1
+          },
+          {
+            "name": "mod_shield_mass_curve_multiplier",
+            "value": 0.03,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "df53450368200ec82898f900",
+      "modulePrefix": "Hpt_PulseLaser_",
+      "state": {
+        "engineerId": 300280,
+        "recipeId": 128673587,
+        "recipeName": "Weapon_RapidFire",
+        "level": 3,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_weapon_damage",
+            "value": -0.03,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_jitter_radius",
+            "value": 0.5,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_burst_interval",
+            "value": -0.26,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_active_power",
+            "value": -0.15,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_reload_time",
+            "value": -0.45,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "dcbf2fc0035af2fe0d8ff0f8",
+      "modulePrefix": "Hpt_MultiCannon_",
+      "state": {
+        "engineerId": 300260,
+        "recipeId": 128673502,
+        "recipeName": "Weapon_Overcharged",
+        "level": 3,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_weapon_active_power",
+            "value": 0.25,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_active_heat",
+            "value": 0.09,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_clip_size",
+            "value": -0.09,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_damage",
+            "value": 0.5,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "37af8514971ef231c4e20a00",
+      "modulePrefix": "Int_ShieldGenerator_",
+      "state": {
+        "engineerId": 300280,
+        "recipeId": 128673839,
+        "recipeName": "ShieldGenerator_Reinforced",
+        "level": 5,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_shield_energy_per_regen",
+            "value": 0.12,
+            "type": 1
+          },
+          {
+            "name": "mod_shield_broken_regen",
+            "value": -0.1,
+            "type": 1
+          },
+          {
+            "name": "mod_shield_global_mult",
+            "value": -0.165,
+            "type": 1
+          },
+          {
+            "name": "mod_shield_mass_curve_multiplier",
+            "value": 0.38,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "c654fb5511526e3a79d8c36b",
+      "modulePrefix": "Hpt_Slugshot_",
+      "state": {
+        "engineerId": 300150,
+        "recipeId": 128673449,
+        "recipeName": "Weapon_HighCapacity",
+        "level": 5,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_passive_power",
+            "value": 0.2,
+            "type": 1
+          },
+          {
+            "name": "mod_mass",
+            "value": 0.6,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_ammo_capacity",
+            "value": 1,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_clip_size",
+            "value": 1,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_burst_interval",
+            "value": -0.1,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "ccffbb33dc21e62bb40873dd",
+      "modulePrefix": "Hpt_Slugshot_",
+      "state": {
+        "engineerId": 300150,
+        "recipeId": 128673447,
+        "recipeName": "Weapon_HighCapacity",
+        "level": 3,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_passive_power",
+            "value": 0.12,
+            "type": 1
+          },
+          {
+            "name": "mod_mass",
+            "value": 0.4,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_ammo_capacity",
+            "value": 0.68,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_clip_size",
+            "value": 0.68,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_burst_interval",
+            "value": -0.06,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "e30ade522640e519f320ed1b",
+      "modulePrefix": "Hpt_Slugshot_",
+      "state": {
+        "engineerId": 300260,
+        "recipeId": 128673447,
+        "recipeName": "Weapon_HighCapacity",
+        "level": 3,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_passive_power",
+            "value": 0.12,
+            "type": 1
+          },
+          {
+            "name": "mod_mass",
+            "value": 0.4,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_ammo_capacity",
+            "value": 0.68,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_clip_size",
+            "value": 0.68,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_burst_interval",
+            "value": -0.06,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "6a3165c5327fb02e05bb6112",
+      "modulePrefix": "Hpt_ShieldBooster_",
+      "state": {
+        "engineerId": 300000,
+        "recipeId": 128673795,
+        "recipeName": "ShieldBooster_Thermic",
+        "level": 1,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_defencemodifier_shield_explosive_mult",
+            "value": 0.01,
+            "type": 1
+          },
+          {
+            "name": "mod_defencemodifier_shield_kinetic_mult",
+            "value": 0.01,
+            "type": 1
+          },
+          {
+            "name": "mod_defencemodifier_shield_thermic_mult",
+            "value": -0.07,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "e52d95a36a0e6bab5b4833fb",
+      "modulePrefix": "Hpt_ShieldBooster_",
+      "state": {
+        "engineerId": 300000,
+        "recipeId": 128673790,
+        "recipeName": "ShieldBooster_Resistive",
+        "level": 1,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_passive_power",
+            "value": 0.05,
+            "type": 1
+          },
+          {
+            "name": "mod_health",
+            "value": -0.04,
+            "type": 1
+          },
+          {
+            "name": "mod_defencemodifier_global_shield_mult",
+            "value": -0.05,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "468a1900eb8e5231bd7deb8d",
+      "modulePrefix": "Hpt_ShieldBooster_",
+      "state": {
+        "engineerId": 300000,
+        "recipeId": 128673780,
+        "recipeName": "ShieldBooster_HeavyDuty",
+        "level": 1,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_passive_power",
+            "value": 0.05,
+            "type": 1
+          },
+          {
+            "name": "mod_mass",
+            "value": 1,
+            "type": 1
+          },
+          {
+            "name": "mod_health",
+            "value": 0.03,
+            "type": 1
+          },
+          {
+            "name": "mod_defencemodifier_shield_mult",
+            "value": 0.1,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "ae89b37f6efb4c8a988f3409",
+      "modulePrefix": "Int_Powerplant_",
+      "state": {
+        "engineerId": 300200,
+        "recipeId": 128673765,
+        "recipeName": "PowerPlant_Boosted",
+        "level": 1,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_powerplant_heat",
+            "value": 0.05,
+            "type": 1
+          },
+          {
+            "name": "mod_health",
+            "value": -0.05,
+            "type": 1
+          },
+          {
+            "name": "mod_powerplant_power",
+            "value": 0.12,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "7830d01243860a6e382c18ad",
+      "modulePrefix": "Int_Engine_",
+      "state": {
+        "engineerId": 300220,
+        "recipeId": 128673657,
+        "recipeName": "Engine_Dirty",
+        "level": 3,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_passive_power",
+            "value": 0.08,
+            "type": 1
+          },
+          {
+            "name": "mod_engine_heat",
+            "value": 0.4,
+            "type": 1
+          },
+          {
+            "name": "mod_health",
+            "value": -0.09,
+            "type": 1
+          },
+          {
+            "name": "mod_engine_mass_curve",
+            "value": -0.075,
+            "type": 1
+          },
+          {
+            "name": "mod_engine_mass_curve_multiplier",
+            "value": 0.26,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "8d075e9602178e6126b12a47",
+      "modulePrefix": "Int_PowerDistributor_",
+      "state": {
+        "engineerId": 300290,
+        "recipeId": 128673738,
+        "recipeName": "PowerDistributor_HighFrequency",
+        "level": 4,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_powerdistributor_global_charge",
+            "value": -0.04,
+            "type": 1
+          },
+          {
+            "name": "mod_powerdistributor_global_rate",
+            "value": 0.36,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "b96bbd1af09495ccd319d9ae",
+      "modulePrefix": "Int_ShieldGenerator_",
+      "state": {
+        "engineerId": 300000,
+        "recipeId": 128673842,
+        "recipeName": "ShieldGenerator_Thermic",
+        "level": 3,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_shield_kinetic_mult",
+            "value": 0.12,
+            "type": 1
+          },
+          {
+            "name": "mod_shield_thermal_mult",
+            "value": -0.3,
+            "type": 1
+          },
+          {
+            "name": "mod_health",
+            "value": 0.3,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "6b1c24bb53ecd4cc396dcb72",
+      "modulePrefix": "Hpt_MultiCannon_",
+      "state": {
+        "engineerId": 300260,
+        "recipeId": 128673499,
+        "recipeName": "Weapon_LongRange",
+        "level": 5,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_passive_power",
+            "value": 0.15,
+            "type": 1
+          },
+          {
+            "name": "mod_mass",
+            "value": 0.3,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_range",
+            "value": 1,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_falloffrange_from_range",
+            "value": 1,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "a4949858db74cc254df0324d",
+      "modulePrefix": "Hpt_BeamLaser_",
+      "state": {
+        "engineerId": 300030,
+        "recipeId": 128673339,
+        "recipeName": "Weapon_LongRange",
+        "level": 5,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_passive_power",
+            "value": 0.15,
+            "type": 1
+          },
+          {
+            "name": "mod_mass",
+            "value": 0.3,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_range",
+            "value": 1,
+            "type": 1
+          },
+          {
+            "name": "mod_weapon_falloffrange_from_range",
+            "value": 1,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "d6207d7c69807e284fb9e365",
+      "modulePrefix": "Hpt_ShieldBooster_",
+      "state": {
+        "engineerId": 300000,
+        "recipeId": 128673784,
+        "recipeName": "ShieldBooster_HeavyDuty",
+        "level": 5,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_passive_power",
+            "value": 0.25,
+            "type": 1
+          },
+          {
+            "name": "mod_mass",
+            "value": 3,
+            "type": 1
+          },
+          {
+            "name": "mod_health",
+            "value": 0.15,
+            "type": 1
+          },
+          {
+            "name": "mod_defencemodifier_shield_mult",
+            "value": 0.38,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "f0d1a22b0503c42fadb53b4a",
+      "modulePrefix": "Hpt_ShieldBooster_",
+      "state": {
+        "engineerId": 300280,
+        "recipeId": 128673784,
+        "recipeName": "ShieldBooster_HeavyDuty",
+        "level": 5,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_passive_power",
+            "value": 0.25,
+            "type": 1
+          },
+          {
+            "name": "mod_mass",
+            "value": 3,
+            "type": 1
+          },
+          {
+            "name": "mod_health",
+            "value": 0.15,
+            "type": 1
+          },
+          {
+            "name": "mod_defencemodifier_shield_mult",
+            "value": 0.38,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "3867e6d0b78f9b3799aee799",
+      "modulePrefix": "CobraMkIII_Armour_",
+      "state": {
+        "engineerId": 300210,
+        "recipeId": 128673654,
+        "recipeName": "Armour_Thermic",
+        "level": 5,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_defencemodifier_explosive_mult",
+            "value": 0.12,
+            "type": 1
+          },
+          {
+            "name": "mod_defencemodifier_kinetic_mult",
+            "value": 0.12,
+            "type": 1
+          },
+          {
+            "name": "mod_defencemodifier_thermic_mult",
+            "value": -0.4,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "562f1c91df20ba22abde98a0",
+      "modulePrefix": "Int_Powerplant_",
+      "state": {
+        "engineerId": 300200,
+        "recipeId": 128673766,
+        "recipeName": "PowerPlant_Boosted",
+        "level": 2,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_powerplant_heat",
+            "value": 0.1,
+            "type": 1
+          },
+          {
+            "name": "mod_health",
+            "value": -0.1,
+            "type": 1
+          },
+          {
+            "name": "mod_powerplant_power",
+            "value": 0.19,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "1a32293c8c1244198868e1a9",
+      "modulePrefix": "Int_PowerDistributor_",
+      "state": {
+        "engineerId": 300180,
+        "recipeId": 128673738,
+        "recipeName": "PowerDistributor_HighFrequency",
+        "level": 4,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_powerdistributor_global_charge",
+            "value": -0.04,
+            "type": 1
+          },
+          {
+            "name": "mod_powerdistributor_global_rate",
+            "value": 0.36,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "4e5e358a2cbc16e2c48b5c22",
+      "modulePrefix": "Int_ShieldGenerator_",
+      "state": {
+        "engineerId": 300280,
+        "recipeId": 128673844,
+        "recipeName": "ShieldGenerator_Thermic",
+        "level": 5,
+        "progress": 1,
+        "craftCount": 0,
+        "modifiers": [
+          {
+            "name": "mod_shield_kinetic_mult",
+            "value": 0.2,
+            "type": 1
+          },
+          {
+            "name": "mod_shield_thermal_mult",
+            "value": -0.5,
+            "type": 1
+          },
+          {
+            "name": "mod_health",
+            "value": 0.4,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "550949c2a2147264eaa5f83d",
+      "modulePrefix": "Int_Engine_",
+      "state": {
+        "engineerId": 300100,
+        "recipeId": 128673657,
+        "recipeName": "Engine_Dirty",
+        "level": 3,
+        "progress": 1,
+        "craftCount": 3,
+        "modifiers": [
+          {
+            "name": "mod_passive_power",
+            "value": 0.08,
+            "type": 1
+          },
+          {
+            "name": "mod_engine_heat",
+            "value": 0.4,
+            "type": 1
+          },
+          {
+            "name": "mod_health",
+            "value": -0.09,
+            "type": 1
+          },
+          {
+            "name": "mod_engine_mass_curve",
+            "value": -0.075,
+            "type": 1
+          },
+          {
+            "name": "mod_engine_mass_curve_multiplier",
+            "value": 0.26,
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "key": "06d66aee6885f6ac802be768",
+      "modulePrefix": "Int_Hyperdrive_",
+      "state": {
+        "engineerId": 300100,
+        "recipeId": 128673694,
+        "recipeName": "FSD_LongRange",
+        "level": 5,
+        "progress": 0.6,
+        "craftCount": 3,
+        "modifiers": [
+          {
+            "name": "mod_passive_power",
+            "value": 0.15,
+            "type": 1
+          },
+          {
+            "name": "mod_mass",
+            "value": 0.3,
+            "type": 1
+          },
+          {
+            "name": "mod_health",
+            "value": -0.15,
+            "type": 1
+          },
+          {
+            "name": "mod_fsd_optimised_mass",
+            "value": 0.51,
+            "type": 1
+          }
+        ]
+      }
+    }
+  ],
+  "specials": [
+    {
+      "name": "special_concordant_sequence",
+      "tags": [
+        "eTag_PulseLaser",
+        "eTag_BurstLaser",
+        "eTag_BeamLaser"
+      ]
+    },
+    {
+      "name": "special_scramble_spectrum",
+      "tags": [
+        "eTag_PulseLaser",
+        "eTag_BurstLaser"
+      ]
+    },
+    {
+      "name": "special_thermalshock",
+      "tags": [
+        "eTag_PulseLaser",
+        "eTag_BurstLaser",
+        "eTag_BeamLaser",
+        "eTag_Multicannon"
+      ]
+    },
+    {
+      "name": "special_phasing_sequence",
+      "tags": [
+        "eTag_PulseLaser",
+        "eTag_BurstLaser",
+        "eTag_PlasmaAccelerator"
+      ]
+    },
+    {
+      "name": "special_distortion_field",
+      "tags": [
+        "eTag_BurstLaser"
+      ]
+    },
+    {
+      "name": "special_thermal_vent",
+      "tags": [
+        "eTag_BeamLaser"
+      ]
+    },
+    {
+      "name": "special_regeneration_sequence",
+      "tags": [
+        "eTag_BeamLaser"
+      ]
+    },
+    {
+      "name": "special_incendiary_rounds",
+      "tags": [
+        "eTag_Multicannon",
+        "eTag_FragCannon"
+      ]
+    },
+    {
+      "name": "special_auto_loader",
+      "tags": [
+        "eTag_Cannon",
+        "eTag_Multicannon"
+      ]
+    },
+    {
+      "name": "special_smart_rounds",
+      "tags": [
+        "eTag_Cannon",
+        "eTag_Multicannon"
+      ]
+    },
+    {
+      "name": "special_blinding_shell",
+      "tags": [
+        "eTag_PlasmaAccelerator",
+        "eTag_FragCannon"
+      ]
+    },
+    {
+      "name": "special_corrosive_shell",
+      "tags": [
+        "eTag_Multicannon",
+        "eTag_FragCannon"
+      ]
+    },
+    {
+      "name": "special_screening_shell",
+      "tags": [
+        "eTag_FragCannon"
+      ]
+    },
+    {
+      "name": "special_force_shell",
+      "tags": [
+        "eTag_Cannon"
+      ]
+    },
+    {
+      "name": "special_high_yield_shell",
+      "tags": [
+        "eTag_Cannon"
+      ]
+    },
+    {
+      "name": "special_dispersal_field",
+      "tags": [
+        "eTag_PlasmaAccelerator",
+        "eTag_Cannon"
+      ]
+    },
+    {
+      "name": "special_thermal_conduit",
+      "tags": [
+        "eTag_BeamLaser",
+        "eTag_PlasmaAccelerator"
+      ]
+    },
+    {
+      "name": "special_lock_breaker",
+      "tags": [
+        "eTag_PlasmaAccelerator"
+      ]
+    },
+    {
+      "name": "special_feedback_cascade_cooled",
+      "tags": [
+        "eTag_RailGun"
+      ]
+    },
+    {
+      "name": "special_super_penetrator_cooled",
+      "tags": [
+        "eTag_RailGun"
+      ]
+    },
+    {
+      "name": "special_plasma_slug_cooled",
+      "tags": [
+        "eTag_RailGun"
+      ]
+    },
+    {
+      "name": "special_plasma_slug",
+      "tags": [
+        "eTag_PlasmaAccelerator"
+      ]
+    },
+    {
+      "name": "special_overload_munitions",
+      "tags": [
+        "eTag_SeekerMissile",
+        "eTag_DumbMissile",
+        "eTag_Mine"
+      ]
+    },
+    {
+      "name": "special_fsd_interrupt",
+      "tags": [
+        "eTag_DumbMissile"
+      ]
+    },
+    {
+      "name": "special_thermal_cascade",
+      "tags": [
+        "eTag_Cannon",
+        "eTag_SeekerMissile",
+        "eTag_DumbMissile"
+      ]
+    },
+    {
+      "name": "special_penetrator_munitions",
+      "tags": [
+        "eTag_DumbMissile"
+      ]
+    },
+    {
+      "name": "special_drag_munitions",
+      "tags": [
+        "eTag_FragCannon",
+        "eTag_SeekerMissile"
+      ]
+    },
+    {
+      "name": "special_emissive_munitions",
+      "tags": [
+        "eTag_PulseLaser",
+        "eTag_Multicannon",
+        "eTag_SeekerMissile",
+        "eTag_DumbMissile",
+        "eTag_Mine"
+      ]
+    },
+    {
+      "name": "special_deep_cut_payload",
+      "tags": [
+        "eTag_Torpedo"
+      ]
+    },
+    {
+      "name": "special_mass_lock",
+      "tags": [
+        "eTag_Torpedo"
+      ]
+    },
+    {
+      "name": "special_reverberating_cascade",
+      "tags": [
+        "eTag_Torpedo",
+        "eTag_Mine"
+      ]
+    },
+    {
+      "name": "special_shiftlock_canister",
+      "tags": [
+        "eTag_Mine"
+      ]
+    },
+    {
+      "name": "special_choke_canister",
+      "tags": [
+        "eTag_Mine"
+      ]
+    },
+    {
+      "name": "special_radiant_canister",
+      "tags": [
+        "eTag_Mine"
+      ]
+    },
+    {
+      "name": "special_shield_regenerative",
+      "tags": [
+        "eTag_ShieldGenerator"
+      ]
+    },
+    {
+      "name": "special_shield_resistive",
+      "tags": [
+        "eTag_ShieldGenerator"
+      ]
+    },
+    {
+      "name": "special_shield_health",
+      "tags": [
+        "eTag_ShieldGenerator"
+      ]
+    },
+    {
+      "name": "special_shield_efficient",
+      "tags": [
+        "eTag_ShieldGenerator"
+      ]
+    },
+    {
+      "name": "special_shield_thermic",
+      "tags": [
+        "eTag_ShieldGenerator"
+      ]
+    },
+    {
+      "name": "special_shield_kinetic",
+      "tags": [
+        "eTag_ShieldGenerator"
+      ]
+    },
+    {
+      "name": "special_shield_toughened",
+      "tags": [
+        "eTag_ShieldGenerator"
+      ]
+    },
+    {
+      "name": "special_shield_lightweight",
+      "tags": [
+        "eTag_ShieldGenerator"
+      ]
+    },
+    {
+      "name": "special_engine_cooled",
+      "tags": [
+        "eTag_Engine"
+      ]
+    },
+    {
+      "name": "special_engine_haulage",
+      "tags": [
+        "eTag_Engine"
+      ]
+    },
+    {
+      "name": "special_engine_overloaded",
+      "tags": [
+        "eTag_Engine"
+      ]
+    },
+    {
+      "name": "special_engine_toughened",
+      "tags": [
+        "eTag_Engine"
+      ]
+    },
+    {
+      "name": "special_engine_lightweight",
+      "tags": [
+        "eTag_Engine"
+      ]
+    },
+    {
+      "name": "special_fsd_fuelcapacity",
+      "tags": [
+        "eTag_FSD"
+      ]
+    },
+    {
+      "name": "special_fsd_heavy",
+      "tags": [
+        "eTag_FSD"
+      ]
+    },
+    {
+      "name": "special_fsd_toughened",
+      "tags": [
+        "eTag_FSD"
+      ]
+    },
+    {
+      "name": "special_fsd_lightweight",
+      "tags": [
+        "eTag_FSD"
+      ]
+    },
+    {
+      "name": "special_fsd_cooled",
+      "tags": [
+        "eTag_FSD"
+      ]
+    },
+    {
+      "name": "special_powerplant_highcharge",
+      "tags": [
+        "eTag_PowerPlant"
+      ]
+    },
+    {
+      "name": "special_powerplant_cooled",
+      "tags": [
+        "eTag_PowerPlant"
+      ]
+    },
+    {
+      "name": "special_powerplant_toughened",
+      "tags": [
+        "eTag_PowerPlant"
+      ]
+    },
+    {
+      "name": "special_powerplant_lightweight",
+      "tags": [
+        "eTag_PowerPlant"
+      ]
+    },
+    {
+      "name": "special_powerdistributor_capacity",
+      "tags": [
+        "eTag_PowerDistributor"
+      ]
+    },
+    {
+      "name": "special_powerdistributor_fast",
+      "tags": [
+        "eTag_PowerDistributor"
+      ]
+    },
+    {
+      "name": "special_powerdistributor_efficient",
+      "tags": [
+        "eTag_PowerDistributor"
+      ]
+    },
+    {
+      "name": "special_powerdistributor_toughened",
+      "tags": [
+        "eTag_PowerDistributor"
+      ]
+    },
+    {
+      "name": "special_powerdistributor_lightweight",
+      "tags": [
+        "eTag_PowerDistributor"
+      ]
+    },
+    {
+      "name": "special_shieldcell_gradual",
+      "tags": [
+        "eTag_ShieldCell"
+      ]
+    },
+    {
+      "name": "special_shieldcell_oversized",
+      "tags": [
+        "eTag_ShieldCell"
+      ]
+    },
+    {
+      "name": "special_shieldcell_efficient",
+      "tags": [
+        "eTag_ShieldCell"
+      ]
+    },
+    {
+      "name": "special_shieldcell_toughened",
+      "tags": [
+        "eTag_ShieldCell"
+      ]
+    },
+    {
+      "name": "special_shieldcell_lightweight",
+      "tags": [
+        "eTag_ShieldCell"
+      ]
+    },
+    {
+      "name": "special_weapon_damage",
+      "tags": [
+        "eTag_Weapon"
+      ]
+    },
+    {
+      "name": "special_weapon_rateoffire",
+      "tags": [
+        "eTag_PulseLaser",
+        "eTag_BurstLaser",
+        "eTag_Cannon",
+        "eTag_Multicannon",
+        "eTag_PlasmaAccelerator",
+        "eTag_RailGun",
+        "eTag_FragCannon",
+        "eTag_Missile"
+      ]
+    },
+    {
+      "name": "special_weapon_efficient",
+      "tags": [
+        "eTag_Weapon"
+      ]
+    },
+    {
+      "name": "special_weapon_toughened",
+      "tags": [
+        "eTag_Weapon"
+      ]
+    },
+    {
+      "name": "special_weapon_lightweight",
+      "tags": [
+        "eTag_Weapon"
+      ]
+    },
+    {
+      "name": "special_armour_thermic",
+      "tags": [
+        "eTag_Armour"
+      ]
+    },
+    {
+      "name": "special_armour_kinetic",
+      "tags": [
+        "eTag_Armour"
+      ]
+    },
+    {
+      "name": "special_armour_explosive",
+      "tags": [
+        "eTag_Armour"
+      ]
+    },
+    {
+      "name": "special_armour_chunky",
+      "tags": [
+        "eTag_Armour"
+      ]
+    },
+    {
+      "name": "special_hullreinforcement_thermic",
+      "tags": [
+        "eTag_HullReinforcement"
+      ]
+    },
+    {
+      "name": "special_hullreinforcement_kinetic",
+      "tags": [
+        "eTag_HullReinforcement"
+      ]
+    },
+    {
+      "name": "special_hullreinforcement_explosive",
+      "tags": [
+        "eTag_HullReinforcement"
+      ]
+    },
+    {
+      "name": "special_hullreinforcement_chunky",
+      "tags": [
+        "eTag_HullReinforcement"
+      ]
+    },
+    {
+      "name": "special_shieldbooster_thermic",
+      "tags": [
+        "eTag_ShieldBooster"
+      ]
+    },
+    {
+      "name": "special_shieldbooster_kinetic",
+      "tags": [
+        "eTag_ShieldBooster"
+      ]
+    },
+    {
+      "name": "special_shieldbooster_explosive",
+      "tags": [
+        "eTag_ShieldBooster"
+      ]
+    },
+    {
+      "name": "special_shieldbooster_efficient",
+      "tags": [
+        "eTag_ShieldBooster"
+      ]
+    },
+    {
+      "name": "special_shieldbooster_toughened",
+      "tags": [
+        "eTag_ShieldBooster"
+      ]
+    },
+    {
+      "name": "special_shieldbooster_chunky",
+      "tags": [
+        "eTag_ShieldBooster"
+      ]
+    }
+  ],
+  "sourceSha256": {
+    "cold-start/process/decoded/http-response-000013.json": "1fdea8ba9e899adcabfcb5b85481fb9b6815f34b473f412d186a74a46d8c6243",
+    "cold-start/process/decoded/http-response-000041.json": "d1ef5fe57679e9e3351ae0a7f0c980cdb74bab3a844f9fdcf4f717532e1e0b3d",
+    "cold-start/process/decoded/http-response-000179.json": "2240883d5a2ecad8c4cfbe8d860fb7f36a97bba5edd57ee0c60d9b97e7f19564",
+    "process-r3/decoded/http-response-000094.json": "24a8ce587b417cc7cd1984b8ca7ce120082282432910724dfa2401da6bca8f89"
+  }
+}

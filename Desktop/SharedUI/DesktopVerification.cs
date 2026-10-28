@@ -105,7 +105,11 @@ public static class DesktopVerification
                     if(type==typeof(FleetPage))
                     {
                         Check(role+": native ship selection",controls.OfType<ComboBox>().Any(value=>value.Name=="FleetShips"));
-                        Check(role+": native outfitting slots",controls.OfType<ListView>().Any(value=>value.Name=="FleetSlots"));
+                        Check(role+": native outfitting slot cards",controls.OfType<GridView>().Any(value=>value.Name=="FleetSlots"));
+                        Check(role+": outfitting categories and inspector",controls.OfType<ListView>().Any(value=>value.Name=="FleetCategories") && controls.OfType<Pivot>().Any(value=>value.Name=="FleetInspectorTabs"));
+                        Check(role+": power priorities match the game scale",controls.OfType<NumberBox>().Any(value=>value.Name=="FleetModulePriority"&&value.Minimum==1&&value.Maximum==5));
+                        Check(role+": engineering blueprint and experimental selectors",controls.OfType<ComboBox>().Any(value=>value.Name=="FleetEngineeringBlueprint")&&controls.OfType<ComboBox>().Any(value=>value.Name=="FleetExperimentalEffect"));
+                        Check(role+": ammunition controls exist",controls.OfType<NumberBox>().Any(value=>value.Name=="FleetAmmoClip")&&controls.OfType<NumberBox>().Any(value=>value.Name=="FleetAmmoHopper"));
                         Check(role+": fleet creation and module storage controls",controls.OfType<Button>().Any(value=>value.Name=="CreateFleetShip")&&controls.OfType<Button>().Any(value=>value.Name=="StoreFleetModule"));
                     }
                     if(type==typeof(OnlinePage))
@@ -240,6 +244,8 @@ public static class DesktopVerification
             NavigationView navigation => navigation.MenuItems.Concat(navigation.FooterMenuItems).Concat(new[] { navigation.Content, navigation.PaneHeader }.OfType<object>()),
             Page page when page.Content is object child => [child],
             ScrollViewer viewer when viewer.Content is object child => [child],
+            Border border when border.Child is object child => [child],
+            Pivot pivot => pivot.Items.Cast<object>(),
             Panel panel => panel.Children.Cast<object>(),
             ContentControl content when content.Content is object child => [child],
             _ => []

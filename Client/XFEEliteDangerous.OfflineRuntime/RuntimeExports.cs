@@ -48,6 +48,7 @@ public static unsafe class RuntimeExports
             OfflineDiagnostics.Current.RegisterSecret(Convert.ToBase64String(key));
             NativeEngineLog.Install(image);
             NativeLocationProbe.Install(image);
+            NativeLiveRefit.Install(image,configuration,data);
             OfflineProfileHooks.Install(image, configuration);
             OfflineCurl.Install(image, data, key, configuration.LogDirectory);
             InProcessNativeChannels.Install(image, data.World, configuration.LogDirectory);

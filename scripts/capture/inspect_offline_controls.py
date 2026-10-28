@@ -1,5 +1,6 @@
 """Bounded native control checks in the receipt-owned, network-isolated E game; no OS input."""
 import argparse
+import ast
 import hashlib
 import json
 from pathlib import Path
@@ -13,7 +14,8 @@ p = argparse.ArgumentParser(description=__doc__)
 p.add_argument('--launch', required=True)
 p.add_argument('--out', required=True)
 p.add_argument('--seconds', type=int, default=12)
-p.add_argument('--action', choices=['observe', 'rejoin-open', 'flight-and-pause', 'flight-axis-and-pause', 'save-and-exit', 'save-and-quit'], default='observe')
+p.add_argument('--action', choices=['observe', 'rejoin-open', 'rejoin-solo', 'flight-and-pause', 'flight-axis-and-pause', 'save-and-exit', 'save-and-quit'], default='observe')
+p.add_argument('--refit-modules', action='store_true', help='Observe native module interfaces while the same process reloads')
 p.add_argument('--dispatch-inventory', action='store_true', help='Bounded read-only native component callback inventory')
 p.add_argument('--axis', choices=['forward', 'angular-x'], default='forward')
 p.add_argument('--entity', help='Exact fixture ship ID; required for online synthetic flight')
@@ -202,8 +204,8 @@ function requireControl(){
 }
 function flight(flow,csm,from,to){
  if(done||action==='observe'||from!==to)return;
- if(action==='save-and-exit'||action==='save-and-quit'||action==='rejoin-open'){
-  if(action==='rejoin-open'&&phase===0&&from==='MainMenu'){phase=3;report({kind:'native-rejoin-existing-menu'});}
+if(action==='save-and-exit'||action==='save-and-quit'||action==='rejoin-open'||action==='rejoin-solo'){
+  if((action==='rejoin-open'||action==='rejoin-solo')&&phase===0&&from==='MainMenu'){phase=3;report({kind:'native-rejoin-existing-menu'});}
   if(phase===0&&(from==='InGame'||from==='PrePauseMenu')){phase=1;if(!namedAction(flow,csm,'Pause'))throw new Error('Native pause request rejected');}
   if(phase===0&&from==='Pause')phase=1;
   if(phase===0&&from==='SaveAndExit'&&completedExitActivities)phase=1;
@@ -214,10 +216,10 @@ function flight(flow,csm,from,to){
    if(quit){done=true;report({kind:'test-done',outcome:'native-save-and-quit-requested'});}
   }
   if(phase===2&&from==='MainMenu'){
-   if(action==='rejoin-open'){phase=3;report({kind:'native-rejoin-saved-menu'});}
+   if(action==='rejoin-open'||action==='rejoin-solo'){phase=3;report({kind:'native-rejoin-saved-menu'});}
    else{done=true;report({kind:'test-done',outcome:'saved-to-main-menu'});}
   }
-  if(action==='rejoin-open'&&phase===5&&from==='InGame'){done=true;report({kind:'test-done',outcome:'native-open-reentered'});}
+  if((action==='rejoin-open'||action==='rejoin-solo')&&phase===5&&from==='InGame'){done=true;report({kind:'test-done',outcome:action==='rejoin-solo'?'native-solo-reentered':'native-open-reentered'});}
   return;
  }
  if(action==='flight-axis-and-pause'){
@@ -556,9 +558,10 @@ Interceptor.attach(m.base.add(0x4817860),{
    const flow=a.add(0x118).readPointer();if(!flow.readPointer().equals(m.base.add(0x5236DB0)))return;
    const csm=flow.add(0x310).readPointer(),from=identifier(csm.add(0x100).readPointer().readPointer()),to=identifier(csm.add(0x108).readPointer().readPointer());
    if(from!==to||Process.getCurrentThreadId()!==flowThread)return;
-   const rejoining=action==='rejoin-open'&&((phase===3&&from==='MainMenu')||(phase===4&&from==='ContinueMenu'));
-   if(from!=='Pause'&&!rejoining)return;
-   const wanted=rejoining?(phase===3?'ContinueMenu':'SetupPlayWithEveryone'):'SaveAndExit';
+   const rejoining=(action==='rejoin-open'||action==='rejoin-solo')&&((phase===3&&from==='MainMenu')||(phase===4&&from==='ContinueMenu'));
+   const quitting=action==='save-and-quit'&&phase===0&&from==='MainMenu';
+   if(from!=='Pause'&&!rejoining&&!quitting)return;
+   const wanted=quitting?'QuitApplication':rejoining?(phase===3?'ContinueMenu':action==='rejoin-solo'?'SetupPlaySolo':'SetupPlayWithEveryone'):'SaveAndExit';
    const config=a.add(0x10).readPointer(),category=a.add(0x208).readU32(),categoryCount=config.add(0x10).readU32();
    if(category>=categoryCount||categoryCount>128)return;
    const record=config.add(8).readPointer().add(category*0x58),type=record.readU8();if(type<1||type>3)return;
@@ -573,6 +576,10 @@ Interceptor.attach(m.base.add(0x4817860),{
     rows.push({name,flags});if(name===wanted&&flags===0x0101){if(selected!==-1)throw new Error('Duplicate eligible native menu action');selected=i;}
    }
    report({kind:'native-pause-menu',rows});
+   if(quitting&&selected>=0){
+    phase=5;done=true;report({kind:'test-done',outcome:'native-eligible-main-menu-quit-requested'});
+    menuAction(a.add(0x80),ptr(0),selected);return;
+   }
    if(rejoining&&selected>=0){
     phase++;report({kind:'native-menu-action',name:wanted,nativeRva:0x4836060,threadId:flowThread});
     menuAction(a.add(0x80),ptr(0),selected);return;
@@ -607,6 +614,10 @@ Interceptor.attach(m.base.add(0x4817DE0),{
 });
 send({kind:'observer-ready',action,nativeCallsAuthorized:action!=='observe'});
 """.replace('EXPECTED', json.dumps(expected)).replace('RUNTIME', json.dumps(str(runtime))).replace('ACTION', json.dumps(args.action)).replace('AXIS_NAME', json.dumps(args.axis)).replace('TARGET_ENTITY', json.dumps(args.entity)).replace('DISPATCH_INVENTORY', json.dumps(args.dispatch_inventory)).replace('SEED_ENTITIES', json.dumps(list(seed_entities.values())))
+if args.refit_modules:
+    tree = ast.parse(Path(__file__).with_name('inspect_live_refit.py').read_text(encoding='utf-8'))
+    module_source = next(ast.literal_eval(node.value) for node in tree.body if isinstance(node, ast.Assign) and any(isinstance(target, ast.Name) and target.id == 'source' for target in node.targets))
+    source += '\n{\n' + module_source + '\n}\n'
 lease_path = launch.parent / 'native-control.lock'
 if lease_path.is_symlink() or (lease_path.exists() and lease_path.is_junction()):
     raise ValueError('Diagnostic lease cannot be a filesystem link')
@@ -631,7 +642,7 @@ try:
                 return
             file.write(json.dumps(record) + '\n')
             file.flush()
-        if 'observerError' in record or record.get('kind') == 'native-axis-rejected':
+        if 'observerError' in record or record.get('kind') in ('native-axis-rejected','module-observation-error'):
             failed.set()
             finished.set()
         elif record.get('kind') == 'test-done':

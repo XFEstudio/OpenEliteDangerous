@@ -6,7 +6,7 @@ using Xunit;
 
 namespace XFEEliteDangerous.Tests;
 
-public sealed class ManagementFleetTests:IAsyncLifetime
+public sealed partial class ManagementFleetTests:IAsyncLifetime
 {
     private readonly string root=Path.Combine(Path.GetTempPath(),"xfe-management-"+Guid.NewGuid().ToString("N"));
     private OfflineWorkspace workspace=null!;private string token="",account="";
@@ -27,6 +27,91 @@ public sealed class ManagementFleetTests:IAsyncLifetime
     public async Task DisposeAsync(){await workspace.DisposeAsync();Directory.Delete(root,true);}
     private async Task<string> Version()=> (await workspace.CommanderAsync(token,account))["version"]!.GetValue<string>();
     private Task<JsonNode> Edit(JsonObject operation,string version)=>workspace.EditFleetAsync(token,account,operation,version);
+    private static JsonObject LiveProperties()=>new(){["action"]="properties",["shipId"]=1,["slot"]="SmallHardpoint1",["enabled"]=false,["priority"]=3,["health"]=.91};
+    [Fact]public async Task LiveRefitPreparationIsReadOnlyAndCommitPreservesConcurrentCommanderChanges()
+    {
+        var before=await File.ReadAllBytesAsync(Path.Combine(root,"state.json"));
+        var prepared=await workspace.PrepareLiveRefitAsync(token,account,LiveProperties(),await Version());
+        Assert.Equal(before,await File.ReadAllBytesAsync(Path.Combine(root,"state.json")));
+        await workspace.EditAsync(token,account,InventoryEdit.Credits,new(){["delta"]=25},await Version());
+        var result=await workspace.CommitLiveRefitAsync(token,prepared,new(prepared.Id,true,"applied","fixture readback",new(prepared.Slot,prepared.After)));
+        Assert.True(result["appliedInGame"]!.GetValue<bool>());Assert.False(result["requiresReload"]!.GetValue<bool>());
+        var saved=(await workspace.ExportNativeSaveAsync(token,account)).Deserialize<NativeCommanderSave>(Wire.Json)!;
+        Assert.Equal(125,saved.Snapshot.Credits);
+        var actual=saved.Snapshot.Vessels[0].Modules.Single(value=>value.Name==prepared.Slot).Module!;
+        Assert.False(actual.On);Assert.Equal(3U,actual.Priority);Assert.Equal(910000U,actual.HealthMillion);
+        Assert.Equal(prepared.After!.Ammo,actual.Ammo);Assert.Equal(prepared.After.Default,actual.Default);
+    }
+    [Fact]public async Task LiveRefitRejectsWrongCommandIdentityAndMismatchingReadbackWithoutWriting()
+    {
+        var prepared=await workspace.PrepareLiveRefitAsync(token,account,LiveProperties(),await Version());
+        var before=await File.ReadAllBytesAsync(Path.Combine(root,"state.json"));
+        await Assert.ThrowsAsync<InvalidDataException>(()=>workspace.CommitLiveRefitAsync(token,prepared,new(Guid.NewGuid().ToString("N"),true,"applied","wrong command",new(prepared.Slot,prepared.After))));
+        await Assert.ThrowsAsync<InvalidDataException>(()=>workspace.CommitLiveRefitAsync(token,prepared,new(prepared.Id,true,"applied","wrong health",new(prepared.Slot,prepared.After! with{HealthMillion=1000000}))));
+        await Assert.ThrowsAsync<InvalidDataException>(()=>workspace.CommitLiveRefitAsync(token,prepared,new(prepared.Id,false,"rejected","not applied",null)));
+        Assert.Equal(before,await File.ReadAllBytesAsync(Path.Combine(root,"state.json")));
+    }
+    [Fact]public async Task LiveRemovalAndRetrievalKeepWarehouseIdentityAndCanBeReopened()
+    {
+        var prepared=await workspace.PrepareLiveRefitAsync(token,account,new(){["action"]="store",["shipId"]=1,["slot"]="SmallHardpoint1"},await Version());
+        Assert.Null(prepared.After);Assert.Single(prepared.Candidate.StoredModules);
+        await workspace.CommitLiveRefitAsync(token,prepared,new(prepared.Id,true,"applied","fixture empty slot",new(prepared.Slot,null)));
+        var fleet=await workspace.FleetAsync(token,account);var storageId=fleet["stored"]![0]!["slotId"]!.GetValue<uint>();
+        var retrieve=await workspace.PrepareLiveRefitAsync(token,account,new(){["action"]="retrieve",["shipId"]=1,["slot"]="SmallHardpoint1",["storageId"]=storageId},await Version());
+        Assert.Null(retrieve.Before);Assert.NotNull(retrieve.After);Assert.Empty(retrieve.Candidate.StoredModules);
+        await workspace.CommitLiveRefitAsync(token,retrieve,new(retrieve.Id,true,"applied","fixture fitted slot",new(retrieve.Slot,retrieve.After)));
+        await workspace.DisposeAsync();workspace=new(root);var owner=await workspace.OpenLocalOwnerSessionAsync();token=owner["token"]!.GetValue<string>();
+        var saved=(await workspace.ExportNativeSaveAsync(token,account)).Deserialize<NativeCommanderSave>(Wire.Json)!;
+        Assert.Empty(saved.StoredModules);Assert.Equal(retrieve.After,saved.Snapshot.Vessels[0].Modules.Single(value=>value.Name==retrieve.Slot).Module);
+    }
+    [Fact]public async Task LiveRefitRejectsAChangedWarehouseAndStalePreparation()
+    {
+        var version=await Version();
+        var prepared=await workspace.PrepareLiveRefitAsync(token,account,new(){["action"]="store",["shipId"]=1,["slot"]="SmallHardpoint1"},version);
+        await Edit(new(){["action"]="store",["shipId"]=1,["slot"]="SmallHardpoint2"},version);
+        var before=await File.ReadAllBytesAsync(Path.Combine(root,"state.json"));
+        await Assert.ThrowsAsync<SaveConflictException>(()=>workspace.PrepareLiveRefitAsync(token,account,LiveProperties(),version));
+        await Assert.ThrowsAsync<SaveConflictException>(()=>workspace.CommitLiveRefitAsync(token,prepared,new(prepared.Id,true,"applied","fixture",new(prepared.Slot,null))));
+        Assert.Equal(before,await File.ReadAllBytesAsync(Path.Combine(root,"state.json")));
+    }
+    [Fact]public async Task LiveMailboxRoundTripRejectsStaleRuntimeAndPathTraversal()
+    {
+        var mailbox=new LiveRefitMailbox(root,account);Assert.Null(mailbox.ReadStatus());Assert.Null(mailbox.ReadCommand());
+        var prepared=await workspace.PrepareLiveRefitAsync(token,account,LiveProperties(),await Version());
+        var runtime=Guid.NewGuid().ToString("N");var now=DateTimeOffset.UtcNow;
+        var status=new LiveRefitStatus(1,runtime,"fixture",10,1,100,"InGame",now,[new(prepared.Slot,prepared.Before)]);
+        mailbox.Publish(status);Assert.True(LiveRefitMailbox.Fresh(mailbox.ReadStatus(),now));
+        Assert.False(LiveRefitMailbox.Fresh(status with{ObservedUtc=now.AddSeconds(-6)},now));
+        Assert.False(LiveRefitMailbox.Fresh(status with{RuntimeId="../other-account"},now));
+        Assert.Throws<ArgumentException>(()=>new LiveRefitMailbox(root,"../other-account"));
+        var command=new LiveRefitCommand(prepared.Id,runtime,now.AddSeconds(8),1,100,prepared.Slot,prepared.Action,prepared.Before,prepared.After);
+        mailbox.Submit(command);Assert.Equal(command,mailbox.ReadCommand());
+        Assert.True(LiveRefitMailbox.Matches(prepared.Before,prepared.Before! with{Uid=0}));
+    }
+    [Fact]public async Task LiveReadOnlyFieldsRejectChangesAndCompensationPreservesOtherWarehouseEdits()
+    {
+        var save=(await workspace.ExportNativeSaveAsync(token,account)).Deserialize<NativeCommanderSave>(Wire.Json)!;
+        var original=save.Snapshot.Vessels[0].Modules.Single(value=>value.Name=="SmallHardpoint1").Module!;
+        await Assert.ThrowsAsync<InvalidDataException>(()=>workspace.PrepareLiveRefitAsync(token,account,LiveProperties(),Version().GetAwaiter().GetResult(),new("SmallHardpoint1",original,false)));
+        await Assert.ThrowsAsync<InvalidDataException>(()=>workspace.PrepareLiveRefitAsync(token,account,LiveProperties(),Version().GetAwaiter().GetResult(),new("SmallHardpoint1",original,true,false)));
+        var prepared=await workspace.PrepareLiveRefitAsync(token,account,new(){["action"]="store",["shipId"]=1,["slot"]="SmallHardpoint1"},await Version());
+        await Edit(new(){["action"]="store",["shipId"]=1,["slot"]="SmallHardpoint2"},await Version());
+        await workspace.RestoreFailedLiveRefitAsync(prepared,new("rollback-fixture",true,"applied","verified native restoration",new(prepared.Slot,prepared.Before)));
+        var restored=(await workspace.ExportNativeSaveAsync(token,account)).Deserialize<NativeCommanderSave>(Wire.Json)!;
+        Assert.Single(restored.StoredModules);
+        Assert.Equal(original,restored.Snapshot.Vessels[0].Modules.Single(value=>value.Name==prepared.Slot).Module);
+        Assert.Null(restored.Snapshot.Vessels[0].Modules.Single(value=>value.Name=="SmallHardpoint2").Module);
+    }
+    [Fact]public async Task LiveRuntimePlaceholderCannotOverwriteAnUnpoweredModuleSaveDefault()
+    {
+        await workspace.EditAsync(token,account,InventoryEdit.Modules,new(){["shipId"]="1",["slot"]="Slot02_Size2",["priority"]=1},await Version());
+        var prepared=await workspace.PrepareLiveRefitAsync(token,account,new(){["action"]="module",["shipId"]=1,["slot"]="Slot01_Size2",["module"]="Int_CargoRack_Size2_Class1"},await Version());
+        Assert.Equal(1U,prepared.After!.Priority);
+        var native=prepared with{After=prepared.After with{Priority=0}};
+        await workspace.CommitLiveRefitAsync(token,native,new(native.Id,true,"applied","no native priority component",new(native.Slot,native.After,false,false)));
+        var saved=(await workspace.ExportNativeSaveAsync(token,account)).Deserialize<NativeCommanderSave>(Wire.Json)!;
+        Assert.Equal(1U,saved.Snapshot.Vessels[0].Modules.Single(value=>value.Name==native.Slot).Module!.Priority);
+    }
     [Fact]public async Task CloneSwitchRemoveAndLabelsSurviveReopen()
     {
         await Edit(new(){["action"]="clone",["templateShipId"]=1,["name"]="Custom ship",["ident"]="XFE-02"},await Version());

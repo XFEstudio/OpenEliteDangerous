@@ -21,7 +21,7 @@ expand or waive third-party terms. 本项目许可仅适用于自有材料，不
   The file list is recorded in [catalog-source.json](Local/data/catalog-source.json).
   Attribution does not assert a grant over original game data or a complete game database.
 - **Interoperability metadata.** `Local/data/native-commodities.json`,
-  `native-materials.json` and `native-sidewinder-slots.json` contain identifiers,
+  `native-materials.json`, `native-sidewinder-slots.json` and `native-refit.json` contain identifiers,
   numeric catalogue/slot metadata and format relationships. They do not transfer
   game ownership or authorize copying asset bodies. Personal inventories,
   discovery records and private session data are excluded.

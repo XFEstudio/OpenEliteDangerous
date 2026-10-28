@@ -9,6 +9,13 @@ using XFEEliteDangerous.Core;
 using XFEEliteDangerous.OnlineClient;
 using XFEEliteDangerous.Server;
 
+if(args is ["--prepare-native-account",var ownedDirectory,var ownedAccount])
+{
+    var artifacts=Path.GetFullPath(Path.Combine(AppContext.BaseDirectory,"../../../../../artifacts"))+Path.DirectorySeparatorChar;
+    if(!Path.GetFullPath(ownedDirectory).StartsWith(artifacts,StringComparison.OrdinalIgnoreCase)||ownedAccount.Length!=32||ownedAccount.Any(c=>!char.IsAsciiHexDigit(c)))
+        throw new ArgumentException("An isolated artifact workspace and fixture account are required.");
+    await PrepareNativeAsync(ownedDirectory,[ownedAccount]);return;
+}
 if(args is ["--prepare-native",var fixtureRoot])
 {
     var ids=new[]{"a","b"}.Select(label=>JsonSerializer.Deserialize(File.ReadAllText(Path.Combine(fixtureRoot,$"launch-{label}.private.json")),GameLinkJson.Default.OnlineLaunch)!.Lease.AccountId).ToArray();
@@ -210,5 +217,5 @@ static async Task PrepareNativeAsync(string directory,string[] accounts)
         }
         return true;
     });
-    Console.WriteLine("Prepared the two isolated native fixtures from accepted startup metadata, with 250 m initial separation.");
+    Console.WriteLine($"Prepared {accounts.Length} isolated native fixture(s) from accepted startup metadata.");
 }
