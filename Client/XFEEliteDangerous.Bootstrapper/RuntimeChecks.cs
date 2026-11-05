@@ -16,7 +16,7 @@ internal static class RuntimeChecks
             if(hookResult!=0)throw new InvalidOperationException("Owned x64 hook fixture failed.");
             var check=(delegate* unmanaged<byte*,int>)NativeLibrary.GetExport(module,"XfeOfflineDataSelfTest");
             var configuration=JsonSerializer.SerializeToUtf8Bytes(new { WorkspaceDirectory=workspace,AccountId=account,
-                Executable=OwnedOfflineGame.Executable,ProfileRoot=logs,LogDirectory=logs,DriverVersion="" }).Concat(new byte[]{0}).ToArray();
+                Executable="",ProfileRoot=logs,LogDirectory=logs,DriverVersion="" }).Concat(new byte[]{0}).ToArray();
             fixed(byte* pointer=configuration)
             {
                 var result=check(pointer);

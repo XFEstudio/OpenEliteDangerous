@@ -10,7 +10,11 @@ $taskArtifacts=Join-Path $taskRoot 'artifacts'
 $taskRun=[IO.Path]::GetFullPath($RunDirectory)
 if(-not $taskRun.StartsWith($taskArtifacts+[IO.Path]::DirectorySeparatorChar,[StringComparison]::OrdinalIgnoreCase)){throw '测试目录必须位于本项目 artifacts。'}
 $taskReceipt=Get-Content -LiteralPath (Join-Path $taskRun 'launch.json') -Raw | ConvertFrom-Json
-$taskExpected='E:\Elite Dangerous\Products\elite-dangerous-odyssey-64\EliteDangerous64.exe'
+$taskLegacyExpected='E:\Elite Dangerous\Products\elite-dangerous-odyssey-64\EliteDangerous64.exe'
+$taskExpected=if($taskReceipt.executable){[IO.Path]::GetFullPath($taskReceipt.executable)}else{$taskLegacyExpected}
+if($taskExpected -ne $taskLegacyExpected -and -not $taskExpected.StartsWith($taskArtifacts+[IO.Path]::DirectorySeparatorChar,[StringComparison]::OrdinalIgnoreCase)){
+    throw '原生测试只接受已授权的旧副本或 artifacts 下的隔离游戏副本。'
+}
 $taskRuntime=Join-Path $taskRun 'XFEEliteDangerous.OfflineRuntime.dll'
 if($taskReceipt.mode -ne 'in-process-offline' -or -not $taskReceipt.zeroNetworkCapabilities -or
     $taskReceipt.imageSha256 -ne 'e6be8bbe04e6a7ae226d4318945af7f367de13dc5a007a261964d9ba8144e988' -or
@@ -24,7 +28,7 @@ foreach($taskPath in @($taskRun,$taskRuntime,$taskExpected)){
 }
 if((Get-FileHash -LiteralPath $taskExpected -Algorithm SHA256).Hash.ToLowerInvariant() -ne $taskReceipt.imageSha256){throw '固定游戏版本哈希不符。'}
 $taskProcess=Get-Process -Id $taskReceipt.ProcessId
-if($taskProcess.Path -ne $taskExpected -or -not @($taskProcess.Modules | Where-Object {$_.FileName -eq $taskRuntime})){throw '目标不是该启动记录拥有的 E 盘进程。'}
+if($taskProcess.Path -ne $taskExpected -or -not @($taskProcess.Modules | Where-Object {$_.FileName -eq $taskRuntime})){throw '目标不是该启动记录拥有的进程。'}
 $taskLogs=Join-Path $taskRun 'logs'
 $taskSupport=Get-Content -LiteralPath (Join-Path $taskLogs 'native-automation.json') -Raw | ConvertFrom-Json
 if($taskSupport.schema -ne 1 -or -not $taskSupport.nativeEligibilityRequired){throw '当前运行时不支持此程序化测试命令。'}

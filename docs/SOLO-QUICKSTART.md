@@ -4,11 +4,9 @@
 
 Download the **SOLO Windows x64** package from [GitHub Releases](https://github.com/XFEstudio/OpenEliteDangerous/releases). Extract the whole ZIP into a writable local folder and run **Play-SOLO.cmd**. No server setup, login, imported save, reference bundle, Powerplay extraction, PowerShell, .NET SDK or Visual Studio is required for this entry point.
 
-You need Windows x64 and your own compatible **Elite Dangerous: Odyssey 2026.09.03.332841** installation. This adapter still uses the pinned executable:
+You need Windows x64 and your own compatible **Elite Dangerous: Odyssey 2026.09.03.332841** installation. The launcher checks Steam's main and added libraries. If it cannot find a compatible copy, select `Products\elite-dangerous-odyssey-64\EliteDangerous64.exe` in the file picker. The launcher remembers a verified selection. A local install on any drive is fine; network and redirected paths such as junctions are unsupported.
 
-`E:\Elite Dangerous\Products\elite-dangerous-odyssey-64\EliteDangerous64.exe`
-
-Its SHA-256 is `e6be8bbe04e6a7ae226d4318945af7f367de13dc5a007a261964d9ba8144e988`. Other builds or paths remain outside the current adapter. First launch can take longer while the game builds its shader cache.
+The executable must match SHA-256 `e6be8bbe04e6a7ae226d4318945af7f367de13dc5a007a261964d9ba8144e988`. A Steam update may leave you with a different, unsupported build. To specify a copy from the command line, run `Play-SOLO.cmd --game "<installation directory or executable>"`. First launch can take longer while the game builds its shader cache.
 
 On first launch the starter creates a private commander, a Sidewinder and an empty-space practice spawn in Sol. The world and catalogue are generated locally. No online service data is fetched. The native game still makes the normal login, save and location requests through its local adapter; the launcher uses the game's enabled Continue and SOLO actions. You can save and exit normally. Later launches reopen the same save at `%LOCALAPPDATA%\XFEEliteDangerous\SoloStarter`. This directory is separate from the management server's workspace.
 
@@ -22,7 +20,9 @@ The [combined management/server package](RELEASES.md) remains available separate
 
 从 [GitHub Releases](https://github.com/XFEstudio/OpenEliteDangerous/releases) 下载 **SOLO Windows x64** 包，完整解压到可写的本机目录，双击 **Play-SOLO.cmd**。无需启动服务器、登录、导入存档、找参考数据、提取势力目录或安装 PowerShell、.NET SDK、Visual Studio。
 
-只需 Windows x64 和自备兼容的 **Odyssey 2026.09.03.332841** 游戏本体。当前适配器仍校验上方固定安装路径和哈希；其他路径和版本尚未适配。首次生成着色器缓存可能需要稍等。
+只需 Windows x64 和自己合法安装的 **Odyssey 2026.09.03.332841** 游戏本体。启动器会扫描 Steam 主库和添加的游戏库。如果找不到兼容副本，在文件选择窗口中选择 `Products\elite-dangerous-odyssey-64\EliteDangerous64.exe`。校验通过后会记住所选路径。任意本机盘符均可；网络路径和目录联接等重定向路径不受支持。
+
+游戏程序须与上方 SHA-256 一致。Steam 更新后可能变成暂不支持的版本。也可用 `Play-SOLO.cmd --game "<安装目录或游戏程序路径>"` 直接指定副本。首次生成着色器缓存可能需要稍等。
 
 启动器会自动创建私有指挥官、Sidewinder 和 Sol 的空域练习出生点，并生成本地参考数据。它通过原版菜单的可用按钮进入 SOLO。正常保存退出后，再次运行会继续读取 `%LOCALAPPDATA%\XFEEliteDangerous\SoloStarter` 中的进度；管理端和原有服务器存档不受影响。
 

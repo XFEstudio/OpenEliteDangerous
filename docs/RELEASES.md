@@ -17,7 +17,7 @@ Windows x64 and **PowerShell 7** (`pwsh`) are required. .NET and Windows App SDK
 
 Management listens on `127.0.0.1:48080`; the private HTTPS game endpoint defaults to `0.0.0.0:48081`. `Initialize.cmd -Port 48080 -GameBindAddress 0.0.0.0 -GamePort 48081` sets these explicitly. Existing listener settings are retained unless a corresponding option is supplied. `-DataRoot` supports isolated server instances; desktop local-owner discovery currently expects the default data root, so custom roots need explicit account login/server address configuration.
 
-**Compatibility is deliberately restricted:** the native adapter currently pins Odyssey `2026.09.03.332841` and `E:\Elite Dangerous\Products\elite-dangerous-odyssey-64\EliteDangerous64.exe`, SHA-256 `e6be8bbe04e6a7ae226d4318945af7f367de13dc5a007a261964d9ba8144e988`. Changing a UI path or moving a different build there does not create compatibility. No official game executable, game assets, galaxy database, playable personal save, capture, token or private key is distributed.
+**Compatibility:** the published combined package (`v0.1.0-preview.1`) expects Odyssey `2026.09.03.332841` at `E:\Elite Dangerous\Products\elite-dangerous-odyssey-64\EliteDangerous64.exe`, SHA-256 `e6be8bbe04e6a7ae226d4318945af7f367de13dc5a007a261964d9ba8144e988`. For Steam library discovery and manual game selection, use the [standalone SOLO package](SOLO-QUICKSTART.md). No official game executable, game assets, galaxy database, playable personal save, capture, token or private key is distributed.
 
 This is an experimental **educational/research, non-commercial** preview. Read [LICENSE](../LICENSE), [third-party notices](../THIRD-PARTY-NOTICES.md), [native scope](NATIVE-ONLINE-TESTING.md) and [live-refit scope](LIVE-REFIT.md). Prior same-computer tests do not establish full game parity or cross-computer/Internet readiness. Hidden UI checks are not a visual acceptance claim. Packages are unsigned; checksums detect corruption but are not publisher signatures.
 
@@ -42,6 +42,6 @@ The script verifies native/server hashes against `reports/live-refit-validation.
 
 管理入口监听 `127.0.0.1:48080`，私有 HTTPS 游戏入口默认监听 `0.0.0.0:48081`。可用 `Initialize.cmd -Port 48080 -GameBindAddress 0.0.0.0 -GamePort 48081` 显式指定；已有配置在未传入对应参数时保留。`-DataRoot` 支持隔离的服务器数据目录；管理端的本机所有者自动发现目前使用默认目录，自定义目录需手动配置服务器地址并登录账号。
 
-**兼容范围固定：**Odyssey `2026.09.03.332841`，安装路径与程序哈希见上方英文说明。修改界面路径或将其他版本移动到该目录不会自动兼容。包内不包含官方游戏程序、游戏资源、银河数据库、可玩个人存档、抓包、令牌或私钥。
+**兼容范围：**已发布的 `v0.1.0-preview.1` 组合包要求 Odyssey `2026.09.03.332841`，安装路径与程序哈希见上方英文说明。需要自动查找 Steam 库或手动选游戏时，请使用[独立 SOLO 包](SOLO-QUICKSTART.md)。包内不包含官方游戏程序、游戏资源、银河数据库、可玩个人存档、抓包、令牌或私钥。
 
 这是**仅供非商业教学研究**的实验预览。使用前阅读许可、第三方声明和原生功能范围。此前同机测试不代表完整还原官方功能，也不代表跨电脑或公网联机已就绪。隐藏界面测试不等于视觉验收。程序未签名；校验值用于检测文件损坏，不是发布者签名。

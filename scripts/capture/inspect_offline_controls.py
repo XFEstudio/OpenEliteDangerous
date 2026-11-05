@@ -1,4 +1,4 @@
-"""Bounded native control checks in the receipt-owned, network-isolated E game; no OS input."""
+"""Bounded native controls in a receipt-owned, network-isolated test copy; no desktop input."""
 import argparse
 import ast
 import hashlib
@@ -30,7 +30,15 @@ if args.entity is not None and (not args.entity.isdigit() or not 0x200000000 <= 
     raise ValueError('Expected one ordinary replicated native ship ID')
 if receipt.get('online') and args.action == 'flight-axis-and-pause' and args.entity is None:
     raise ValueError('Online synthetic flight must select the exact fixture ship entity')
-expected = r'E:\Elite Dangerous\Products\elite-dangerous-odyssey-64\EliteDangerous64.exe'
+legacy_expected = Path(r'E:\Elite Dangerous\Products\elite-dangerous-odyssey-64\EliteDangerous64.exe')
+image = Path(receipt.get('executable', str(legacy_expected)))
+if (not image.is_absolute() or (image != legacy_expected and not image.is_relative_to(root))
+        or any(part.is_symlink() or part.is_junction() for part in (*reversed(image.parents), image))):
+    raise ValueError('Only the authorized legacy copy or an isolated artifact copy may be tested')
+image = image.resolve(strict=True)
+if image != legacy_expected and not image.is_relative_to(root.resolve()):
+    raise ValueError('Resolved test copy left the artifact directory')
+expected = str(image)
 runtime = (launch.parent / 'XFEEliteDangerous.OfflineRuntime.dll').resolve(strict=True)
 if (receipt.get('mode') != 'in-process-offline' or not receipt['zeroNetworkCapabilities']
         or Path(receipt['ownedNativeRuntime']).resolve(strict=True) != runtime

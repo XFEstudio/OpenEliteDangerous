@@ -12,11 +12,10 @@ internal sealed class DirectoryAccessLease : IDisposable
     private bool disposed;
     internal bool OriginalAclRestored { get; private set; }
     internal bool OriginalAclRulesRestored { get; private set; }
-    internal DirectoryAccessLease(string directory,string appContainerSid,string backupPath)
+    internal DirectoryAccessLease(VerifiedOdysseyImage installation,string appContainerSid,string backupPath)
     {
         using var update=AcquireUpdate();
-        path=SafePaths.LocalAbsolute(directory); SafePaths.NoReparseAncestors(path);
-        if(!string.Equals(path,@"E:\Elite Dangerous",StringComparison.OrdinalIgnoreCase)) throw new ArgumentException("This temporary game lease is restricted to the explicitly authorized E diagnostic copy.");
+        path=SafePaths.LocalAbsolute(installation.ProductDirectory); SafePaths.NoReparseAncestors(path);
         if(!Directory.Exists(path)) throw new DirectoryNotFoundException();
         sid=appContainerSid;
         if(!sid.StartsWith("S-1-15-2-",StringComparison.Ordinal)||sid=="S-1-15-2-1"||sid.Split('-').Length<10) throw new ArgumentException("A specific new AppContainer SID is required.");
@@ -43,7 +42,7 @@ internal sealed class DirectoryAccessLease : IDisposable
     }
     private sealed class AclUpdate : IDisposable
     {
-        private readonly Mutex mutex=new(false,@"Local\XFEEliteDangerous.ECopyDirectoryAcl");
+        private readonly Mutex mutex=new(false,@"Local\XFEEliteDangerous.ProductDirectoryAcl");
         internal AclUpdate(){try{if(!mutex.WaitOne(TimeSpan.FromSeconds(15)))throw new TimeoutException(AppText.Get("DirectoryAccessLease.Text001"));}catch(AbandonedMutexException){}}
         public void Dispose(){mutex.ReleaseMutex();mutex.Dispose();}
     }

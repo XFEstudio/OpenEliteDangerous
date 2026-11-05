@@ -4,7 +4,7 @@
 
 An experimental, unofficial interoperability project for **Elite Dangerous: Odyssey**, built with C#, WinUI and XFE ServerInteractive. It provides a management app, an offline adapter and a shared server for commanders, saves and world definitions.
 
-**Want to fly SOLO?** Download the standalone [SOLO package](https://github.com/XFEstudio/OpenEliteDangerous/releases) and run **Play-SOLO.cmd**. It generates a starter commander, spawn and local references using only the compatible game installation. See the [quick start](docs/SOLO-QUICKSTART.md) for the supported build and path.
+**Want to fly SOLO?** Download the standalone [SOLO package](https://github.com/XFEstudio/OpenEliteDangerous/releases) and run **Play-SOLO.cmd**. It finds the game in your Steam libraries or lets you select it, then generates a starter commander, spawn and local references. See the [quick start](docs/SOLO-QUICKSTART.md) for the supported build.
 
 > **Educational and research use only. Non-commercial use only.** This project is not affiliated with, endorsed by, or supported by Frontier Developments. Elite Dangerous, its trademarks and game content belong to their respective owners. A separately and lawfully obtained compatible game installation is required. No official game executable, asset package, account entitlement or official service access is provided.
 >
@@ -23,7 +23,7 @@ An experimental, unofficial interoperability project for **Elite Dangerous: Odys
 
 ## Current scope
 
-The adapter targets **Windows x64 Odyssey `2026.09.03.332841`**. Native compatibility checks currently pin the executable and authorized installation at `E:\Elite Dangerous\Products\elite-dangerous-odyssey-64`. Changing the UI directory does not retarget native hooks. Other builds or installations require an adapter update and renewed validation.
+The adapter targets **Windows x64 Odyssey `2026.09.03.332841`**. The standalone SOLO launcher verifies the executable's SHA-256 before starting; the drive and Steam library location can vary. Other game builds require an adapter update and renewed validation.
 
 Prior native validation covered SOLO flight/save/reload and **two clients on the same computer**: mutual ship visibility, bidirectional movement/orientation, central saving and same-process re-entry. The two-client run passed 81 checks, with a final position error below 0.069 m. This does not establish full official feature parity. Cross-computer/LAN/Internet play, reconnect recovery, combat, NPCs, jumps and station transaction coverage remain unverified or incomplete. See [native online testing](docs/NATIVE-ONLINE-TESTING.md) and [SOLO notes](docs/OFFLINE-SOLO.md).
 

@@ -19,11 +19,30 @@ try
     }
     if(args is ["--inspect","--game",var game])
     {Console.WriteLine(JsonSerializer.Serialize(await new GameInstallationInspector().InspectAsync(game),ClientJson.Options));return 0;}
-    var mode=args[0];if(mode is not("--launch" or "--debug-solo" or "--native-check" or "--runtime-check" or "--hot-read-check" or "--play-solo" or "--prepare-solo" or "--starter-check"))throw new ArgumentException(AppText.Get("Program.Text004"));
+    var mode=args[0];if(mode is not("--launch" or "--debug-solo" or "--native-check" or "--runtime-check" or "--hot-read-check" or "--play-solo" or "--prepare-solo" or "--starter-check" or "--check-game"))throw new ArgumentException(AppText.Get("Program.Text004"));
     var options=new Dictionary<string,string>(StringComparer.Ordinal);
     for(var index=1;index<args.Length;index+=2)
     {
-        if(index+1>=args.Length||args[index] is not("--workspace" or "--account" or "--runtime" or "--seconds" or "--visible" or "--server-profile" or "--online-stdin")||!options.TryAdd(args[index],args[index+1]))throw new ArgumentException(AppText.Get("Program.Text005"));
+        if(index+1>=args.Length||args[index] is not("--workspace" or "--account" or "--runtime" or "--seconds" or "--visible" or "--server-profile" or "--online-stdin" or "--game" or "--steam-root")||!options.TryAdd(args[index],args[index+1]))throw new ArgumentException(AppText.Get("Program.Text005"));
+    }
+    // Anchor caller-relative inputs before a Windows file dialog can change the working directory.
+    foreach(var key in new[]{"--workspace","--runtime","--server-profile"})
+        if(options.TryGetValue(key,out var supplied))options[key]=Path.GetFullPath(supplied);
+    var steamFixture=options.GetValueOrDefault("--steam-root");
+    if(steamFixture is not null)
+    {
+        steamFixture=SafePaths.LocalAbsolute(steamFixture);SafePaths.NoReparseAncestors(steamFixture);
+        if(mode is not("--starter-check" or "--check-game")||!SafePaths.Within(SafePaths.ArtifactsRoot(),steamFixture))
+            throw new ArgumentException("A Steam metadata fixture is allowed only under this build's artifacts directory in diagnostic modes.");
+    }
+    var dataOnly=mode is "--prepare-solo" or "--runtime-check" or "--hot-read-check";
+    var interactive=mode is "--play-solo" or "--launch" or "--debug-solo";
+    using var selected=dataOnly?null:await GameSelection.ResolveAsync(options.GetValueOrDefault("--game"),steamFixture,interactive);
+    if(!dataOnly&&selected is null){Console.WriteLine(AppText.Get("Launch.GameSelectionCancelled"));return 0;}
+    if(mode=="--check-game")
+    {
+        Console.WriteLine(JsonSerializer.Serialize(new{executable=selected!.Image.Executable,source=selected.Source,build=OdysseyGame.Build,sha256=OdysseyGame.Sha256},ClientJson.Options));
+        return 0;
     }
     var starter=mode is "--play-solo" or "--prepare-solo" or "--starter-check";
     var nativeCheck=mode is "--native-check" or "--starter-check";
@@ -36,8 +55,6 @@ try
             throw new ArgumentException("The standalone SOLO launcher uses its own local commander.");
         if(mode=="--starter-check"&&(!options.ContainsKey("--workspace")||!SafePaths.Within(SafePaths.ArtifactsRoot(),workspace)))
             throw new ArgumentException("A starter check requires an isolated workspace under this build's artifacts directory.");
-        if(mode!="--prepare-solo"&&!File.Exists(OwnedOfflineGame.Executable))
-            throw new FileNotFoundException(AppText.Get("Launch.StarterGameMissing")+OwnedOfflineGame.Executable);
         account=await SoloStarterWorkspace.PrepareAsync(workspace,Path.Combine(package,"business","XFEEliteDangerous.ReadBusiness.dll"),
             Path.Combine(package,"business","operations.json"));
         Console.WriteLine(AppText.Get("Launch.StarterWorkspaceReady")+workspace);
@@ -65,7 +82,7 @@ try
     {
         if(!nativeCheck||!bool.TryParse(visibility,out visible))throw new ArgumentException(AppText.Get("Program.Text007"));
     }
-    await using var session=await OwnedOfflineGame.CreateAsync(workspace,account,library,visible,nativeCheck||starter||mode=="--debug-solo",online,starter);
+    await using var session=await OwnedOfflineGame.CreateAsync(selected!,workspace,account,library,visible,nativeCheck||starter||mode=="--debug-solo",online,starter);
     session.Resume();Console.WriteLine((online is null?AppText.Get("Program.Text008"):AppText.Get("Program.Text009"))+"，PID="+session.ProcessId+AppText.Get("Program.Text010")+session.RuntimeDirectory);
     if(nativeCheck)cancel.CancelAfter(TimeSpan.FromSeconds(seconds));
     try{await session.WaitAsync(cancel.Token);}catch(OperationCanceledException){}

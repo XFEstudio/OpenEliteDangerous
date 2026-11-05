@@ -4,7 +4,7 @@
 
 面向 **Elite Dangerous: Odyssey** 的非官方互操作性实验项目，使用 C#、WinUI 和 XFE ServerInteractive，提供管理端、离线适配器，以及统一持有指挥官、存档和世界定义的服务器。
 
-**直接玩 SOLO：**下载独立的 [SOLO 发布包](https://github.com/XFEstudio/OpenEliteDangerous/releases)，运行 **Play-SOLO.cmd**。启动器用兼容游戏本体自动生成角色、出生点和本地参考数据。支持的版本和路径见[快速开始](docs/SOLO-QUICKSTART.md)。
+**直接玩 SOLO：**下载独立的 [SOLO 发布包](https://github.com/XFEstudio/OpenEliteDangerous/releases)，运行 **Play-SOLO.cmd**。启动器自动查找 Steam 游戏本体，也支持手动选择，并生成角色、出生点和本地参考数据。支持的版本见[快速开始](docs/SOLO-QUICKSTART.md)。
 
 > **仅供非商业教学、学习和研究参考，禁止商业用途。** 本项目与 Frontier Developments 无隶属、合作、背书或官方支持关系。Elite Dangerous 的商标和游戏内容属于各自权利人。使用者须自行合法取得兼容游戏副本；本仓库不提供官方程序、资源包、账号权益或官方服务访问资格。
 >
@@ -23,7 +23,7 @@
 
 ## 当前范围
 
-当前适配 **Windows x64 Odyssey `2026.09.03.332841`**。原生兼容检查固定游戏程序及已授权的 `E:\Elite Dangerous\Products\elite-dangerous-odyssey-64` 副本；更改界面目录不会自动改变底层钩子目标。其他版本或目录需要更新适配器并重新验证。
+当前适配 **Windows x64 Odyssey `2026.09.03.332841`**。独立 SOLO 启动器会在启动前校验游戏程序的 SHA-256，可使用不同盘符和 Steam 库。其他游戏版本需要更新适配器并重新验证。
 
 此前原生验收覆盖 SOLO 飞行、保存与重载，以及**同一电脑的两个客户端**互见、双向位置和姿态同步、中央保存与同进程重进。双客户端测试通过 81 项检查，最终位置误差小于 0.069 米。这不代表官方全部功能已还原：跨电脑、局域网或公网联机，断线恢复、战斗、NPC、跃迁和空间站交易覆盖仍未验证或尚不完整。详见[原生联机测试](docs/NATIVE-ONLINE-TESTING.md)和 [SOLO 说明](docs/OFFLINE-SOLO.md)。
 

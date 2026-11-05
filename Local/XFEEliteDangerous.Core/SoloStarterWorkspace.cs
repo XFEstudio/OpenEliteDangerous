@@ -8,8 +8,8 @@ namespace XFEEliteDangerous.Core;
 /// <summary>Creates a private flight sandbox without importing an existing commander or service data.</summary>
 public static class SoloStarterWorkspace
 {
-    public const string GameBuild = "2026.09.03.332841";
-    public const string GameHash = "e6be8bbe04e6a7ae226d4318945af7f367de13dc5a007a261964d9ba8144e988";
+    public const string GameBuild = OdysseyGame.Build;
+    public const string GameHash = OdysseyGame.Sha256;
     internal const ulong SystemAddress = 10477373803;
     private const string MarkerFile = "solo-starter.json";
     private const string PowerList = "/2.0/elite/powerplay2/powers/list";

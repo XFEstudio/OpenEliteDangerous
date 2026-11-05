@@ -14,7 +14,7 @@ internal partial class RuntimeJson : JsonSerializerContext;
 
 public static unsafe class RuntimeExports
 {
-    internal const string SupportedHash = "e6be8bbe04e6a7ae226d4318945af7f367de13dc5a007a261964d9ba8144e988";
+    internal const string SupportedHash = OdysseyGame.Sha256;
     private static INativeGameData? data;
     private static RuntimeConfiguration? configuration;
     private static int initialized;
@@ -35,10 +35,11 @@ public static unsafe class RuntimeExports
                 "Unhandled managed exception.",exception:args.ExceptionObject as Exception);
             TaskScheduler.UnobservedTaskException+=(_,args)=>OfflineDiagnostics.Current?.Write("error","runtime","task.unobserved",
                 "Unobserved task exception.",exception:args.Exception);
-            if (!Path.GetFullPath(configuration.Executable).Equals(@"E:\Elite Dangerous\Products\elite-dangerous-odyssey-64\EliteDangerous64.exe", StringComparison.OrdinalIgnoreCase))
-                throw new InvalidDataException("Only the authorized E game copy is supported.");
-            using var executable = File.OpenRead(configuration.Executable);
-            if (executable.Length != 103469056 || Convert.ToHexStringLower(SHA256.HashData(executable)) != SupportedHash)
+            var processPath = Environment.ProcessPath;
+            if (processPath is null || !Path.GetFullPath(processPath).Equals(Path.GetFullPath(configuration.Executable), StringComparison.OrdinalIgnoreCase))
+                throw new InvalidDataException("The running game image does not match the launcher's verified executable.");
+            using var executable = File.OpenRead(processPath);
+            if (!OdysseyGame.Matches(executable))
                 throw new InvalidDataException("The owned game image differs from the source analysis.");
             executable.Position = 0x5131E08; var key = new byte[32]; executable.ReadExactly(key);
             data = configuration.OnlineBridgeDirectory is {} bridge?new OnlineNativeGameData(bridge):new OfflineGameData(configuration.WorkspaceDirectory, configuration.AccountId);
