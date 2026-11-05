@@ -4,6 +4,8 @@
 
 An experimental, unofficial interoperability project for **Elite Dangerous: Odyssey**, built with C#, WinUI and XFE ServerInteractive. It provides a management app, an offline adapter and a shared server for commanders, saves and world definitions.
 
+**Want to fly SOLO?** Download the standalone [SOLO package](https://github.com/XFEstudio/OpenEliteDangerous/releases) and run **Play-SOLO.cmd**. It generates a starter commander, spawn and local references using only the compatible game installation. See the [quick start](docs/SOLO-QUICKSTART.md) for the supported build and path.
+
 > **Educational and research use only. Non-commercial use only.** This project is not affiliated with, endorsed by, or supported by Frontier Developments. Elite Dangerous, its trademarks and game content belong to their respective owners. A separately and lawfully obtained compatible game installation is required. No official game executable, asset package, account entitlement or official service access is provided.
 >
 > Project-owned source uses the [Educational and Research Non-Commercial License](LICENSE): a **source-available license, not an OSI-approved open-source license**. Third-party material retains its own terms; see [third-party notices](THIRD-PARTY-NOTICES.md). Software is supplied **as is**, without warranty. These notices do not eliminate legal, contractual or commercial risks.
@@ -29,7 +31,7 @@ Private captures, personal saves, reports and deployment outputs are excluded. N
 
 ## Build and test
 
-Prebuilt Windows packages and binary-only setup instructions are available in [GitHub Releases](https://github.com/XFEstudio/OpenEliteDangerous/releases) and the [release guide](docs/RELEASES.md). They include project tools and runtimes; compatible game files, private saves and native reference data must be supplied separately.
+Prebuilt Windows packages are available in [GitHub Releases](https://github.com/XFEstudio/OpenEliteDangerous/releases). For standalone play use the [SOLO quick start](docs/SOLO-QUICKSTART.md). For the combined management/server package and existing custom workspaces, see the [release guide](docs/RELEASES.md).
 
 Use Windows x64, the .NET 10 SDK specified in `global.json`, PowerShell 7 and Visual Studio C++/Windows SDK tools for NativeAOT publishing. WinUI/XFE dependencies restore through NuGet.
 

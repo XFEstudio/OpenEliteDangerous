@@ -34,6 +34,11 @@ internal sealed class PersistentGameProfile : IDisposable
         var root=Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),"XFEEliteDangerous","GameProfiles");
         return OpenCore(root,Path.Combine(gameDirectory,"XFE-online-"+server.CertificateSha256+"-"+account));
     }
+    internal static PersistentGameProfile OpenStarter(string gameDirectory,string workspace)
+    {
+        var identity=Convert.ToHexStringLower(SHA256.HashData(Encoding.UTF8.GetBytes(SafePaths.LocalAbsolute(workspace).ToUpperInvariant())));
+        return OpenCore(Path.Combine(workspace,"game-profiles"),Path.Combine(gameDirectory,"XFE-solo-"+identity));
+    }
     internal static PersistentGameProfile OpenDiagnostics(string gameDirectory)
     {
         var root=Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),"XFEEliteDangerous","GameProfiles");

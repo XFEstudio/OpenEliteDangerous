@@ -1,4 +1,7 @@
 {
+  "Launch.StarterGameExited": "The private game closed with exit code ",
+  "Launch.StarterGameMissing": "Install the supported Odyssey build at: ",
+  "Launch.StarterWorkspaceReady": "SOLO workspace is ready: ",
   "DirectoryAccessLease.Text001": "Game directory permissions are busy.",
   "PersistentGameProfile.Text002": "This game profile is in use. Exit the other private game instance using this installation first.",
   "Program.Text003": "C# native data integration is available for the pinned Odyssey build. See the validation documentation for tested SOLO and multiplayer coverage.",

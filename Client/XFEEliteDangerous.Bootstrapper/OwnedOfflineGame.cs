@@ -27,13 +27,13 @@ internal sealed class OwnedOfflineGame : IAsyncDisposable
     private OnlineConnection? onlineConnection;
     internal string RuntimeDirectory { get; private set; } = "";
     internal uint ProcessId => process.ProcessId;
-    internal static async Task<OwnedOfflineGame> CreateAsync(string workspace, string accountId, string library, bool visible,bool probeSolo,OnlineConnection? online=null)
+    internal static async Task<OwnedOfflineGame> CreateAsync(string workspace, string accountId, string library, bool visible,bool probeSolo,OnlineConnection? online=null,bool starterProfile=false)
     {
         var game = new OwnedOfflineGame();
-        try { game.onlineConnection=online;await game.InitializeAsync(workspace, accountId, library, visible,probeSolo); return game; }
+        try { game.onlineConnection=online;await game.InitializeAsync(workspace, accountId, library, visible,probeSolo,starterProfile); return game; }
         catch(Exception error) { game.diagnostics?.Write("error","bootstrapper","launch.failed","Owned offline launch failed.",exception:error);await game.DisposeAsync(); throw; }
     }
-    private async Task InitializeAsync(string workspace, string accountId, string library, bool visible,bool probeSolo)
+    private async Task InitializeAsync(string workspace, string accountId, string library, bool visible,bool probeSolo,bool starterProfile)
     {
         RuntimeDirectory=Path.Combine(SafePaths.ValidateArtifactRoot(null),"offline-game-"+Guid.NewGuid().ToString("N"));
         Directory.CreateDirectory(RuntimeDirectory);
@@ -61,8 +61,10 @@ internal sealed class OwnedOfflineGame : IAsyncDisposable
         var symbols=Path.ChangeExtension(library,"pdb");
         if(File.Exists(symbols))File.Copy(symbols,Path.ChangeExtension(payload,"pdb"),false);
         diagnostics.Write("info","bootstrapper","runtime.copied","Native runtime and available symbols copied.");
-        var profile=onlineConnection is null?PersistentGameProfile.Open(@"E:\Elite Dangerous"):PersistentGameProfile.OpenOnline(@"E:\Elite Dangerous",onlineConnection.Server,accountId);leases.Add(profile);
-        profile.ImportPreviousVisibleSettings();
+        var profile=starterProfile?PersistentGameProfile.OpenStarter(@"E:\Elite Dangerous",workspace)
+            :onlineConnection is null?PersistentGameProfile.Open(@"E:\Elite Dangerous"):PersistentGameProfile.OpenOnline(@"E:\Elite Dangerous",onlineConnection.Server,accountId);
+        leases.Add(profile);
+        if(!starterProfile)profile.ImportPreviousVisibleSettings();
         foreach(var name in new[]{"LocalAppData","RoamingAppData","SavedGames\\Frontier Developments\\Elite Dangerous","Temp","RenderCache"})
             Directory.CreateDirectory(Path.Combine(profile.DirectoryPath,name));
         _=await OwnedProfileSettings.InitializePersistentAsync(profile);
@@ -125,6 +127,7 @@ internal sealed class OwnedOfflineGame : IAsyncDisposable
         diagnostics?.Write("info","bootstrapper","process.resumed","Owned game thread resumed.",new Dictionary<string,string?>{["gamePid"]=ProcessId.ToString()});
     }
     internal bool HasExited => process.Process==0||Native.WaitForSingleObject(process.Process,0)==0;
+    internal uint? ExitCode=>process.Process!=0&&HasExited&&Native.GetExitCodeProcess(process.Process,out var value)?value:null;
     internal Task<ulong> TransfersAsync()=>module?.TransfersAsync()??Task.FromResult(0UL);
     internal async Task WaitAsync(CancellationToken cancellation)
     {

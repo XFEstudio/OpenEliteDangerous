@@ -19,18 +19,35 @@ try
     }
     if(args is ["--inspect","--game",var game])
     {Console.WriteLine(JsonSerializer.Serialize(await new GameInstallationInspector().InspectAsync(game),ClientJson.Options));return 0;}
-    var mode=args[0];if(mode is not("--launch" or "--debug-solo" or "--native-check" or "--runtime-check" or "--hot-read-check"))throw new ArgumentException(AppText.Get("Program.Text004"));
+    var mode=args[0];if(mode is not("--launch" or "--debug-solo" or "--native-check" or "--runtime-check" or "--hot-read-check" or "--play-solo" or "--prepare-solo" or "--starter-check"))throw new ArgumentException(AppText.Get("Program.Text004"));
     var options=new Dictionary<string,string>(StringComparer.Ordinal);
     for(var index=1;index<args.Length;index+=2)
     {
         if(index+1>=args.Length||args[index] is not("--workspace" or "--account" or "--runtime" or "--seconds" or "--visible" or "--server-profile" or "--online-stdin")||!options.TryAdd(args[index],args[index+1]))throw new ArgumentException(AppText.Get("Program.Text005"));
     }
-    var workspace=LocalPaths.Directory(options.GetValueOrDefault("--workspace")??Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),"XFEEliteDangerous","Offline"));
+    var starter=mode is "--play-solo" or "--prepare-solo" or "--starter-check";
+    var nativeCheck=mode is "--native-check" or "--starter-check";
+    var workspace=LocalPaths.Directory(options.GetValueOrDefault("--workspace")??Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),"XFEEliteDangerous",starter?"SoloStarter":"Offline"));
     options.TryGetValue("--account",out var account);
+    var package=Path.GetFullPath(Path.Combine(AppContext.BaseDirectory,".."));
+    if(starter)
+    {
+        if(account is not null||options.ContainsKey("--server-profile")||options.ContainsKey("--online-stdin"))
+            throw new ArgumentException("The standalone SOLO launcher uses its own local commander.");
+        if(mode=="--starter-check"&&(!options.ContainsKey("--workspace")||!SafePaths.Within(SafePaths.ArtifactsRoot(),workspace)))
+            throw new ArgumentException("A starter check requires an isolated workspace under this build's artifacts directory.");
+        if(mode!="--prepare-solo"&&!File.Exists(OwnedOfflineGame.Executable))
+            throw new FileNotFoundException(AppText.Get("Launch.StarterGameMissing")+OwnedOfflineGame.Executable);
+        account=await SoloStarterWorkspace.PrepareAsync(workspace,Path.Combine(package,"business","XFEEliteDangerous.ReadBusiness.dll"),
+            Path.Combine(package,"business","operations.json"));
+        Console.WriteLine(AppText.Get("Launch.StarterWorkspaceReady")+workspace);
+        if(mode=="--prepare-solo")return 0;
+    }
     await using var online=await OpenOnlineAsync(options,account);
     account=online?.Lease?.AccountId??account;
     if(account is null)throw new ArgumentException(AppText.Get("Program.Text006"));
-    var library=LocalPaths.FilePath(options.GetValueOrDefault("--runtime")??Path.Combine(SafePaths.ArtifactsRoot(),"offline-runtime","win-x64","XFEEliteDangerous.OfflineRuntime.dll"));
+    var library=LocalPaths.FilePath(options.GetValueOrDefault("--runtime")??(starter?Path.Combine(package,"native","XFEEliteDangerous.OfflineRuntime.dll"):
+        Path.Combine(SafePaths.ArtifactsRoot(),"offline-runtime","win-x64","XFEEliteDangerous.OfflineRuntime.dll")));
     if(mode=="--hot-read-check")
     {
         var report=Path.Combine(SafePaths.ArtifactsRoot(),"offline-hot-read-check-"+Guid.NewGuid().ToString("N"));
@@ -43,18 +60,27 @@ try
     }
     var seconds=options.TryGetValue("--seconds",out var secondsText)&&int.TryParse(secondsText,out var parsed)&&parsed is >=10 and <=3600?parsed:120;
     using var cancel=new CancellationTokenSource();Console.CancelKeyPress+=(_,eventArgs)=>{eventArgs.Cancel=true;cancel.Cancel();};
-    var visible=mode is "--launch" or "--debug-solo";
+    var visible=mode is "--launch" or "--debug-solo" or "--play-solo";
     if(options.TryGetValue("--visible",out var visibility))
     {
-        if(mode!="--native-check"||!bool.TryParse(visibility,out visible))throw new ArgumentException(AppText.Get("Program.Text007"));
+        if(!nativeCheck||!bool.TryParse(visibility,out visible))throw new ArgumentException(AppText.Get("Program.Text007"));
     }
-    await using var session=await OwnedOfflineGame.CreateAsync(workspace,account,library,visible,mode is "--native-check" or "--debug-solo",online);
+    await using var session=await OwnedOfflineGame.CreateAsync(workspace,account,library,visible,nativeCheck||starter||mode=="--debug-solo",online,starter);
     session.Resume();Console.WriteLine((online is null?AppText.Get("Program.Text008"):AppText.Get("Program.Text009"))+"，PID="+session.ProcessId+AppText.Get("Program.Text010")+session.RuntimeDirectory);
-    if(mode=="--native-check")cancel.CancelAfter(TimeSpan.FromSeconds(seconds));
+    if(nativeCheck)cancel.CancelAfter(TimeSpan.FromSeconds(seconds));
     try{await session.WaitAsync(cancel.Token);}catch(OperationCanceledException){}
+    if(mode=="--play-solo")
+    {
+        if(session.ExitCode is uint exitCode && exitCode!=0)
+        {
+            Console.Error.WriteLine(AppText.Get("Launch.StarterGameExited")+"0x"+exitCode.ToString("X8")+"; "+session.RuntimeDirectory);
+            return 1;
+        }
+        return 0;
+    }
     // This receipt asserts data completion only. It never declares native world or flight ready.
     Console.WriteLine(JsonSerializer.Serialize(new {nativeSoloValidated=false,localDataCompletions=session.HasExited?(ulong?)null:await session.TransfersAsync(),report=session.RuntimeDirectory},ClientJson.Options));
-    return mode=="--native-check"?2:0;
+    return nativeCheck?2:0;
 }
 catch(Exception error)when(error is IOException or InvalidDataException or UnauthorizedAccessException or ArgumentException or InvalidOperationException or System.ComponentModel.Win32Exception or TimeoutException)
 {Console.Error.WriteLine(error.Message);return 1;}

@@ -1,4 +1,7 @@
 {
+  "Launch.StarterGameExited": "私有游戏异常退出，退出码：",
+  "Launch.StarterGameMissing": "请将兼容的 Odyssey 版本安装到：",
+  "Launch.StarterWorkspaceReady": "SOLO 工作区已准备：",
   "DirectoryAccessLease.Text001": "游戏目录权限更新繁忙。",
   "PersistentGameProfile.Text002": "这份游戏配置正在使用中，请先退出同一副本的另一个私服游戏窗口。",
   "Program.Text003": "C# 原生数据适配支持指定的 Odyssey 版本，SOLO 与联机的已验证范围见测试文档。",

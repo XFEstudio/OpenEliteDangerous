@@ -2,28 +2,38 @@ param(
     [Parameter(Mandatory)][ValidatePattern('^v\d+\.\d+\.\d+(?:-[A-Za-z0-9.]+)?$')][string]$Version,
     [Parameter(Mandatory)][string]$CompiledRelease,
     [string]$OutputDirectory,
-    [string]$NativeValidationReport
+    [string]$NativeValidationReport,
+    [switch]$Solo
 )
 $ErrorActionPreference='Stop'
 $taskRoot=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $taskCompiled=[IO.Path]::GetFullPath($CompiledRelease)
 $taskOutput=if($OutputDirectory){[IO.Path]::GetFullPath($OutputDirectory)}else{Join-Path $taskRoot ('artifacts/github-release-'+$Version)}
 if(-not $taskOutput.StartsWith((Join-Path $taskRoot 'artifacts')+[IO.Path]::DirectorySeparatorChar,[StringComparison]::OrdinalIgnoreCase)){throw 'Release outputs must stay under this repository artifacts directory.'}
-$taskName='OpenEliteDangerous-'+$Version+'-win-x64'
+$taskName='OpenEliteDangerous-'+$Version+$(if($Solo){'-solo'}else{''})+'-win-x64'
 $taskPayload=Join-Path $taskOutput $taskName
 $taskSymbols=Join-Path $taskOutput ($taskName+'-symbols')
 if((Test-Path -LiteralPath $taskPayload) -or (Test-Path -LiteralPath $taskSymbols)){throw 'Use a new staging directory; existing packages are never overwritten.'}
-if(-not $NativeValidationReport){$NativeValidationReport=Join-Path $taskCompiled 'reports/live-refit-validation.json'}
+if(-not $NativeValidationReport){$NativeValidationReport=Join-Path $taskCompiled $(if($Solo){'reports/solo-starter-validation.json'}else{'reports/live-refit-validation.json'})}
 $taskProof=Get-Content -LiteralPath $NativeValidationReport -Raw|ConvertFrom-Json
-if(-not $taskProof.passed -or $taskProof.desktopInputUsed -or -not $taskProof.offline -or -not $taskProof.online -or -not $taskProof.offlineReload -or -not $taskProof.onlineReload){throw 'A successful offline/online native validation is required.'}
+if(-not $taskProof.passed -or $taskProof.desktopInputUsed -or -not $taskProof.offline -or -not $taskProof.offlineReload){throw 'A successful native SOLO and reload validation is required.'}
+if($Solo){
+    if(-not $taskProof.freshWorkspace -or -not $taskProof.freshGameProfile -or -not $taskProof.flightVerified -or -not $taskProof.bootstrapperAssemblies){throw 'A clean first-run, flight and reload validation is required for the SOLO package.'}
+    foreach($taskAssembly in $taskProof.bootstrapperAssemblies.PSObject.Properties){
+        if((Get-FileHash -LiteralPath (Join-Path $taskCompiled ('bootstrapper/'+$taskAssembly.Name))).Hash -ne $taskAssembly.Value){throw ('Validated launcher differs: '+$taskAssembly.Name)}
+    }
+}elseif(-not $taskProof.online -or -not $taskProof.onlineReload){throw 'A successful online native validation is required for the combined package.'}
 $taskNative=Join-Path $taskCompiled 'native/XFEEliteDangerous.OfflineRuntime.dll'
 $taskBusiness=Join-Path $taskCompiled 'business/XFEEliteDangerous.ReadBusiness.dll'
 if((Get-FileHash -LiteralPath $taskNative).Hash -ne $taskProof.nativeRuntimeSha256 -or (Get-FileHash -LiteralPath $taskBusiness).Hash -ne $taskProof.businessModuleSha256){throw 'Native binaries differ from the validated build.'}
-foreach($taskAssembly in $taskProof.serverAssemblies.PSObject.Properties){
-    if((Get-FileHash -LiteralPath (Join-Path $taskCompiled ('server/'+$taskAssembly.Name))).Hash -ne $taskAssembly.Value){throw ('Validated server differs: '+$taskAssembly.Name)}
+if(-not $Solo){
+    foreach($taskAssembly in $taskProof.serverAssemblies.PSObject.Properties){
+        if((Get-FileHash -LiteralPath (Join-Path $taskCompiled ('server/'+$taskAssembly.Name))).Hash -ne $taskAssembly.Value){throw ('Validated server differs: '+$taskAssembly.Name)}
+    }
 }
 New-Item -ItemType Directory -Path $taskPayload,$taskSymbols -Force|Out-Null
-foreach($taskComponent in @('server','admin','bootstrapper','native','business')){
+$taskComponents=if($Solo){@('bootstrapper','native','business')}else{@('server','admin','bootstrapper','native','business')}
+foreach($taskComponent in $taskComponents){
     $taskComponentRoot=Join-Path $taskCompiled $taskComponent
     foreach($taskFile in Get-ChildItem -LiteralPath $taskComponentRoot -Recurse -File){
         $taskRelative=[IO.Path]::GetRelativePath($taskComponentRoot,$taskFile.FullName)
@@ -37,6 +47,9 @@ foreach($taskFile in @('README.md','README.zh-CN.md','LICENSE','LICENSE.zh-CN.md
 Copy-Item -LiteralPath (Join-Path $taskRoot 'docs') -Destination (Join-Path $taskPayload 'docs') -Recurse
 Copy-Item -LiteralPath (Join-Path $taskRoot 'licenses') -Destination (Join-Path $taskPayload 'licenses') -Recurse
 Copy-Item -LiteralPath (Join-Path $taskRoot 'Local/XFEEliteDangerous.ReadBusiness/operations.json') -Destination (Join-Path $taskPayload 'business/operations.json')
+if($Solo){
+    Copy-Item -LiteralPath (Join-Path $taskRoot 'Play-SOLO.cmd') -Destination (Join-Path $taskPayload 'Play-SOLO.cmd')
+}else{
 New-Item -ItemType Directory -Path (Join-Path $taskPayload 'scripts'),(Join-Path $taskPayload 'Client/XFEEliteDangerous.Client/Localization') -Force|Out-Null
 foreach($taskScript in @('Initialize-Release.ps1','Start-Admin.ps1','Start-ManagementServer.ps1','Stop-ManagementServer.ps1','Start-ManagedGame.ps1','Start-OnlineGame.ps1','Localization.ps1','Read-OfflineLog.ps1')){
     Copy-Item -LiteralPath (Join-Path $PSScriptRoot $taskScript) -Destination (Join-Path $taskPayload ('scripts/'+$taskScript))
@@ -46,9 +59,12 @@ foreach($taskEntry in @(@('Initialize','Initialize-Release'),@('Start-Admin','St
     $taskText="@echo off`r`npwsh -NoProfile -ExecutionPolicy Bypass -File `"%~dp0scripts\$($taskEntry[1]).ps1`" %*`r`nif errorlevel 1 pause`r`n"
     [IO.File]::WriteAllText((Join-Path $taskPayload ($taskEntry[0]+'.cmd')),$taskText,[Text.ASCIIEncoding]::new())
 }
+}
 # Retain resolved package notices, including bundled .NET and Windows App SDK licenses.
 $taskPackages=@{}
-foreach($taskProject in @('Client/XFEEliteDangerous.Desktop','Client/XFEEliteDangerous.Bootstrapper','Client/XFEEliteDangerous.OfflineRuntime','Server/XFEEliteDangerous.Server','Local/XFEEliteDangerous.ReadBusiness')){
+$taskProjects=@('Client/XFEEliteDangerous.Bootstrapper','Client/XFEEliteDangerous.OfflineRuntime','Local/XFEEliteDangerous.ReadBusiness')
+if(-not $Solo){$taskProjects+=@('Client/XFEEliteDangerous.Desktop','Server/XFEEliteDangerous.Server')}
+foreach($taskProject in $taskProjects){
     $taskAssets=Get-Content -LiteralPath (Join-Path $taskRoot ($taskProject+'/obj/project.assets.json')) -Raw|ConvertFrom-Json -AsHashtable
     foreach($taskLibrary in $taskAssets.libraries.GetEnumerator()|Where-Object {$_.Value.type -eq 'package'}){
         if($taskPackages.ContainsKey($taskLibrary.Key)){continue}
@@ -71,7 +87,7 @@ foreach($taskProject in @('Client/XFEEliteDangerous.Desktop','Client/XFEEliteDan
     }
 }
 # SDK-injected self-contained runtime packs are not listed as normal NuGet libraries.
-$taskRuntimeConfiguration=Get-Content -LiteralPath (Join-Path $taskCompiled 'server/XFEEliteDangerous.Server.runtimeconfig.json') -Raw|ConvertFrom-Json
+$taskRuntimeConfiguration=Get-Content -LiteralPath (Join-Path $taskCompiled $(if($Solo){'bootstrapper/XFEEliteDangerous.Bootstrapper.runtimeconfig.json'}else{'server/XFEEliteDangerous.Server.runtimeconfig.json'})) -Raw|ConvertFrom-Json
 foreach($taskFramework in $taskRuntimeConfiguration.runtimeOptions.includedFrameworks){
     $taskPackageId=$taskFramework.name.ToLowerInvariant()+'.runtime.win-x64/'+$taskFramework.version
     $taskRuntimeRoot=$null
@@ -92,12 +108,13 @@ Copy-Item -LiteralPath (Join-Path $taskPayload 'LICENSE') -Destination (Join-Pat
 Copy-Item -LiteralPath (Join-Path $taskPayload 'THIRD-PARTY-NOTICES.md') -Destination (Join-Path $taskSymbols 'THIRD-PARTY-NOTICES.md')
 $taskRevision=(& git -C $taskRoot rev-parse HEAD).Trim();if($LASTEXITCODE -ne 0){throw 'Cannot resolve release source revision.'}
 $taskFiles=@(Get-ChildItem -LiteralPath $taskPayload -Recurse -File|Sort-Object FullName|ForEach-Object {@{path=[IO.Path]::GetRelativePath($taskPayload,$_.FullName).Replace('\','/');bytes=$_.Length;sha256=(Get-FileHash -LiteralPath $_.FullName).Hash.ToLowerInvariant()}})
+$taskScope=if($Solo){'Fresh generated workspace and isolated game profile on pinned Odyssey; actual SOLO, flight, save and reload. This package has no multiplayer server.'}else{'Pinned Odyssey private fixtures; actual offline and loopback HTTPS save/re-entry.'}
 $taskManifest=@{schema=1;version=$Version;rid='win-x64';sourceRevision=$taskRevision;repository='https://github.com/XFEstudio/OpenEliteDangerous';
     createdUtc=[DateTimeOffset]::UtcNow;buildOrigin='Previously published binaries matching native validation; see validation scope below.';
     gameBuild='2026.09.03.332841';gameSha256='e6be8bbe04e6a7ae226d4318945af7f367de13dc5a007a261964d9ba8144e988';
     nativeRuntimeSha256=$taskProof.nativeRuntimeSha256.ToLowerInvariant();businessModuleSha256=$taskProof.businessModuleSha256.ToLowerInvariant();
-    validation=@{nativeChecks=$taskProof.nativeChecks;advancedNativeChecks=$taskProof.advancedNativeChecks;offline=$taskProof.offline;offlineReload=$taskProof.offlineReload;online=$taskProof.online;onlineReload=$taskProof.onlineReload;
-        scope='Historical native acceptance on 2026-10-22: pinned Odyssey, private fixtures, one client at a time, offline and loopback HTTPS; not all ships or network topologies.'};files=$taskFiles}
+    soloOnly=[bool]$Solo;
+    validation=@{nativeChecks=$taskProof.nativeChecks;advancedNativeChecks=$taskProof.advancedNativeChecks;offline=$taskProof.offline;offlineReload=$taskProof.offlineReload;online=$taskProof.online;onlineReload=$taskProof.onlineReload;scope=$taskScope};files=$taskFiles}
 $taskManifest|ConvertTo-Json -Depth 12|Set-Content -LiteralPath (Join-Path $taskPayload 'release-manifest.json') -Encoding utf8NoBOM
 $taskManifest|ConvertTo-Json -Depth 12|Set-Content -LiteralPath (Join-Path $taskOutput ($taskName+'-manifest.json')) -Encoding utf8NoBOM
 $taskAssets=@()

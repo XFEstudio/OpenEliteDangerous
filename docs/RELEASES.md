@@ -1,5 +1,9 @@
 # Windows release packages / Windows 发布包
 
+For a fresh SOLO flight, use [the standalone launcher](SOLO-QUICKSTART.md). This page describes the combined management/server package and custom workspaces.
+
+首次玩 SOLO 请用[独立启动器](SOLO-QUICKSTART.md)。本文针对管理端与服务器组合包及自定义工作区。
+
 ## English
 
 Download the `win-x64.zip` asset from [GitHub Releases](https://github.com/XFEstudio/OpenEliteDangerous/releases) and verify its SHA-256 against `SHA256SUMS.txt`. Extract the entire archive into a writable local directory. Keep all subdirectories together. `win-x64-symbols.zip` is optional diagnostic symbols; extract it over the main package when detailed debugging is needed.

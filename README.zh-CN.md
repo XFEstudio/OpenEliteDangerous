@@ -4,6 +4,8 @@
 
 面向 **Elite Dangerous: Odyssey** 的非官方互操作性实验项目，使用 C#、WinUI 和 XFE ServerInteractive，提供管理端、离线适配器，以及统一持有指挥官、存档和世界定义的服务器。
 
+**直接玩 SOLO：**下载独立的 [SOLO 发布包](https://github.com/XFEstudio/OpenEliteDangerous/releases)，运行 **Play-SOLO.cmd**。启动器用兼容游戏本体自动生成角色、出生点和本地参考数据。支持的版本和路径见[快速开始](docs/SOLO-QUICKSTART.md)。
+
 > **仅供非商业教学、学习和研究参考，禁止商业用途。** 本项目与 Frontier Developments 无隶属、合作、背书或官方支持关系。Elite Dangerous 的商标和游戏内容属于各自权利人。使用者须自行合法取得兼容游戏副本；本仓库不提供官方程序、资源包、账号权益或官方服务访问资格。
 >
 > 项目自有源码采用[教学研究非商业许可](LICENSE)，另附[中文参考译文](LICENSE.zh-CN.md)。这是**源码公开许可，并非 OSI 批准的开源许可**。第三方材料继续适用各自条款，见[第三方声明](THIRD-PARTY-NOTICES.md)。软件按现状提供，不作担保；声明无法消除全部法律、合同或商业风险。
@@ -29,7 +31,7 @@
 
 ## 编译与测试
 
-Windows 预编译包见 [GitHub Releases](https://github.com/XFEstudio/OpenEliteDangerous/releases)，无需编译的安装步骤见[发布包说明](docs/RELEASES.md)。包内包含项目工具和运行时，兼容游戏文件、私有存档与原生参考数据须自行准备。
+Windows 预编译包见 [GitHub Releases](https://github.com/XFEstudio/OpenEliteDangerous/releases)。单机游玩见 [SOLO 快速开始](docs/SOLO-QUICKSTART.md)；管理端、服务器与已有自定义工作区的使用方式见[发布包说明](docs/RELEASES.md)。
 
 需要 Windows x64、`global.json` 指定的 .NET 10 SDK、PowerShell 7，以及用于 NativeAOT 发布的 Visual Studio C++/Windows SDK 工具。WinUI 和 XFE 依赖通过 NuGet 还原。
 
