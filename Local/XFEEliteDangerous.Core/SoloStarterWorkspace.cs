@@ -17,17 +17,10 @@ public static class SoloStarterWorkspace
     public static async Task<string> PrepareAsync(string directory, string businessLibrary, string operationsFile)
     {
         var root = Path.TrimEndingDirectorySeparator(LocalPaths.Directory(directory));
-        if (Directory.Exists(root)) return await ReopenAsync(root).ConfigureAwait(false);
+        if (Directory.Exists(root)) return await ReopenAndUpdateBusinessAsync(root, businessLibrary, operationsFile).ConfigureAwait(false);
         var parent = Path.GetDirectoryName(root) ?? throw new ArgumentException("A dedicated local SOLO workspace is required.");
         Directory.CreateDirectory(parent);
-        businessLibrary = LocalPaths.FilePath(businessLibrary);
-        operationsFile = LocalPaths.FilePath(operationsFile);
-        if (!File.Exists(businessLibrary) || !File.Exists(operationsFile))
-            throw new FileNotFoundException("The bundled SOLO business module is missing. Extract the entire Windows release package.");
-        var operations = JsonSerializer.Deserialize<string[]>(File.ReadAllText(operationsFile), Wire.Json)
-            ?? throw new InvalidDataException("Missing bundled business operations.");
-        if (operations.Length == 0 || operations.Any(value => !value.StartsWith("/2.0/elite/", StringComparison.Ordinal)))
-            throw new InvalidDataException("Invalid bundled business operations.");
+        var bundle = ReadBusinessBundle(businessLibrary, operationsFile);
 
         // Publish the whole workspace at once. An interrupted first run cannot leave a partial active save.
         var staging = LocalPaths.Directory(Path.Combine(parent, ".solo-setup-" + Guid.NewGuid().ToString("N")));
@@ -59,11 +52,24 @@ public static class SoloStarterWorkspace
         }
 
         WriteReferences(staging);
-        WriteBusiness(staging, businessLibrary, operations);
+        WriteBusiness(Path.Combine(staging, "native-business"), bundle);
         WriteJson(Path.Combine(staging, MarkerFile), new { schema = 1, accountId = id, gameSha256 = GameHash });
         _ = await ReopenAsync(staging).ConfigureAwait(false);
         try { Directory.Move(staging, root); }
-        catch (IOException) when (Directory.Exists(root)) { return await ReopenAsync(root).ConfigureAwait(false); }
+        catch (IOException) when (Directory.Exists(root)) { return await ReopenAndUpdateBusinessAsync(root, businessLibrary, operationsFile).ConfigureAwait(false); }
+        return id;
+    }
+
+    private static async Task<string> ReopenAndUpdateBusinessAsync(string root, string library, string operations)
+    {
+        var id = await ReopenAsync(root).ConfigureAwait(false);
+        var directory = LocalPaths.Directory(Path.Combine(root, "native-business"));
+        var active = LocalPaths.FilePath(Path.Combine(directory, "active.json"));
+        if (!File.Exists(active)) return id;
+        using var publication = new FileStream(LocalPaths.FilePath(Path.Combine(directory, "publish.lock")),
+            FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None);
+        var installed = InstalledBundle(active);
+        if (installed is not null) WriteBusiness(directory, ReadBusinessBundle(library, operations), installed);
         return id;
     }
 
@@ -205,20 +211,85 @@ public static class SoloStarterWorkspace
         WriteJson(Path.Combine(root, "manifest.json"), new { schema = 1, build = GameBuild, gameSha256 = GameHash, documents = entries });
     }
 
-    private static void WriteBusiness(string workspace, string library, string[] operations)
+    private sealed record BusinessBundle(string Library, string[] Operations);
+
+    private static BusinessBundle ReadBusinessBundle(string library, string operationsFile)
     {
-        var root = Path.Combine(workspace, "native-business");
+        library = LocalPaths.FilePath(library);
+        operationsFile = LocalPaths.FilePath(operationsFile);
+        if (!File.Exists(library) || !File.Exists(operationsFile))
+            throw new FileNotFoundException("The bundled SOLO business module is missing. Extract the entire Windows release package.");
+        var operations = JsonSerializer.Deserialize<string[]>(File.ReadAllText(operationsFile), Wire.Json)
+            ?? throw new InvalidDataException("Missing bundled business operations.");
+        if (operations.Length == 0 || operations.Any(value => !value.StartsWith("/2.0/elite/", StringComparison.Ordinal)))
+            throw new InvalidDataException("Invalid bundled business operations.");
+        return new(library, operations);
+    }
+
+    private sealed record InstalledBusiness(string File, string Sha256);
+
+    private static InstalledBusiness? InstalledBundle(string active)
+    {
+        if (new FileInfo(active).Length > 65536) return null;
+        try
+        {
+            using var document = JsonDocument.Parse(File.ReadAllBytes(active));
+            var manifest = document.RootElement;
+            if (manifest.ValueKind != JsonValueKind.Object) return null;
+            string? Field(string name) => manifest.TryGetProperty(name, out var value) && value.ValueKind == JsonValueKind.String
+                ? value.GetString() : null;
+            var digest = Field("sha256");
+            var generation = Field("generation");
+            var file = Field("file");
+            if (Field("gameSha256") != GameHash || digest is not { Length: 64 } || !digest.All(char.IsAsciiHexDigit)) return null;
+            var bundled = generation == "solo-starter" || generation == "solo-starter-" + digest[..16];
+            return bundled && file == "read-" + generation + ".dll" ? new(file, digest) : null;
+        }
+        catch (JsonException) { return null; }
+    }
+
+    private static void WriteBusiness(string root, BusinessBundle bundle, InstalledBusiness? installed = null)
+    {
         Directory.CreateDirectory(root);
-        const string filename = "read-solo-starter.dll";
-        var target = Path.Combine(root, filename);
-        File.Copy(library, target);
-        using var input = File.OpenRead(target);
-        WriteJson(Path.Combine(root, "active.json"), new
+        using var input = File.OpenRead(bundle.Library);
+        var digest = Convert.ToHexStringLower(SHA256.HashData(input));
+        if (installed?.Sha256 == digest && File.Exists(LocalPaths.FilePath(Path.Combine(root, installed.File)))) return;
+        var generation = "solo-starter-" + digest[..16];
+        var filename = "read-" + generation + ".dll";
+        var target = LocalPaths.FilePath(Path.Combine(root, filename));
+        if (File.Exists(target))
+        {
+            using var existing = File.OpenRead(target);
+            if (Convert.ToHexStringLower(SHA256.HashData(existing)) != digest)
+                throw new InvalidDataException("The installed SOLO business module does not match its bundle.");
+        }
+        else
+        {
+            input.Position = 0;
+            PublishBusinessFile(target, input.CopyTo, overwrite: false);
+        }
+        var manifest = new
         {
             schema = 1, abi = 1, saveAbi = 1, rpcAbi = 1, rpcMethods = new[] { 2, 9, 17, 32, 89 },
-            generation = "solo-starter", file = filename, sha256 = Convert.ToHexStringLower(SHA256.HashData(input)),
-            gameSha256 = GameHash, operations
-        });
+            generation, file = filename, sha256 = digest, gameSha256 = GameHash, operations = bundle.Operations
+        };
+        var active = LocalPaths.FilePath(Path.Combine(root, "active.json"));
+        PublishBusinessFile(active, stream => JsonSerializer.Serialize(stream, manifest, Wire.Json), overwrite: true);
+    }
+
+    private static void PublishBusinessFile(string path, Action<FileStream> write, bool overwrite)
+    {
+        var temporary = path + "." + Guid.NewGuid().ToString("N") + ".tmp";
+        try
+        {
+            using (var stream = new FileStream(temporary, FileMode.CreateNew, FileAccess.Write, FileShare.None))
+            {
+                write(stream);
+                stream.Flush(true);
+            }
+            File.Move(temporary, path, overwrite);
+        }
+        finally { File.Delete(temporary); }
     }
 
     private static void WriteJson(string path, object data) => File.WriteAllBytes(path, JsonSerializer.SerializeToUtf8Bytes(data, Wire.Json));

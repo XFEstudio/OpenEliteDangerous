@@ -47,7 +47,10 @@ internal sealed unsafe partial class HotNativeReadModule
                 if(result!=0||reply.Protocol!=1||reply.Emissions is null||reply.ErrorType is not null)
                 {
                     OfflineDiagnostics.Current?.Write("error","business.hotload","rpc.module.failed","Replaceable C# RPC handler failed.",
-                        new Dictionary<string,string?>{["generation"]=module.Generation,["exceptionType"]=reply.ErrorType,["error"]=reply.Error,["stackTrace"]=reply.StackTrace});
+                        new Dictionary<string,string?>{["generation"]=module.Generation,["rpcMethod"]=request.Payload[0].ToString(),
+                            ["letterType"]=request.LetterType.ToString(),["sessionRole"]=request.Role,["payloadBits"]=request.PayloadBits.ToString(),
+                            ["alignedValues"]=request.AlignedValues.ToString(),["flag"]=request.Flag.ToString(),
+                            ["exceptionType"]=reply.ErrorType,["error"]=reply.Error,["stackTrace"]=reply.StackTrace});
                     throw new InvalidDataException("The active RPC handler failed.");
                 }
                 if(!reply.Handled&&reply.Emissions.Length!=0||reply.Emissions.Length>8)

@@ -71,7 +71,13 @@ internal sealed class OwnedOfflineGame : IAsyncDisposable
         // ReplaceFileW merges the old file's DACL onto the new file. WRITE_DAC
         // is needed as well as ordinary writes for StateStore's atomic replace.
         if(onlineConnection is null)Grant(workspace,sidText,FileSystemRights.Modify|FileSystemRights.ChangePermissions);
-        try { leases.Add(new DirectoryAccessLease(installation,sidText,Path.Combine(RuntimeDirectory,"game-access.json"))); }
+        try
+        {
+            var access=new DirectoryAccessLease(installation,sidText,Path.Combine(RuntimeDirectory,"game-access.json"));
+            leases.Add(access);
+            if(access.RecoveredPreviousGrant)
+                diagnostics.Write("info","bootstrapper","image.acl.recovered","Reused this profile's read-only access grant left by an interrupted launch.");
+        }
         catch(UnauthorizedAccessException error)
         {
             // A protected Steam install may already grant AppContainer read access. Try its existing ACL without elevating.
@@ -178,9 +184,19 @@ internal sealed class OwnedOfflineGame : IAsyncDisposable
         if(process.Thread!=0)Native.CloseHandle(process.Thread);if(process.Process!=0)Native.CloseHandle(process.Process);if(job!=0)Native.CloseHandle(job);
         if(onlineBridge is not null)await onlineBridge.DisposeAsync();
         if(onlineConnection is not null)await onlineConnection.DisposeAsync();
-        foreach(var lease in leases.AsEnumerable().Reverse())lease.Dispose();
+        Exception? leaseFailure=null;
+        foreach(var lease in leases.AsEnumerable().Reverse())
+        {
+            try { lease.Dispose(); }
+            catch(Exception error)
+            {
+                leaseFailure??=error;
+                diagnostics?.Write("error","bootstrapper","launch.cleanup.failed","A launch resource could not be released.",exception:error);
+            }
+        }
         if(sid!=0)Native.FreeSid(sid);
         diagnostics?.Write("info","bootstrapper","launch.disposed","Owned launch resources released.");diagnostics?.Dispose();
         if(ReferenceEquals(OfflineDiagnostics.Current,diagnostics))OfflineDiagnostics.Current=null;
+        if(leaseFailure is not null)System.Runtime.ExceptionServices.ExceptionDispatchInfo.Capture(leaseFailure).Throw();
     }
 }

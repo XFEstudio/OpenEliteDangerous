@@ -30,5 +30,9 @@ $taskManifest=@{
 } | ConvertTo-Json -Depth 4
 $taskTemporary=Join-Path $taskDestination ('active-'+$taskGeneration+'.tmp')
 [IO.File]::WriteAllText($taskTemporary,$taskManifest,[Text.UTF8Encoding]::new($false))
-[IO.File]::Move($taskTemporary,(Join-Path $taskDestination 'active.json'),$true)
+$taskLock=Join-Path $taskDestination 'publish.lock'
+if((Test-Path -LiteralPath $taskLock) -and ((Get-Item -LiteralPath $taskLock).Attributes -band [IO.FileAttributes]::ReparsePoint)){throw '业务模块发布锁不能是文件系统链接。'}
+$taskPublication=[IO.File]::Open($taskLock,[IO.FileMode]::OpenOrCreate,[IO.FileAccess]::ReadWrite,[IO.FileShare]::None)
+try{[IO.File]::Move($taskTemporary,(Join-Path $taskDestination 'active.json'),$true)}
+finally{$taskPublication.Dispose()}
 Write-Output ('已发布 C# 读取与 RPC 业务模块 '+$taskGeneration+'；支持该 ABI 的运行时在下一次匹配的请求时切换。')

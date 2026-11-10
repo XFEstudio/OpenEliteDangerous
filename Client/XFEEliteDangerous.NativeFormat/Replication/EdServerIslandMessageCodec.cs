@@ -10,6 +10,8 @@ public readonly record struct EdServerSoloIslandRequest(uint Correlation,ulong A
 /// Island and Wake. It does not set native object or world readiness.</summary>
 public static class EdServerIslandMessageCodec
 {
+    private const ulong SystemAddressMask=0x007F_FFFF_FFFF_FFFF;
+
     public static EdServerSoloIslandRequest ReadSoloRequest(ReadOnlySpan<byte> payload,int bits,bool alignedValues)
     {
         if(bits is <1000 or >8192||payload.Length!=(bits+7)/8)throw new InvalidDataException("Invalid native island request bound.");
@@ -35,7 +37,9 @@ public static class EdServerIslandMessageCodec
         var peers=(1UL<<exponent)+Read(payload,ref p,exponent,bits)-1;
         if(peers!=0)throw new NotSupportedException("This local island service admits only the zero-peer Solo request.");
         Align(payload,ref p,bits,alignedValues);
-        if(p!=bits||bits%8!=0&&(payload[^1]>>(bits%8))!=0||address==0||address>0x007F_FFFF_FFFF_FFFF)
+        // Normal flight near a body can carry its index in the high nine bits.
+        // Keep the complete location reference for callers; the authority checks its system.
+        if(p!=bits||bits%8!=0&&(payload[^1]>>(bits%8))!=0||(address&SystemAddressMask)==0)
             throw new InvalidDataException("Noncanonical native island request.");
         return new(correlation,address,frame,mode);
     }

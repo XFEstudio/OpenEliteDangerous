@@ -10,8 +10,8 @@ namespace XFEEliteDangerous.Bootstrapper;
 /// <summary>Loads the owned NativeAOT module into the suspended child created by this launcher.</summary>
 internal sealed class OfflineNativeModule(nint process, nint module, IReadOnlyDictionary<string,uint> exports)
 {
-    internal Task<ulong> ReadStatusAsync() => CallAsync(process, module + (int)exports["XfeOfflineStatus"]);
-    internal Task<ulong> TransfersAsync() => CallAsync(process, module + (int)exports["XfeOfflineTransfers"]);
+    internal Task<ulong> ReadStatusAsync() => CallAsync(process, module + (int)exports["XfeOfflineStatus"], phase:"read-status");
+    internal Task<ulong> TransfersAsync() => CallAsync(process, module + (int)exports["XfeOfflineTransfers"], phase:"read-transfers");
     internal static async Task<OfflineNativeModule> LoadAsync(nint process, string library, byte[] configuration)
     {
         var exports = ReadExports(library);
@@ -26,12 +26,12 @@ internal sealed class OfflineNativeModule(nint process, nint module, IReadOnlyDi
             BitConverter.TryWriteBytes(buffer, checked((ushort)(path.Length - 2)));
             BitConverter.TryWriteBytes(buffer.AsSpan(2), checked((ushort)path.Length));
             BitConverter.TryWriteBytes(buffer.AsSpan(8), (long)(argument + 32)); path.CopyTo(buffer, 32); Write(process, argument, buffer);
-            var result = await CallAsync(process, loader, 0, 0, argument, argument + 16);
+            var result = await CallAsync(process, loader, 0, 0, argument, argument + 16, phase:"load-runtime");
             if (unchecked((int)result) < 0) throw new InvalidOperationException("Owned LdrLoadDll failed: " + unchecked((uint)result).ToString("X8"));
             EnsureAlive(process,"LdrLoadDll output");
             var loaded = (nint)BitConverter.ToInt64(Read(process, argument + 16, 8));
             if (loaded == 0) throw new InvalidDataException("Owned native module was not loaded.");
-            result = await CallAsync(process, loaded + (int)exports["XfeOfflineInitialize"], input);
+            result = await CallAsync(process, loaded + (int)exports["XfeOfflineInitialize"], input, phase:"initialize-runtime");
             if (result != 0) throw new InvalidOperationException("Offline runtime initialization failed; inspect this launch's initialization-error.txt.");
             return new(process, loaded, exports);
         }
@@ -61,8 +61,10 @@ internal sealed class OfflineNativeModule(nint process, nint module, IReadOnlyDi
                 throw new InvalidDataException("An offline module export is missing or forwarded.");
         return result;
     }
-    internal static async Task<ulong> CallAsync(nint process,nint function,nint arg1=0,nint arg2=0,nint arg3=0,nint arg4=0)
+    internal static async Task<ulong> CallAsync(nint process,nint function,nint arg1=0,nint arg2=0,nint arg3=0,nint arg4=0,string phase="loader-check")
     {
+        OfflineDiagnostics.Current?.Write("debug","bootstrapper.loader","callback.begin","Preparing a callback in the owned child.",
+            new Dictionary<string,string?>{["phase"]=phase});
         var allocation=VirtualAllocEx(process,0,8192,0x3000,0x04);if(allocation==0)throw new Win32Exception();
         nint thread=0;var completed=false;
         try
@@ -77,6 +79,8 @@ internal sealed class OfflineNativeModule(nint process, nint module, IReadOnlyDi
             code.AddRange(BitConverter.GetBytes((long)(allocation+4096)));code.AddRange([0x49,0x89,0x03,0x41,0xC7,0x43,0x08,0x58,0x46,0x45,0x31,0x31,0xC0,0x48,0x83,0xC4,0x28,0xC3]);
             Write(process,allocation,code.ToArray());
             if(!Native.VirtualProtectEx(process,allocation,4096,0x20,out _)||!Native.FlushInstructionCache(process,allocation,(nuint)code.Count))throw new Win32Exception();
+            OfflineDiagnostics.Current?.Write("debug","bootstrapper.loader","callback.thread.begin","Starting the callback in the owned child.",
+                new Dictionary<string,string?>{["phase"]=phase});
             thread=CreateRemoteThread(process,0,0,allocation,0,0,out _);if(thread==0)throw new Win32Exception();
             var started=Stopwatch.GetTimestamp();
             while(true)
@@ -93,7 +97,7 @@ internal sealed class OfflineNativeModule(nint process, nint module, IReadOnlyDi
             if(BitConverter.ToUInt32(output,8)!=0x31454658)throw new InvalidOperationException("Owned native callback thread exited without its completion marker; return value is unavailable.");
             var result=BitConverter.ToUInt64(output);
             OfflineDiagnostics.Current?.Write("debug","bootstrapper.loader","callback.returned","Native callback completed with a verified marker.",
-                new Dictionary<string,string?>{["threadExit"]="0x"+exit.ToString("X8"),["elapsedMs"]=Stopwatch.GetElapsedTime(started).TotalMilliseconds.ToString("F1",System.Globalization.CultureInfo.InvariantCulture)});
+                new Dictionary<string,string?>{["phase"]=phase,["threadExit"]="0x"+exit.ToString("X8"),["elapsedMs"]=Stopwatch.GetElapsedTime(started).TotalMilliseconds.ToString("F1",System.Globalization.CultureInfo.InvariantCulture)});
             return result;
         }
         finally{if(thread!=0)Native.CloseHandle(thread);if(completed||thread==0)Free(process,allocation);}

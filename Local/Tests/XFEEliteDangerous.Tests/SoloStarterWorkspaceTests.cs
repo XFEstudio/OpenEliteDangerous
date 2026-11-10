@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.Text.Json.Nodes;
 using Xunit;
 using XFEEliteDangerous.Core;
 
@@ -38,6 +39,50 @@ public sealed class SoloStarterWorkspaceTests : IDisposable
         using var powers = JsonDocument.Parse(await File.ReadAllBytesAsync(Path.Combine(directory, "native-resources", "starter-powerplay.json")));
         Assert.All(powers.RootElement.GetProperty("powers").EnumerateArray(), power =>
             Assert.NotEmpty(power.GetProperty("perks").EnumerateArray()));
+    }
+
+    [Fact]
+    public async Task ReopeningAnOlderStarterUpdatesItsBundledModuleAndPreservesTheSave()
+    {
+        var (library, operations) = CreateModuleFixture();
+        var directory = Path.Combine(root, "workspace");
+        var id = await SoloStarterWorkspace.PrepareAsync(directory, library, operations);
+        var business = Path.Combine(directory, "native-business");
+        var active = Path.Combine(business, "active.json");
+        var original = JsonNode.Parse(File.ReadAllText(active))!.AsObject();
+        original["generation"] = "solo-starter";
+        original["file"] = "read-solo-starter.dll";
+        var legacy = Path.Combine(business, "read-solo-starter.dll");
+        File.Copy(library, legacy);
+        File.WriteAllText(active, original.ToJsonString());
+        var savePath = Path.Combine(directory, "state.json");
+        var saved = File.ReadAllBytes(savePath);
+
+        byte[] newModule = [4, 5, 6];
+        File.WriteAllBytes(library, newModule);
+        Assert.Equal(id, await SoloStarterWorkspace.PrepareAsync(directory, library, operations));
+        var updated = JsonNode.Parse(File.ReadAllText(active))!.AsObject();
+        Assert.NotEqual(original["sha256"]!.GetValue<string>(), updated["sha256"]!.GetValue<string>());
+        Assert.Equal(newModule, File.ReadAllBytes(Path.Combine(business, updated["file"]!.GetValue<string>())));
+        Assert.Equal(new byte[] { 1, 2, 3 }, File.ReadAllBytes(legacy));
+        Assert.Equal(saved, File.ReadAllBytes(savePath));
+    }
+
+    [Fact]
+    public async Task ReopeningAStarterPreservesAnExplicitlyPublishedCustomModule()
+    {
+        var (library, operations) = CreateModuleFixture();
+        var directory = Path.Combine(root, "workspace");
+        var id = await SoloStarterWorkspace.PrepareAsync(directory, library, operations);
+        var active = Path.Combine(directory, "native-business", "active.json");
+        var custom = JsonNode.Parse(File.ReadAllText(active))!.AsObject();
+        custom["generation"] = "custom-module";
+        var published = custom.ToJsonString();
+        File.WriteAllText(active, published);
+
+        File.WriteAllBytes(library, [4, 5, 6]);
+        Assert.Equal(id, await SoloStarterWorkspace.PrepareAsync(directory, library, operations));
+        Assert.Equal(published, File.ReadAllText(active));
     }
 
     [Fact]

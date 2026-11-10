@@ -30,6 +30,19 @@ public sealed class EdServerIslandMessageTests
         bytes=Minimum();bytes[152]=1;
         Assert.Throws<NotSupportedException>(()=>EdServerIslandMessageCodec.ReadSoloRequest(bytes,1224,true));
     }
+    [Fact]
+    public void PreservesTheBodyIndexInANativeIslandLocation()
+    {
+        var bytes=Minimum();
+        const ulong sol=10477373803,earth=(3UL<<55)|sol;
+        BinaryPrimitives.WriteUInt64LittleEndian(bytes.AsSpan(5),earth);
+        bytes[61]=1;
+        var request=EdServerIslandMessageCodec.ReadSoloRequest(bytes,1224,true);
+        Assert.Equal(earth,request.Address);
+        Assert.True(request.FrameFlag);
+        BinaryPrimitives.WriteUInt64LittleEndian(bytes.AsSpan(5),3UL<<55);
+        Assert.Throws<InvalidDataException>(()=>EdServerIslandMessageCodec.ReadSoloRequest(bytes,1224,true));
+    }
     [Fact]public void AssignmentContainsOnlyItsTwoFreshSessionsAndNoRemoteMembers()
     {
         using var result=EdServerIslandMessageCodec.CreateSoloAssignment(99,0x12345678,101,102);var data=result.CopyPayload();

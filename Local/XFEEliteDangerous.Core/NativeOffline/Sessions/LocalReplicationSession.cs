@@ -468,6 +468,7 @@ internal sealed class LocalReplicationSession : IDisposable
         "The native letter trailer is not 0xFADE."=>"letter-trailer-mismatch",
         "Invalid native letter frame boundaries."=>"letter-frame-bounds",
         "Native letter envelope is truncated or has an invalid offset."=>"letter-frame-truncated",
+        "The active RPC handler failed."=>"rpc-handler-failed",
         _=>LabelApplication(error)
     };
     private static string LabelApplication(Exception error)=>error.Message.StartsWith("controller-secondary-",StringComparison.Ordinal)?error.Message:error.Message is "initial-ack-mismatch" or "transport-not-established" or "ack-outside-sent-span"

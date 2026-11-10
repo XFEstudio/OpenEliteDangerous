@@ -9,6 +9,7 @@
   "Launch.GamePickerFailed": "Could not open the game file selector. Windows error: ",
   "Launch.GamePathNotRemembered": "The selected game is valid, but its location could not be remembered.",
   "Launch.GameAlreadyRunning": "This game installation is already running. Exit that session before launching private SOLO.",
+  "Launch.GameAccessConflict": "The Odyssey folder has an unexpected explicit permission for this private game profile. The launcher has preserved it.",
   "Launch.StarterWorkspaceReady": "SOLO workspace is ready: ",
   "DirectoryAccessLease.Text001": "Game directory permissions are busy.",
   "PersistentGameProfile.Text002": "This game profile is in use. Exit the other private game instance using this installation first.",
